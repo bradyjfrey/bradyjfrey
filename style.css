@@ -32,8 +32,6 @@ header h1 {float: left;position: relative;top: 16px;left: 10px;}
 header h1 a{opacity: .35;width: 33px;height: 33px;display: block;text-decoration: none;text-indent: -9999px;background: transparent url(images/logo.svg) no-repeat left bottom;}
 header h1 a:hover {opacity: .75;}
 header h1 a:active {opacity: 1;}
-header a[href="http://twitter.com/bradyjfrey"] {opacity: .75;position: relative;bottom: 15px;padding: 0 !important;width: 42px;height: 41px;background: transparent url(images/twittertop.png) no-repeat top left;text-indent: -9999px;}
-header a[href="http://twitter.com/bradyjfrey"]:hover {background: transparent url(images/twittertopstate.png) no-repeat top left; opacity: 1;}
 header a[href="https://www.linkedin.com/in/bradyjfrey/"] {opacity: .75;position: relative;bottom: 15px;padding: 0 !important;width: 42px;height: 41px;background: transparent url(images/linkedintopstate.png) no-repeat top left;text-indent: -9999px;}
 header a[href="https://www.linkedin.com/in/bradyjfrey/"]:hover {background: transparent url(images/linkedintop.png); opacity: 1;}
 

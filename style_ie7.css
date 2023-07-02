@@ -1,5 +1,4 @@
 header ul {float: right;line-height: 63px;}
-header a[href="http://twitter.com/bradyjfrey"] {font-size: 0px;text-indent: 0px;position: relative;top: 2px;}
 header li a {border: 1px solid transparent;}
 header li a:hover {background-color: #313436;border: 1px solid #313436;}
 #current a {background-color: #313436;}
