@@ -49,8 +49,8 @@ article {display: block;clear: both;padding-bottom: 40px;}
 /* #index #container h2, #index #container h3 {color: white;text-shadow: 2px 2px 5px black !important;} */
 #biography h2 {text-align: left;}
 #structure p {padding: 0px 10px 20px 10px;font-size: 13px;line-height: 21px;font-style: normal;font-weight: 300;}
-#structure p a {color: #888;text-decoration: none;}
-#structure p a:hover {color: #ccc;}
+#structure p a, #structure ul li a {color: #888;text-decoration: none;}
+#structure p a:hover, #structure ul li a:hover {color: #ccc;}
 #sub h3 a {color: #666}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
 .photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: left;position: relative;left: 10px;}
@@ -94,6 +94,8 @@ aside dd {padding: 5px;border-top: 1px solid #dfdfdf;color: #999;font-style: nor
 #biography aside dl {border-bottom: none !important;}
 button {cursor: pointer;box-shadow: 0px 0px 4px #999;border: none;background-color: #323b42;display: block;padding: 8px 10px;font-size: 16px;letter-spacing: 1px;color: white;font-weight: 300;display: block;}
 button:hover {color: #323b42;background-color: white;}
+#biography #cv ul {padding: 0 0 20px 40px}
+#biography #cv ul li {}
 
 
 
