@@ -1,0 +1,10 @@
+[[redirects]]
+from = "/resume.php"
+to = "https://www.linkedin.com/in/bradyjfrey/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/*"
+to = "/error.html"
+status = 404
