@@ -69,7 +69,7 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #pieces {padding: 20px 0 40px 10px;clear: both;position: relative;right: 10px;overflow: hidden;}
 #pieces li {list-style-type: none;float: left;padding: 0px;margin: 0 20px 20px 0px;box-shadow: 0px 0px 5px rgba(0,0,0,.4);-moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.4);overflow: hidden;width: 300px;height: 200px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;position: relative;z-index: 10;}
 #pieces li:nth-child(3n+3) {margin-right: 0px;}
-#pieces a {color: white;text-decoration: none;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;display: block;overflow: hidden;width: 300px;height: 200px;}
+#pieces a {color: white !important;text-decoration: none;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;display: block;overflow: hidden;width: 300px;height: 200px;}
 #pieces div {width: 300px;height: 200px;background-color: rgba(0,0,0,.8);position: absolute;top: 200px;left: 0px;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
 #pieces h4 {padding: 100px 20px 8px 20px;font-size: 21px;font-weight: 400;text-shadow: 0px 0px 3px black;}
 #pieces p {padding: 0 20px 10px 20px;text-shadow: 0px 0px 3px black;}
