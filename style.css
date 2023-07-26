@@ -1,6 +1,7 @@
 ﻿* {padding: 0;margin: 0;}
 body {text-rendering: optimizeLegibility;text-align: center;background: white;font-weight: 400;font: normal 14px/1.5 "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;}
 img {border: none;display: block;}
+p {font-family: "Mercury SSm A", "Mercury SSm B", georgia, times, serif;font-weight: 400;}
 h2 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
 h3 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
 dt {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
@@ -76,7 +77,7 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #pieces a:hover {}
 #pieces a:hover div {top: 0px;}
 aside {display: block;float: right;width: 310px;border-top: 1px solid #dfdfdf;padding-bottom: 40px;}
-aside h3 {font-family: 'Archer A', 'Archer B';font-style: normal;font-weight: 500;padding: 20px 5px 10px 5px !important;font-size: 28px;}
+aside h3 {padding: 20px 5px 10px 5px !important;font-size: 28px;}
 aside h3 a {text-decoration: none;color: #506f88;}
 aside h5 strong {text-transform: uppercase;color: #999;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 12px;}
 aside h5 {font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 300;font-size: 13px;padding: 0 0 20px 5px;}
