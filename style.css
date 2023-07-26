@@ -41,22 +41,22 @@ header h1 a:active {opacity: 1;}
 /**** Misc Body ****/
 section {display: block;width: 100%;background: #f4f4f4;padding-top: 62px;overflow: hidden;}
 #structure {width: 960px;margin: 0 auto;text-align: left;}
+#tagline {padding: 0 10px 20px 10px;font-size: 21px;font-weight: 400;}
 article {display: block;clear: both;padding-bottom: 40px;}
 #portfolio_ind article {padding: 0px 10px 40px 10px;width: 620px;float: right;clear: none;}
 #structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
 #index h3 {font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 500px;padding-right: 30em;}
-/* #index #container {background: black url(images/distillery2.jpg) no-repeat top center;background-size: cover;} */
 #sub h3 {text-align: center;font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 100px;}
 #structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
-/* #index #container h2, #index #container h3 {color: white;text-shadow: 2px 2px 5px black !important;} */
 #biography h2 {text-align: left;}
 #biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
 #structure p {padding: 0px 10px 20px 10px;font-size: 13px;line-height: 21px;}
-#structure p a, #structure ul li a {color: #888;text-decoration: none;}
-#structure p a:hover, #structure ul li a:hover {color: #ccc;}
+#structure p a, #structure ul li a {color: black;text-decoration: underline;}
+#structure p a:hover, #structure ul li a:hover {color: blue;text-decoration: none;}
 #sub h3 a {color: #666}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
 .photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: left;position: relative;left: 10px;}
+.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;position: relative;left: 20px;}
 #biography h3 {padding-bottom: 10px;}
 #more {width: 210px;padding: 0 10px 40px 10px;}
 #more a {display: block;text-decoration: none;color: #999;padding: 5px;}
@@ -76,7 +76,8 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #pieces strong {text-transform: uppercase;color: #777;font-size: 11px;font-weight: normal;}
 #pieces a:hover {}
 #pieces a:hover div {top: 0px;}
-aside {display: block;float: right;width: 310px;border-top: 1px solid #dfdfdf;padding-bottom: 40px;}
+aside {display: block;border-top: 1px solid #dfdfdf;padding-bottom: 40px;}
+#subindex {padding-right: 320px !important;}
 aside h3 {padding: 20px 5px 10px 5px !important;font-size: 28px;}
 aside h3 a {text-decoration: none;color: #506f88;}
 aside h5 strong {text-transform: uppercase;color: #999;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 12px;}
@@ -88,17 +89,20 @@ aside dd {padding: 5px;border-top: 1px solid #dfdfdf;color: #999;font-style: nor
 
 
 /**** biography ****/
+#biography aside {}
+#subcontact {float: right;width: 310px;}
 #biography aside a {display: block;text-decoration: none;color: #999;padding: 5px;}
 #biography aside dd {padding: 0;}
 #ph {padding: 5px !important;}
 #ph a {display: inline;}
-#biography aside {border-top: none !important;margin-left: 20px;margin-right: 15px;}
+#biography aside {border-top: none !important;margin-left: 10px;margin-right: 15px;}
 #biography aside a:hover {background-color: #ccc;color: white;}
 #biography aside dl {border-bottom: none !important;}
 button {cursor: pointer;box-shadow: 0px 0px 4px #999;border: none;background-color: #323b42;display: block;padding: 8px 10px;font-size: 16px;letter-spacing: 1px;color: white;font-weight: 300;display: block;}
 button:hover {color: #323b42;background-color: white;}
 #biography #cv ul {padding: 0 0 20px 40px}
-#biography #cv ul li {}
+#biography #cv li {font-family: "Mercury SSm A", "Mercury SSm B", georgia, times, serif;font-weight: 400;}
+#biography #cv h3 {text-transform: uppercase;font-size: 14px;}
 
 
 
