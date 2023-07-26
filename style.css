@@ -46,11 +46,11 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #index h3 {font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 500px;padding-right: 30em;}
 /* #index #container {background: black url(images/distillery2.jpg) no-repeat top center;background-size: cover;} */
 #sub h3 {text-align: center;font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 100px;}
-#structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;font-weight: 700;padding: 40px 0 10px 10px;text-align: left;}
+#structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
 /* #index #container h2, #index #container h3 {color: white;text-shadow: 2px 2px 5px black !important;} */
 #biography h2 {text-align: left;}
 #biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
-#structure p {padding: 0px 10px 20px 10px;font-size: 13px;line-height: 21px;font-style: normal;font-weight: 300;}
+#structure p {padding: 0px 10px 20px 10px;font-size: 13px;line-height: 21px;}
 #structure p a, #structure ul li a {color: #888;text-decoration: none;}
 #structure p a:hover, #structure ul li a:hover {color: #ccc;}
 #sub h3 a {color: #666}
