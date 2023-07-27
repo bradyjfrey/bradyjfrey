@@ -83,7 +83,4 @@ $(document).ready(function(){
             if($(this).val() === '') {$(this).val($(this).attr('title')).removeClass('focused');}
         });
     });
-    $("dt a").fancybox({
-        'hideOnContentClick': true
-    });
 });

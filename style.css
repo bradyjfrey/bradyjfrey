@@ -40,19 +40,19 @@ header h1 a:active {opacity: 1;}
 
 /**** Misc Body ****/
 section {display: block;width: 100%;background: #f4f4f4;padding-top: 62px;overflow: hidden;}
-#structure {width: 960px;margin: 0 auto;text-align: left;}
+.structure  {width: 960px;margin: 0 auto;text-align: left;}
 #tagline {padding: 0 300px 20px 10px;font-size: 28px;font-weight: 400;}
 article {display: block;clear: both;padding-bottom: 40px;}
 #portfolio_ind article {padding: 0px 10px 40px 10px;width: 620px;float: right;clear: none;}
-#structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
+.structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
 #index h3 {font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 500px;padding-right: 30em;}
 #sub h3 {text-align: center;font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 100px;}
-#structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
+.structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
 #biography h2 {text-align: left;}
 #biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
-#structure p {padding: 0px 10px 20px 10px;font-size: 13px;line-height: 21px;}
-#structure p a, #structure ul li a {color: black;text-decoration: underline;}
-#structure p a:hover, #structure ul li a:hover {color: blue;text-decoration: none;}
+.structure p {padding: 0px 10px 20px 10px;line-height: 21px;}
+.structure p a, .structure ul li a {color: black;text-decoration: underline;}
+.structure p a:hover, .structure ul li a:hover {color: blue;text-decoration: none;}
 #sub h3 a {color: #666}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
 .photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: left;position: relative;left: 10px;}
@@ -101,10 +101,20 @@ aside dd {padding: 5px;border-top: 1px solid #dfdfdf;color: #999;font-style: nor
 button {cursor: pointer;box-shadow: 0px 0px 4px #999;border: none;background-color: #323b42;display: block;padding: 8px 10px;font-size: 16px;letter-spacing: 1px;color: white;font-weight: 300;display: block;}
 button:hover {color: #323b42;background-color: white;}
 #biography #cv ul {padding: 0 0 20px 40px}
-#biography #cv li {font-family: "Mercury SSm A", "Mercury SSm B", georgia, times, serif;font-weight: 400;}
+#biography #cv li, .highlights li {font-family: "Mercury SSm A", "Mercury SSm B", georgia, times, serif;font-weight: 400;}
 #biography #cv h3 {text-transform: uppercase;font-size: 14px;}
 
+#careerhighlights {background-color: white;padding-top: 20px;}
+.highlights {display: block;clear:both;}
+.highlights h4 {text-transform: uppercase;font-size: 14px;float: left;width: 30%;display: block;padding: 20px 0 0 0;margin: 0;text-align: right;}
+.highlights ul {padding: 20px 0 20px 20px;margin: 0;float: right;width: 66%;display: block;border-bottom: 1px solid #dfdfdf;}
+.highlights li {padding-bottom: 5px;}
 
+#history {column-count: 3;column-gap: 0;column-fill: balance;padding-bottom: 0px;}
+#history p {padding-bottom: 0px;}
+#history p:nth-of-type(n+2) {text-indent: 1.5em;}
+#history p span {font-variant: small-caps;font-weight: bold;font-size: 14px}
+#history p:first-child:first-letter {float: left;font-size: 72px;line-height: 60px;padding: 0px 8px 0 3px;}
 
 /**** Footer ****/
 footer {display: block;clear: both}
@@ -127,47 +137,14 @@ footer {display: block;clear: both}
 
 
 
-/**** Style the Fancy Box ****/
-#gallery_posts {margin: 0 !important;text-align: center !important;width:110px;-webkit-box-shadow: none !important;-moz-box-shadow: none !important;box-shadow: none !important;-moz-border-radius: none !important;-webkit-border-radius: none !important;border-radius: none !important;float: right !important;padding: 0 10px 20px 20px !important;position: relative !important;top: 0px !important;left: 10px !important;z-index: 798 !important;}
-#gallery_posts dt {float: left;padding-bottom: 15px;}
-#gallery_posts dt a {border: 5px solid #fff;display: block;width: 100px;height: 100px;overflow: hidden;padding: 0px !important;-webkit-border-radius: 0px !important;-moz-border-radius: 0px !important;border-radius: 0px !important;}
-#gallery_posts dt a:hover {border-color: #000;}
-#gallery_posts dd {display: none;}
-#gallery_posts img {border: none;}
-section#fancy_overlay {position:absolute;top: 0;left: 0;z-index: 90;width: 100%;background-color: #333;}
-div#fancy_loading {position: absolute;height: 40px;width: 40px;cursor: pointer;display: none;overflow: hidden;background: transparent;z-index: 100;}
-div#fancy_loading div {position: absolute;top: 0;left: 0;width: 40px;height: 480px;background: transparent url(images/fancy_loading.png) no-repeat;}
-div#fancy_close {position: absolute;top: -12px;right: -12px;height: 30px;width: 30px;background: transparent url(images/fancy_close.png) ;cursor: pointer;z-index: 100;display: none;}
-div#fancy_content {position: absolute;top: 0;left: 0;width: 100%;height: 100%;padding: 0;margin: 0;z-index: 96;box-shadow: 0px 0px 20px rgba(0,0,0,.75);}
-#fancy_frame {position: relative;width: 100%;height: 100%;display: none;}
-img#fancy_img {position: absolute;top: 0;left: 0;width: 100%;height: 100%;border:0;padding: 0;margin: 0;z-index: 92;}
-div#fancy_title {position: absolute;bottom: -40px;left: 0;width: 100%;z-index: 100;display: none;}
-div#fancy_title table {margin: 0 auto;}
-div#fancy_title div {color: #FFF;padding-bottom: 2px;text-shadow: 2px 2px 3px black;font-size: 14px;}
-td#fancy_title_left {height: 32px;width: 15px;background: transparent url(images/fancy_title_left.png) repeat-x;}
-td#fancy_title_main {height: 32px;background: transparent url(images/fancy_title_main.png) repeat-x;}
-td#fancy_title_right {height: 32px;width: 15px;background: transparent url(images/fancy_title_right.png) repeat-x;}
-div#fancy_outer {position: absolute; top: 0; left: 0; z-index: 90; padding: 18px 18px 58px 18px; margin: 0; overflow: hidden; background: transparent; display: none;z-index: 9999;}
-div#fancy_inner {position: relative;width:100%;height:100%;background: #FFF;}
-a#fancy_left, a#fancy_right {position: absolute;bottom: 10px;height: 100%;width: 35%;cursor: pointer;background-image: url(images/data:image/gif;base64,AAAA);z-index: 100;}
-a#fancy_left {left: 0px;}
-a#fancy_right {right: 0px;}
-a#fancy_left:hover {background: transparent url(images/fancy_left.gif) no-repeat 0% 100%;}
-a#fancy_right:hover {background: transparent url(images/fancy_right.gif) no-repeat 100% 100%;}
-#fancy_bigIframe, #fancy_freeIframe {position:absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 10;}
-div#fancy_bg {display: none;}
-div.fancy_bg {position: absolute;display: block;z-index: 70;}
-
-
-
 /**** Responsive Web Design ****/
 @media only screen and (max-width: 960px) {
-    #structure, header nav, #blog_single #structure {width: 740px !important;}
+    .structure, header nav, #blog_single .structure {width: 740px !important;}
     .photo_right {bottom: 0px;}
     #tagline {padding-right: 0px;}
     #gallery, #slides, #base ul {width: 768px;}
     #gallery {position: relative;right: 14px;}
-    #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox, #newsbox a, #blog_index #structure {width: 100% !important}
+    #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox, #newsbox a, #blog_index .structure {width: 100% !important}
     .slide img {max-width: 740px;height: 496px;}
     #more {padding: 0 10px 40px 10px;}
     #resume div dl {width: 250px;}
@@ -187,16 +164,19 @@ div.fancy_bg {position: absolute;display: block;z-index: 70;}
     #latest {width: 230px;}
     #latest img {width: 90px;height: 68px;}
     #latest li:nth-child(1) {margin-right: 10px;}
-    #blog_single #structure h3, #blog_single #structure p {padding-right: 20px;padding-left: 20px;}
+    #blog_single .structure h3, #blog_single .structure p {padding-right: 20px;padding-left: 20px;}
     #exp {background: transparent url("images/chart_header.png") no-repeat 190px bottom !important;}
     #chart strong {width:195px !important;}
     .photo_left {margin: 0 20px 30px 10px;width: 210px;height: 210px;}
 
 }
 @media only screen and (max-width: 768px) {
-    #structure, header nav, #base ul, #blog_single #structure {width: 480px !important;}
+	#history {column-count: 1;}
+.highlights h4 {text-transform: uppercase;font-size: 14px;float: none;width: 100%;display: block;padding: 20px 0 10px 20px;margin: 0;text-align: left;border-bottom: 1px solid #dfdfdf}
+.highlights ul {float: none;width: 100%;border-bottom: none;padding-top: 10px;}
+    .structure, header nav, #base ul, #blog_single .structure {width: 480px !important;}
     #gallery, #slides {width: 480px;}
-    #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox a, #blog_index #structure {width: 100% !important}
+    #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox a, #blog_index .structure {width: 100% !important}
     #about, #more, #hideaways, #social, #latest {width: 460px;}
     #resume h4, #resume h4 em, #resume div dl {width: 450px}
     #social, aside, #base h3 {width: 440px !important;}
@@ -206,11 +186,11 @@ div.fancy_bg {position: absolute;display: block;z-index: 70;}
     header h1 a{width: 33px;height: 32px;}
     .photo_left {margin: 0 10px 20px 10px;}
     #introletter {position: relative;top: 2px;font-size: 81px;}
-    #structure h2 {padding: 20px 0 10px 10px;}
-    #index #structure h3 {padding-right: 20px;padding-left: 20px;font-size: 14px;}
+    .structure h2 {padding: 20px 0 10px 10px;}
+    #index .structure h3 {padding-right: 20px;padding-left: 20px;font-size: 14px;}
     .slide img {max-width: 480px;height: 321px;}
     #slides {width: 480px;height:396px;}
-    #structure p {padding: 0px 15px 20px 15px;font-size: 12px;line-height: 18px;}
+    .structure p {padding: 0px 15px 20px 15px;font-size: 12px;line-height: 18px;}
     #more {padding: 0 10px 20px 10px;}
     #base ul {overflow: visible;}
     #base h3 {text-align: center;}
@@ -233,9 +213,9 @@ div.fancy_bg {position: absolute;display: block;z-index: 70;}
  #subcontact {float: none;}
 }
 @media only screen and (max-width: 480px) {
-    #structure, header nav, #base ul, #blog_single #structure {width: 320px !important;}
+    .structure, header nav, #base ul, #blog_single .structure {width: 320px !important;}
     #gallery, #slides {width: 320px;}
-    #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox a, #blog_index #structure {width: 100% !important}
+    #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox a, #blog_index .structure {width: 100% !important}
     #about, #more, #hideaways, #social, #latest {width: 300px;}
     #resume h4, #resume h4 em, #resume div dl {width: 290px}
     #social, aside, #base h3 {width: 280px !important;}
@@ -246,11 +226,11 @@ div.fancy_bg {position: absolute;display: block;z-index: 70;}
     header a[href="http://twitter.com/bradyjfrey"] {display: none;}
     #photo_left {margin: 0 15px 10px 10px;width: 150px;height: 194px;}
     #introletter {position: relative;top: 2px;font-size: 81px;}
-    #structure h2 {font-size: 21px;padding: 20px 0 10px 20px;text-align: left;}
-    #resume #structure h3 {padding: 0px 40px 20px 40px;font-size: 14px;}
+    .structure h2 {font-size: 21px;padding: 20px 0 10px 20px;text-align: left;}
+    #resume .structure h3 {padding: 0px 40px 20px 40px;font-size: 14px;}
     .slide img {max-width: 320px;height: 214px;}
     #slides {width: 320px;height:264px;}
-    #structure p {padding: 0px 15px 20px 15px;font-size: 12px;line-height: 18px;}
+    .structure p {padding: 0px 15px 20px 15px;font-size: 12px;line-height: 18px;}
     #more {padding: 0 10px 20px 10px;}
     #base ul {overflow: visible;}
     #base h3 {text-align: center;}
