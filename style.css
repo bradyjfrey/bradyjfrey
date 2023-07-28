@@ -15,22 +15,8 @@ header ul {float: right;line-height: 63px;}
 header li {display: inline-block;list-style-type: none;}
 header li a {padding: 10px 15px;text-decoration: none;color: #97b6bc;display: inline-block;font-weight: 400;font: normal 14px/1 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;}
 header li a:hover {background-color: rgba(0,0,0,.08);-moz-border-radius: 20px;-webkit-border-radius: 20px;border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);-moz-box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);-webkit-box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);color: white;}
-#current a {-moz-border-radius: 20px;-webkit-border-radius: 20px;border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);-moz-box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);-webkit-box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);color: white;
-    background: rgba(0,0,0,.14) -moz-linear-gradient(top, transparent 0%, rgba(0,0,0,.12) 100%); /* FF3.6+ */
-    background: rgba(0,0,0,.14) -webkit-gradient(linear, left top, left bottom, color-stop(0%,transparent), color-stop(100%,rgba(0,0,0,.12))); /* Chrome,Safari4+ */
-    background: rgba(0,0,0,.14) -webkit-linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%); /* Chrome10+,Safari5.1+ */
-    background: rgba(0,0,0,.14) -o-linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%); /* Opera11.10+ */
-    background: rgba(0,0,0,.14) -ms-linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%); /* IE10+ */
-    background: rgba(0,0,0,.14) linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%); /* W3C */
-}
-header li a:active {box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);-moz-box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);-webkit-box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);color: #a9a9a9;text-shadow: none;
-    background: rgba(0,0,0,.14) -moz-linear-gradient(top,  rgba(0,0,0,.2) 100%, transparent 0%); /* FF3.6+ */
-    background: rgba(0,0,0,.14) -webkit-gradient(linear, left top, left bottom, color-stop(100%,rgba(0,0,0,.2)), color-stop(0%,transparent)); /* Chrome,Safari4+ */
-    background: rgba(0,0,0,.14) -webkit-linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%); /* Chrome10+,Safari5.1+ */
-    background: rgba(0,0,0,.14) -o-linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%); /* Opera11.10+ */
-    background: rgba(0,0,0,.14) -ms-linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%); /* IE10+ */
-    background: rgba(0,0,0,.14) linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%); /* W3C */
-}
+#current a {border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);color: white;background: rgba(0,0,0,.14) linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%);}
+header li a:active {box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);color: #a9a9a9;text-shadow: none;background: rgba(0,0,0,.14) linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%);}
 header h1 {float: left;position: relative;top: 16px;left: 10px;}
 header h1 a{opacity: .35;width: 33px;height: 33px;display: block;text-decoration: none;text-indent: -9999px;background: transparent url(images/logo.svg) no-repeat left bottom;}
 header h1 a:hover {opacity: .75;}
@@ -40,8 +26,7 @@ header h1 a:active {opacity: 1;}
 /**** Misc Body ****/
 section {display: block;width: 100%;background: #f4f4f4;padding-top: 62px;overflow: hidden;}
 .structure  {width: 960px;margin: 0 auto;text-align: left;}
-#introh {padding-left: 330px;padding-top: 50px;}
-#tagline {padding: 0 0 20px 330px;font-size: 28px;font-weight: 400;}
+
 article {display: block;clear: both;padding-bottom: 40px;}
 #portfolio_ind article {padding: 0px 10px 40px 10px;width: 620px;float: right;clear: none;}
 .structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
@@ -51,13 +36,16 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #biography h2 {text-align: left;}
 #biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
 .structure p {padding: 0px 10px 20px 10px;line-height: 21px;}
-.structure p a, .structure ul li a {color: black;text-decoration: underline;}
+.structure p a, .structure ul li a {color: black;text-decoration: underline;font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-weight: 700;text-transform: uppercase;font-size: 11px;}
 .structure p a:hover, .structure ul li a:hover {color: blue;text-decoration: none;}
 #sub h3 a {color: #666}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
+#biography h3 {padding-bottom: 10px;}
+
+#introh {padding-left: 330px;padding-top: 50px;}
+#tagline {padding: 0 0 20px 330px;font-size: 28px;font-weight: 400;}
 .photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 150px;}
 .photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
-#biography h3 {padding-bottom: 10px;}
 
 
 /**** Portfolio ****/
@@ -134,7 +122,7 @@ footer {display: block;clear: both}
 /**** Responsive Web Design ****/
 @media only screen and (max-width: 960px) {
     .structure, header nav {width: 740px !important;}
-    .photo_right {bottom: 0px;}
+    .photo_left {bottom: 190px;}
     #tagline {padding-right: 0px;}
     #gallery, #slides, #base ul {width: 768px;}
     #gallery {position: relative;right: 14px;}
@@ -149,12 +137,11 @@ footer {display: block;clear: both}
     #pieces h4 {padding-top: 70px;font-size: 18px;}
     #portfolio_ind article {width: 480px !important;}
     #portfolio_ind aside {width: 240px !important;}
-    #biography #social, #biography aside {width: 220px;padding: 0px 0px 15px 5px;margin: 0px 30px 0 0;}
+    #biography #social, #biography aside {}
     #base ul {overflow: visible;}
     #about {width: 248px;padding: 40px 10px 0px 20px;}
     #hideaways, #hideaways ul {width: 228px !important;;margin: 0 0;}
     #hideaways ul li {margin-bottom: 10px;}
-    .photo_left {margin: 0 20px 30px 10px;width: 210px;height: 280px;}
 
 }
 @media only screen and (max-width: 768px) {
@@ -176,9 +163,9 @@ footer {display: block;clear: both}
     #index .structure h3 {padding-right: 20px;padding-left: 20px;font-size: 14px;}
     .slide img {max-width: 480px;height: 321px;}
     #slides {width: 480px;height:396px;}
-    .structure p {padding: 0px 15px 20px 15px;font-size: 12px;line-height: 18px;}
+    .structure p {padding: 0px 15px 20px 15px;line-height: 18px;}
     #about {float: left;padding: 40px 10px 0px 20px;}
-    #about p {font-size: 12px;line-height: 21px;text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
+    #about p {text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
     #ph a {display: inline !important;text-decoration: underline !important;color: blue !important;}
     aside {display: block;float: none;padding: 0 0px 0px 0px;}
     #pieces li:nth-child(3n+3) {margin-right: 20px;}
@@ -190,9 +177,12 @@ footer {display: block;clear: both}
     #pieces h4 {padding-top: 60px;font-size: 18px;}
     #portfolio_ind article {padding: 20px 0px 20px 0px;float: none;}
     #portfolio_ind aside {position: relative;left: 15px;width: 440px !important;}
-    #biography #social, #biography aside {padding: 0px 0px 10px 10px;margin-right: 30px !important;}
+    #biography #social, #biography aside {padding: 0px 0px 10px 0;}
     #copy p {line-height: 1.5;padding: 20px 10px;}
 	#subcontact {float: none;}
+	.photo_left {margin: 0 0 20px 15px;float: none;bottom: 0px;}
+	#introh {padding-left: 15px;padding-top: 50px;}
+	#tagline {padding: 0 20px 20px 15px;}
 }
 @media only screen and (max-width: 480px) {
     .structure, header nav, #base ul, #blog_single .structure {width: 320px !important;}
@@ -202,15 +192,13 @@ footer {display: block;clear: both}
     header ul {padding-right: 4px;}
     header h1 {float: left;top: 16px;left: 5px;}
     header h1 a {width: 33px;height: 32px;}
-    #photo_left {margin: 0 15px 10px 10px;}
     .structure h2 {padding: 20px 0 10px 0px;text-align: left;}
 	#tagline {padding: 0 10px 20px 0;font-size: 21px;font-weight: 400;}
-	.photo_right {float: none;display: block;left: 0;}
     .slide img {max-width: 320px;height: 214px;}
     #slides {width: 320px;height:264px;}
     .structure p {padding: 0px 0 20px 0;font-size: 14px;}
     #about {float: left;padding: 40px 10px 0px 20px;}
-    #about p {font-size: 12px;line-height: 21px;text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
+    #about p {text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
     #ph a {display: inline !important;text-decoration: underline !important;color: blue !important;}
     aside {display: block;float: none;padding: 0 0px 0px 0px;}
     #biography #social, #biography aside {padding: 0px 0px 15px 0;margin-left: 0px;position: relative;left: 0px;}
@@ -228,12 +216,14 @@ footer {display: block;clear: both}
     #social {margin: 0 auto;padding: 0px 0px 20px 0px;}
     #biography aside {padding-bottom: 5px;}
     #copy p {line-height: 1.5;padding: 20px 10px;}
-    .photo_left {margin: 0 0px 10px 10px;}
     .design span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
     .business span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
     .it span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
     .development span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
     #subindex {padding-right: 0px !important;}
 	aside dt {padding: 0 0 5px 0;}
+	.photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
+	#introh {padding-left: 0px;padding-top: 50px;}
+	#tagline {padding: 0 20px 20px 0px;}
 
 }
