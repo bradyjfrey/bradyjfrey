@@ -199,11 +199,11 @@ footer {display: block;clear: both}
     #social, aside, #base h3 {width: 300px !important;}
     header li a {padding: 8px 8px;font-size: 12px;}
     header ul {padding-right: 4px;}
-    header h1 {float: left;top: 16px;left: 15px;}
-    header h1 a{width: 33px;height: 32px;}
+    header h1 {float: left;top: 16px;left: 5px;}
+    header h1 a {width: 33px;height: 32px;}
     #photo_left {margin: 0 15px 10px 10px;width: 150px;height: 194px;}
     .structure h2 {padding: 20px 0 10px 0px;text-align: left;}
-	#tagline {padding: 0 0 20px 0;font-size: 21px;font-weight: 400;}
+	#tagline {padding: 0 10px 20px 0;font-size: 21px;font-weight: 400;}
 	.photo_right {float: none;display: block;left: 0;}
     .slide img {max-width: 320px;height: 214px;}
     #slides {width: 320px;height:264px;}
