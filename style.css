@@ -40,7 +40,8 @@ header h1 a:active {opacity: 1;}
 /**** Misc Body ****/
 section {display: block;width: 100%;background: #f4f4f4;padding-top: 62px;overflow: hidden;}
 .structure  {width: 960px;margin: 0 auto;text-align: left;}
-#tagline {padding: 0 0 20px 10px;font-size: 28px;font-weight: 400;}
+#introh {padding-left: 330px;padding-top: 50px;}
+#tagline {padding: 0 0 20px 330px;font-size: 28px;font-weight: 400;}
 article {display: block;clear: both;padding-bottom: 40px;}
 #portfolio_ind article {padding: 0px 10px 40px 10px;width: 620px;float: right;clear: none;}
 .structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
@@ -54,8 +55,8 @@ article {display: block;clear: both;padding-bottom: 40px;}
 .structure p a:hover, .structure ul li a:hover {color: blue;text-decoration: none;}
 #sub h3 a {color: #666}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
-.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: left;position: relative;left: 10px;}
-.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;position: relative;left: 20px;}
+.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 150px;}
+.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
 #biography h3 {padding-bottom: 10px;}
 
 
@@ -71,7 +72,7 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #pieces a:hover {}
 #pieces a:hover div {top: 0px;}
 aside {display: block;border-top: 1px solid #dfdfdf;padding-bottom: 40px;}
-#subindex {padding-right: 320px !important;}
+#subindex {padding-left: 320px;}
 aside h3 {padding: 20px 5px 10px 5px !important;font-size: 28px;}
 aside h3 a {text-decoration: none;color: #506f88;}
 aside h5 strong {text-transform: uppercase;color: #999;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 12px;}
@@ -153,7 +154,7 @@ footer {display: block;clear: both}
     #about {width: 248px;padding: 40px 10px 0px 20px;}
     #hideaways, #hideaways ul {width: 228px !important;;margin: 0 0;}
     #hideaways ul li {margin-bottom: 10px;}
-    .photo_left {margin: 0 20px 30px 10px;width: 210px;height: 210px;}
+    .photo_left {margin: 0 20px 30px 10px;width: 210px;height: 280px;}
 
 }
 @media only screen and (max-width: 768px) {
@@ -201,7 +202,7 @@ footer {display: block;clear: both}
     header ul {padding-right: 4px;}
     header h1 {float: left;top: 16px;left: 5px;}
     header h1 a {width: 33px;height: 32px;}
-    #photo_left {margin: 0 15px 10px 10px;width: 150px;height: 194px;}
+    #photo_left {margin: 0 15px 10px 10px;}
     .structure h2 {padding: 20px 0 10px 0px;text-align: left;}
 	#tagline {padding: 0 10px 20px 0;font-size: 21px;font-weight: 400;}
 	.photo_right {float: none;display: block;left: 0;}
@@ -227,7 +228,7 @@ footer {display: block;clear: both}
     #social {margin: 0 auto;padding: 0px 0px 20px 0px;}
     #biography aside {padding-bottom: 5px;}
     #copy p {line-height: 1.5;padding: 20px 10px;}
-    .photo_left {margin: 0 0px 10px 10px;width: 150px;height: 150px;}
+    .photo_left {margin: 0 0px 10px 10px;}
     .design span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
     .business span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
     .it span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
