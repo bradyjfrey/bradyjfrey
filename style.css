@@ -56,7 +56,7 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #sub h3 a {color: #666}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
 .photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: left;position: relative;left: 10px;}
-.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;position: relative;left: 20px;bottom: 100px}
+.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 60px 20px 20px 0px;float: right;display: block;position: relative;left: 20px;}
 #biography h3 {padding-bottom: 10px;}
 #more {width: 210px;padding: 0 10px 40px 10px;}
 #more a {display: block;text-decoration: none;color: #999;padding: 5px;}
