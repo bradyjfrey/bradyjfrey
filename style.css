@@ -113,7 +113,7 @@ button:hover {color: #323b42;background-color: white;}
 #history {column-count: 3;column-gap: 0;column-fill: balance;padding-bottom: 0px;}
 #history p {padding-bottom: 0px;}
 #history p:nth-of-type(n+2) {text-indent: 1.5em;}
-#history p span {font-variant: small-caps;font-weight: bold;font-size: 14px}
+#history p span {text-transform: uppercase;font-weight: bold;font-size: 14px}
 #history p:first-child:first-letter {float: left;font-size: 72px;line-height: 60px;padding: 0px 8px 0 3px;}
 
 /**** Footer ****/
@@ -172,8 +172,8 @@ footer {display: block;clear: both}
 }
 @media only screen and (max-width: 768px) {
 	#history {column-count: 1;}
-.highlights h4 {text-transform: uppercase;font-size: 14px;float: none;width: 100%;display: block;padding: 20px 0 10px 20px;margin: 0;text-align: left;border-bottom: 1px solid #dfdfdf}
-.highlights ul {float: none;width: 100%;border-bottom: none;padding-top: 10px;}
+	.highlights h4 {text-transform: uppercase;font-size: 14px;float: none;width: 100%;display: block;padding: 20px 0 10px 20px;margin: 0;text-align: left;border-bottom: 1px solid #dfdfdf}
+	.highlights ul {float: none;width: 100%;border-bottom: none;padding-top: 10px;}
     .structure, header nav, #base ul, #blog_single .structure {width: 480px !important;}
     #gallery, #slides {width: 480px;}
     #blog_single code, #portfolio_ind article, #firstarticle, #firstarticle a, #newsbox a, #blog_index .structure {width: 100% !important}
