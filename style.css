@@ -163,7 +163,7 @@ footer {display: block;clear: both}
     #index .structure h3 {padding-right: 20px;padding-left: 20px;font-size: 14px;}
     .slide img {max-width: 480px;height: 321px;}
     #slides {width: 480px;height:396px;}
-    .structure p {padding: 0px 15px 20px 15px;line-height: 18px;}
+    .structure p {padding: 0px 15px 20px 15px;}
     #about {float: left;padding: 40px 10px 0px 20px;}
     #about p {text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
     #ph a {display: inline !important;text-decoration: underline !important;color: blue !important;}
@@ -192,8 +192,6 @@ footer {display: block;clear: both}
     header ul {padding-right: 4px;}
     header h1 {float: left;top: 16px;left: 5px;}
     header h1 a {width: 33px;height: 32px;}
-    .structure h2 {padding: 20px 0 10px 0px;text-align: left;}
-	#tagline {padding: 0 10px 20px 0;font-size: 21px;font-weight: 400;}
     .slide img {max-width: 320px;height: 214px;}
     #slides {width: 320px;height:264px;}
     .structure p {padding: 0px 0 20px 0;font-size: 14px;}
@@ -223,7 +221,7 @@ footer {display: block;clear: both}
     #subindex {padding-right: 0px !important;}
 	aside dt {padding: 0 0 5px 0;}
 	.photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
-	#introh {padding-left: 0px;padding-top: 50px;}
-	#tagline {padding: 0 20px 20px 0px;}
+	#introh {padding-left: 0px;padding-top: 50px;font-size: 36px;}
+	#tagline {padding: 0 20px 20px 0px;font-size: 14px;}
 
 }
