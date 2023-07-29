@@ -1,7 +1,7 @@
 ﻿* {padding: 0;margin: 0;}
-body {text-rendering: optimizeLegibility;text-align: center;background: white;font-weight: 400;font: normal 14px/1.5 "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;}
+body {text-rendering: optimizeLegibility;text-align: center;background: white;font-weight: 400;font: normal 16px/1.5 "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;}
 img {border: none;display: block;}
-p {font-family: "Mercury SSm A", "Mercury SSm B", georgia, times, serif;font-weight: 400;}
+p {font-family: "Chronicle SSm A", "Chronicle SSm B", georgia, times, serif;font-weight: 400;}
 h2 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
 h3 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
 dt {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
@@ -14,7 +14,7 @@ header nav {display: block;width: 960px;margin: 0px auto;text-align: left;}
 header ul {float: right;line-height: 63px;}
 header li {display: inline-block;list-style-type: none;}
 header li a {padding: 10px 15px;text-decoration: none;color: #97b6bc;display: inline-block;font-weight: 400;font: normal 14px/1 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;}
-header li a:hover {background-color: rgba(0,0,0,.08);-moz-border-radius: 20px;-webkit-border-radius: 20px;border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);-moz-box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);-webkit-box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);color: white;}
+header li a:hover {background-color: rgba(0,0,0,.08);border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);color: white;}
 #current a {border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);color: white;background: rgba(0,0,0,.14) linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%);}
 header li a:active {box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);color: #a9a9a9;text-shadow: none;background: rgba(0,0,0,.14) linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%);}
 header h1 {float: left;position: relative;top: 16px;left: 10px;}
@@ -30,8 +30,8 @@ section {display: block;width: 100%;background: #f4f4f4;padding-top: 62px;overfl
 article {display: block;clear: both;padding-bottom: 40px;}
 #portfolio_ind article {padding: 0px 10px 40px 10px;width: 620px;float: right;clear: none;}
 .structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
-#index h3 {font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 500px;padding-right: 30em;}
-#sub h3 {text-align: center;font-family: 'Archer A', 'Archer B', georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 100px;}
+#index h3 {font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 500px;padding-right: 30em;}
+#sub h3 {text-align: center;font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 100px;}
 .structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
 #biography h2 {text-align: left;}
 #biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
@@ -42,18 +42,18 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #sub h3 a:hover {color: #ccc;text-decoration: none;}
 #biography h3 {padding-bottom: 10px;}
 
-#introh {padding-left: 330px;padding-top: 50px;}
-#tagline {padding: 0 0 20px 330px;font-size: 28px;font-weight: 400;}
+#introh {padding-left: 330px;padding-top: 50px;font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-weight: 500;letter-spacing: -2px;font-size: 48px;}
+#tagline {padding: 0 0 20px 330px;font-size: 16px;font-weight: 700;font-family: 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;text-transform: uppercase;}
 .photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 190px;}
 .photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
 
 
 /**** Portfolio ****/
 #pieces {padding: 20px 0 40px 10px;clear: both;position: relative;right: 10px;overflow: hidden;}
-#pieces li {list-style-type: none;float: left;padding: 0px;margin: 0 20px 20px 0px;box-shadow: 0px 0px 5px rgba(0,0,0,.4);-moz-box-shadow: 0px 0px 5px rgba(0,0,0,.4);-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.4);overflow: hidden;width: 300px;height: 200px;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;position: relative;z-index: 10;}
+#pieces li {list-style-type: none;float: left;padding: 0px;margin: 0 20px 20px 0px;box-shadow: 0px 0px 5px rgba(0,0,0,.4);overflow: hidden;width: 300px;height: 200px;border-radius: 4px;position: relative;z-index: 10;}
 #pieces li:nth-child(3n+3) {margin-right: 0px;}
-#pieces a {color: white !important;text-decoration: none;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;display: block;overflow: hidden;width: 300px;height: 200px;}
-#pieces div {width: 300px;height: 200px;background-color: rgba(0,0,0,.8);position: absolute;top: 200px;left: 0px;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+#pieces a {color: white !important;text-decoration: none;border-radius: 4px;display: block;overflow: hidden;width: 300px;height: 200px;}
+#pieces div {width: 300px;height: 200px;background-color: rgba(0,0,0,.8);position: absolute;top: 200px;left: 0px;border-radius: 4px;}
 #pieces h4 {padding: 100px 20px 8px 20px;font-size: 21px;font-weight: 400;text-shadow: 0px 0px 3px black;}
 #pieces p {padding: 0 20px 10px 20px;text-shadow: 0px 0px 3px black;}
 #pieces strong {text-transform: uppercase;color: #777;font-size: 11px;font-weight: normal;}
@@ -83,7 +83,7 @@ aside dd {padding: 5px;border-top: 1px solid #dfdfdf;color: #999;font-style: nor
 button {cursor: pointer;box-shadow: 0px 0px 4px #999;border: none;background-color: #323b42;display: block;padding: 8px 10px;font-size: 16px;letter-spacing: 1px;color: white;font-weight: 300;display: block;}
 button:hover {color: #323b42;background-color: white;}
 #biography #cv ul {padding: 0 0 20px 40px}
-#biography #cv li, .highlights li {font-family: "Mercury SSm A", "Mercury SSm B", georgia, times, serif;font-weight: 400;}
+#biography #cv li, .highlights li {font-family: "Chronicle SSm A", "Chronicle SSm B", georgia, times, serif;font-weight: 400;}
 #biography #cv h3 {text-transform: uppercase;font-size: 14px;}
 
 #careerhighlights {background-color: white;padding-top: 20px;}
@@ -216,10 +216,10 @@ footer {display: block;clear: both}
     #social {margin: 0 auto;padding: 0px 0px 20px 0px;}
     #biography aside {padding-bottom: 5px;}
     #copy p {line-height: 1.5;padding: 20px 10px;}
-    .design span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
-    .business span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
-    .it span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
-    .development span {background-image: none !important;-moz-box-shadow: none;box-shadow: none;-webkit-box-shadow: none}
+    .design span {background-image: none !important;box-shadow: none;}
+    .business span {background-image: none !important;box-shadow: none;}
+    .it span {background-image: none !important;box-shadow: none;}
+    .development span {background-image: none !important;box-shadow: none;}
     #subindex {padding-right: 0px !important;}
 	aside dt {padding: 0 0 5px 0;}
 	.photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
