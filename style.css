@@ -35,7 +35,7 @@ article {display: block;clear: both;padding-bottom: 40px;}
 .structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
 #biography h2 {text-align: left;}
 #biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
-.structure p {padding: 0px 10px 20px 10px;line-height: 21px;}
+.structure p {padding: 0px 10px 20px 10px;}
 .structure p a, .structure ul li a {color: black;text-decoration: underline;font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-weight: 700;text-transform: uppercase;font-size: 11px;}
 .structure p a:hover, .structure ul li a:hover {color: blue;text-decoration: none;}
 #sub h3 a {color: #666}
@@ -142,6 +142,7 @@ footer {display: block;clear: both}
     #about {width: 248px;padding: 40px 10px 0px 20px;}
     #hideaways, #hideaways ul {width: 228px !important;;margin: 0 0;}
     #hideaways ul li {margin-bottom: 10px;}
+    #introh {font-size: 40px;}
 
 }
 @media only screen and (max-width: 768px) {
@@ -221,7 +222,7 @@ footer {display: block;clear: both}
     #subindex {padding-right: 0px !important;}
 	aside dt {padding: 0 0 5px 0;}
 	.photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
-	#introh {padding-left: 0px;padding-top: 50px;font-size: 36px;}
+	#introh {padding-left: 0px;padding-top: 50px;font-size: 34px;}
 	#tagline {padding: 0 20px 20px 0px;font-size: 14px;}
 
 }
