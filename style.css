@@ -44,8 +44,8 @@ article {display: block;clear: both;padding-bottom: 40px;}
 
 #introh {padding-left: 330px;padding-top: 50px;}
 #tagline {padding: 0 0 20px 330px;font-size: 28px;font-weight: 400;}
-.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 150px;}
-.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);-moz-box-shadow: 0px 1px 4px rgba(0,0,0,.3);-webkit-box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
+.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 190px;}
+.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
 
 
 /**** Portfolio ****/
