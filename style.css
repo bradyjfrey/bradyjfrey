@@ -44,7 +44,8 @@ article {display: block;clear: both;padding-bottom: 40px;}
 
 #introh {padding-left: 330px;padding-top: 50px;font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-weight: 500;letter-spacing: -1px;font-size: 48px;}
 #tagline {padding: 0 0 20px 330px;font-size: 16px;font-weight: 700;font-family: 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;text-transform: uppercase;}
-.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 150px;}
+#introc {padding-left: 320px;display: block;}
+.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 130px;}
 .photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
 
 
@@ -60,7 +61,7 @@ article {display: block;clear: both;padding-bottom: 40px;}
 #pieces a:hover {}
 #pieces a:hover div {top: 0px;}
 aside {display: block;border-top: 1px solid #dfdfdf;padding-bottom: 40px;}
-#subindex {padding-left: 320px;}
+#subindex {}
 aside h3 {padding: 20px 5px 10px 5px !important;font-size: 28px;}
 aside h3 a {text-decoration: none;color: #506f88;}
 aside h5 strong {text-transform: uppercase;color: #999;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 12px;}
@@ -122,7 +123,6 @@ footer {display: block;clear: both}
 /**** Responsive Web Design ****/
 @media only screen and (max-width: 960px) {
     .structure, header nav {width: 740px !important;}
-    .photo_left {bottom: 190px;}
     #tagline {padding-right: 0px;}
     #gallery, #slides, #base ul {width: 768px;}
     #gallery {position: relative;right: 14px;}
@@ -181,6 +181,7 @@ footer {display: block;clear: both}
     #biography #social, #biography aside {padding: 0px 0px 10px 0;}
     #copy p {line-height: 1.5;padding: 20px 10px;}
 	#subcontact {float: none;}
+	#introc {padding-left: 0px !important;}
 	.photo_left {margin: 0 0 20px 15px;float: none;bottom: 0px;}
 	#introh {padding-left: 15px;padding-top: 50px;}
 	#tagline {padding: 0 20px 20px 15px;}
@@ -219,7 +220,7 @@ footer {display: block;clear: both}
     .business span {background-image: none !important;box-shadow: none;}
     .it span {background-image: none !important;box-shadow: none;}
     .development span {background-image: none !important;box-shadow: none;}
-    #subindex {padding-right: 0px !important;}
+    #introc {padding-left: 0px !important;}
 	aside dt {padding: 0 0 5px 0;}
 	.photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
 	#introh {padding-left: 0px;padding-top: 50px;font-size: 32px;}
