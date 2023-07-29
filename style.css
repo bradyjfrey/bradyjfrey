@@ -95,7 +95,7 @@ button:hover {color: #323b42;background-color: white;}
 #history {column-count: 3;column-gap: 0;column-fill: balance;padding-bottom: 0px;}
 #history p {padding-bottom: 0px;}
 #history p:nth-of-type(n+2) {text-indent: 1.5em;}
-#history p span {text-transform: uppercase;font-weight: bold;font-size: 14px}
+#history p span {text-transform: uppercase;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 11px}
 #history p:first-child:first-letter {float: left;font-size: 72px;line-height: 60px;padding: 0px 8px 0 3px;}
 
 
