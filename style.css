@@ -146,9 +146,9 @@ footer {display: block;clear: both}
 
 }
 @media only screen and (max-width: 768px) {
-	#history {column-count: 1;}
-	.highlights h4 {text-transform: uppercase;font-size: 14px;float: none;width: 100%;display: block;padding: 20px 0 10px 20px;margin: 0;text-align: left;border-bottom: 1px solid #dfdfdf}
-	.highlights ul {float: none;width: 100%;border-bottom: none;padding-top: 10px;}
+    #history {column-count: 1;}
+    .highlights h4 {text-transform: uppercase;font-size: 14px;float: none;width: 100%;display: block;padding: 20px 0 10px 20px;margin: 0;text-align: left;border-bottom: 1px solid #dfdfdf}
+    .highlights ul {float: none;width: 100%;border-bottom: none;padding-top: 10px;}
     .structure, header nav, #base ul, #blog_single .structure {width: 480px !important;}
     #gallery, #slides {width: 480px;}
     #portfolio_ind article {width: 100% !important}
@@ -180,11 +180,11 @@ footer {display: block;clear: both}
     #portfolio_ind aside {position: relative;left: 15px;width: 440px !important;}
     #biography #social, #biography aside {padding: 0px 0px 10px 0;}
     #copy p {line-height: 1.5;padding: 20px 10px;}
-	#subcontact {float: none;}
-	#introc {padding-left: 0px !important;}
-	.photo_left {margin: 0 0 20px 15px;float: none;bottom: 0px;}
-	#introh {padding-left: 15px;padding-top: 50px;}
-	#tagline {padding: 0 20px 20px 15px;}
+    #subcontact {float: none;}
+    #introc {padding-left: 0px !important;}
+    .photo_left {margin: 0 0 20px 15px;float: none;bottom: 0px;}
+    #introh {padding-left: 15px;padding-top: 50px;}
+    #tagline {padding: 0 20px 20px 15px;}
 }
 @media only screen and (max-width: 480px) {
     .structure, header nav, #base ul, #blog_single .structure {width: 320px !important;}
@@ -221,9 +221,9 @@ footer {display: block;clear: both}
     .it span {background-image: none !important;box-shadow: none;}
     .development span {background-image: none !important;box-shadow: none;}
     #introc {padding-left: 0px !important;}
-	aside dt {padding: 0 0 5px 0;}
-	.photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
-	#introh {padding-left: 0px;padding-top: 50px;font-size: 32px;}
-	#tagline {padding: 0 20px 20px 0px;font-size: 14px;}
+    aside dt {padding: 0 0 5px 0;}
+    .photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
+    #introh {padding-left: 0px;padding-top: 50px;font-size: 32px;}
+    #tagline {padding: 0 20px 20px 0px;font-size: 14px;}
 
 }

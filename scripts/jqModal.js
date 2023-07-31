@@ -49,7 +49,7 @@ open:function(s,t){var h=H[s],c=h.c,cc='.'+c.closeClass,z=(parseInt(h.w.css('z-i
   r.html(c.ajaxText).load(u,function(){if(c.onLoad)c.onLoad.call(this,h);if(cc)h.w.jqmAddClose($(cc,h.w));e(h);});}
  else if(cc)h.w.jqmAddClose($(cc,h.w));
 
- if(c.toTop&&h.o)h.w.before('<span id="jqmP'+h.w[0]._jqm+'"></span>').insertAfter(h.o);	
+ if(c.toTop&&h.o)h.w.before('<span id="jqmP'+h.w[0]._jqm+'"></span>').insertAfter(h.o);    
  (c.onShow)?c.onShow(h):h.w.show();e(h);return F;
 },
 close:function(s){var h=H[s];if(!h.a)return F;h.a=F;
