@@ -59,7 +59,7 @@ h3, .text--lg {
 }
 p span, p a, main li a {
     font-family: var(--font-secondary);
-    font-size: var(--text-sm);
+    font-size: .75em;
     text-transform: uppercase;
     font-weight: 700;
 }
