@@ -237,7 +237,7 @@ img {
     grid-column-start: 5;
     grid-column-end: 13;
     border-bottom: 1px solid #dfdfdf;
-    padding: 1.2em 0;
+    padding: 0.5em 0 1.2em 0;
 }
 .highlights li {
     padding-bottom: 0.25em;
@@ -317,7 +317,7 @@ p {padding-bottom: 1em;}
 p a, main li a {color: black;text-decoration: underline;}
 p a:hover, main li a:hover {color: #424e57;text-decoration: none;}
 .fullwidth {background-color: white;padding-top: 2em;}
-.title {font-size: var(--text-sm);padding-top: .25em;line-height: 1.5}
+.title {font-size: var(--text-sm);padding-top: 1em;line-height: 1.5}
 .cvh {font-size: var(--text-sm);padding: 1em 0 0 0;width: 100%;border-top: 1px dotted rgba(0, 0, 0, 0.1);}
 p.cvv {padding: 0;margin: 0;}
 ul.cvv {padding: 0 0 0 1em;}
@@ -367,7 +367,7 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;}
     .intro {font-size: 2.5em;}
     .tagline {font-size: 1.2em;}
     .history {column-count: 1;}
-    .title, .cvh {padding: 1.5em 0;margin: 0.5em 1em 0 auto;}
+    .title, .cvh {padding: 1.5em 0 0 0;margin: 0.5em 1em 0 auto;}
     .highlights. cvv {padding: 0 1.5em;}
     .portdeets {padding-bottom: 2em;}
     .pieces {grid-template-columns: repeat(3, 1fr);}
