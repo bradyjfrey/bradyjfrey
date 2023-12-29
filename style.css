@@ -203,6 +203,7 @@ article {
     grid-row-start: 1;
     grid-row-end: 2;
     padding-top: 0.75em;
+    font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;
 }
 .tagline {
     grid-column-start: 5;
@@ -304,7 +305,7 @@ header li a:active {
 /* Body Design */
 body {font-weight: 400;}
 main {background: #f4f4f4;padding-top: 5.5em;}
-h2 {font-weight: 500;letter-spacing: -0.05em;font-size: 3em;}
+h2 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-weight: 700;letter-spacing: -0.05em;font-size: 3em;}
 h3, h4 {text-transform: uppercase;font-weight: 700;}
 .title {text-align: right;}
 .img img {box-shadow: 0px 1px 4px rgba(0,0,0,.3);}
@@ -321,7 +322,7 @@ p a:hover, main li a:hover {color: #424e57;text-decoration: none;}
 .cvh {font-size: var(--text-sm);padding: 1em 0 0 0;width: 100%;border-top: 1px dotted rgba(0, 0, 0, 0.1);}
 p.cvv {padding: 0;margin: 0;}
 ul.cvv {padding: 0 0 0 1em;}
-.history {column-count: 3;column-gap: 1em;column-fill: balance;padding-bottom: 0;}
+.history {column-count: 3;column-gap: 1em;column-fill: balance;padding-bottom: 1em;}
 .history p {padding-bottom: 0}
 .history p:nth-of-type(n + 2) {text-indent: 1.5em;}
 .history p:first-child:first-letter {float: left;font-size: 5em;line-height: 1em;padding: 0px .15em 0 0;}
