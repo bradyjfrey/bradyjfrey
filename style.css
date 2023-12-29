@@ -237,6 +237,7 @@ img {
     grid-column-start: 5;
     grid-column-end: 13;
     border-bottom: 1px solid #dfdfdf;
+    padding: 1.2em 0;
 }
 .highlights li {
     padding-bottom: 0.25em;
