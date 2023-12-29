@@ -1,229 +1,386 @@
-﻿* {padding: 0;margin: 0;}
-body {text-rendering: optimizeLegibility;text-align: center;background: white;font-weight: 400;font: normal 16px/1.5 "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;}
-img {border: none;display: block;}
-p {font-family: "Chronicle SSm A", "Chronicle SSm B", georgia, times, serif;font-weight: 400;}
-h2 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
-h3 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
-dt {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 700;}
-dd {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-style: normal;font-weight: 400;}
+/* Josh W Comeau's CSS Reset, condensed joshwcomeau.com */
+*, *::before, *::after {box-sizing: border-box;}
+* {margin: 0;padding: 0;}
+body {line-height: 1.5;-webkit-font-smoothing: antialiased;text-align: center;}
+img, picture, video, canvas, svg {display: block;max-width: 100%;}
+input, button, textarea, select {font: inherit;}
+p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
+#root, #__next {isolation: isolate;}
+
+/* Sebastiano Guerriero Typography System */
+:root {
+    --font-primary: "Chronicle SSm A", "Chronicle SSm B", georgia, times, serif;
+    --font-secondary: 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;
+
+    /* set base values */
+    --text-base-size: 1em;
+    --text-scale-ratio: 1.2;
+
+    /* type scale */
+    --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
+    --text-sm: calc(1em / var(--text-scale-ratio));
+    --text-md: calc(1em * var(--text-scale-ratio));
+    --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+    --text-xxxl: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio));
+
+    /* line-height */
+    --heading-line-height: 1.2;
+    --body-line-height: 1.4;
+}
+@include breakpoint(md) {
+    :root {
+        --text-base-size: 1em;
+        --text-scale-ratio: 1.25;
+    }
+}
+body {
+    font-size: var(--text-base-size);
+    font-family: var(--font-primary);
+    color: var(--color-text);
+}
+h1, h2, h3, h4, form legend {
+    color: var(--color-text-heading);
+    margin-bottom: var(--space-xxs);
+    line-height: var(--heading-line-height);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+}
+/* text size */
+.text--xxxl {
+    font-size: var(--text-xxxl);
+}
+h2, .text--xl {
+    font-size: var(--text-xl);
+}
+h3, .text--lg {
+    font-size: var(--text-lg);
+    font-family: var(--font-secondary);
+}
+p span, p a, main li a {
+    font-family: var(--font-secondary);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+h4, .text--md {
+    font-size: var(--text-md);
+    font-family: var(--font-secondary);
+}
+.text--sm, small {
+    font-size: var(--text-sm);
+}
+.text--xs {
+    font-size: var(--text-xs);
+}
+p {
+    line-height: var(--body-line-height);
+}
+b, strong {
+    font-weight: bold;
+}
+.text-container {
+    h2, h3, h4 {
+        margin-top: var(--space-sm);
+    }
+    
+    ul, ol, p {
+        margin-bottom: var(--space-md);
+    }
+
+    ul, ol {
+        list-style-position: outside;
+        padding-left: 24px;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    ul li, ol li {
+        line-height: var(--body-line-height);
+    }
+    
+    em {
+        font-style: italic;
+    }
+
+    u {
+        text-decoration: underline;
+    }
+}
+/* utility classes */
+.truncate {
+    // truncate text if it exceeds parent
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 
-/**** Header and Navigation ****/
-header {position: fixed;top: 0px;left: 0px;z-index: 801;display: block;height: 62px;width: 100%;background: #424e57;border-bottom: 1px solid #414547;box-shadow: 0px 1px 3px rgba(0,0,0,.4);}
-header nav {display: block;width: 960px;margin: 0px auto;text-align: left;}
-header ul {float: right;line-height: 63px;}
-header li {display: inline-block;list-style-type: none;}
-header li a {padding: 10px 15px;text-decoration: none;color: #97b6bc;display: inline-block;font-weight: 400;font: normal 14px/1 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;}
-header li a:hover {background-color: rgba(0,0,0,.08);border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);color: white;}
-#current a {border-radius: 20px;box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);color: white;background: rgba(0,0,0,.14) linear-gradient(top, transparent 0%,rgba(0,0,0,.12) 100%);}
-header li a:active {box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);color: #a9a9a9;text-shadow: none;background: rgba(0,0,0,.14) linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%);}
-header h1 {float: left;position: relative;top: 16px;left: 10px;}
-header h1 a{opacity: .35;width: 33px;height: 33px;display: block;text-decoration: none;text-indent: -9999px;background: transparent url(images/logo.svg) no-repeat left bottom;}
-header h1 a:hover {opacity: .75;}
-header h1 a:active {opacity: 1;}
+
+/* Grid Nav Bar */
+nav {
+    max-width: 960px;
+    text-align: left;
+    margin: 0px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 33px 1fr;
+    justify-items: end;
+    align-items: center;
+    height: 63px;
+}
+nav ul {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+    width: auto;
+    justify-self: center;
+    align-self: center;
+}
+nav li a {
+    display: block;
+    }
+h1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
 
 
-/**** Misc Body ****/
-section {display: block;width: 100%;background: #f4f4f4;padding-top: 62px;overflow: hidden;}
-.structure  {width: 960px;margin: 0 auto;text-align: left;}
 
-article {display: block;clear: both;padding-bottom: 40px;}
-#portfolio_ind article {padding: 0px 10px 40px 10px;width: 620px;float: right;clear: none;}
-.structure h3 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;padding: 0px 0 60px 10px;}
-#index h3 {font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 500px;padding-right: 30em;}
-#sub h3 {text-align: center;font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-style: normal;font-weight: 500;color: #999;padding-bottom: 100px;}
-.structure h2 {text-shadow: 0 1px 1px rgba(255,255,255,1);color: black;font-size: 31px;padding: 40px 0 10px 10px;text-align: left;}
-#biography h2 {text-align: left;}
-#biography h3 {border-top: 1px dotted rgba(0,0,0,0.1);padding-top: 10px;}
-.structure p {padding: 0px 10px 20px 10px;}
-.structure p a, .structure ul li a {color: black;text-decoration: underline;font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-weight: 700;text-transform: uppercase;font-size: 11px;}
-.structure p a:hover, .structure ul li a:hover {color: blue;text-decoration: none;}
-#sub h3 a {color: #666}
-#sub h3 a:hover {color: #ccc;text-decoration: none;}
-#biography h3 {padding-bottom: 10px;}
+/* Grid Body */
+article {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5em 1.5em 1.5em;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr, minmax(min-content, 300px));
+    grid-template-rows: auto;
+    column-gap: 1.5em;
+    row-gap: 1em;
+    justify-content: center;
+    justify-items: baseline;
+    align-items: start;
+}
+.pieces {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+    gap: 1em;
+    justify-content: center;
+    justify-items: center;
+    align-items: end;
+}
+.portdeets {
+    grid-column-start: 8;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.portdesc {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.intro {
+    grid-column-start: 5;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding-top: 0.75em;
+}
+.tagline {
+    grid-column-start: 5;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.img {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+    margin-top: 2.5em;
+    height: 100%;
+}
+img {
+    height: auto;
+}
+.bio {
+    grid-column-start: 5;
+    grid-column-end: 13;
 
-#introh {padding-left: 330px;padding-top: 50px;font-family: "Chronicle SSm A", "Chronicle SSm B", georgia;font-weight: 500;letter-spacing: -1px;font-size: 48px;}
-#tagline {padding: 0 0 20px 330px;font-size: 16px;font-weight: 700;font-family: 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;text-transform: uppercase;}
-#introc {padding-left: 320px;display: block;}
-.photo_left {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 10px;float: left;position: relative;bottom: 130px;}
-.photo_right {box-shadow: 0px 1px 4px rgba(0,0,0,.3);margin: 0 20px 20px 0px;float: right;display: block;}
+}
+.title {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin: 0 0 0 auto;
+    width: 100%;
+}
+.highlights {
+    grid-column-start: 5;
+    grid-column-end: 13;
+}
+
+
+
+/* Nav Bar Design */
+header {
+    height: 3.875em;
+    width: 100%;
+    background: #424e57;
+    border-bottom: 1px solid #414547;
+    box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+    background-color: #424e57;
+    display: block;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+h1 {position: relative;left: .25em;}
+h1 a {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: .35;
+    height: 33px;
+    width: 33px;
+    display: block;
+    text-decoration: none;
+    background: transparent url(images/logo.svg) no-repeat left bottom;
+}
+h1 a:hover {opacity: .75;}
+h1 a:active {opacity: 1;}
+header li a {
+    padding: 0.7em 1.05em;
+    text-decoration: none;
+    color: #97b6bc;
+    display: inline-block;
+    font-weight: 400;
+    font: normal 0.88em/1 'Gotham SSm A', 'Gotham SSm B', helvetica, arial, sans-serif;
+}
+header li a:hover {
+    background-color: rgba(0,0,0,.08);
+    border-radius: 5em;
+    box-shadow: inset 0px 0px 3px rgba(0,0,0,.5);
+    color: white;
+}
+#current a {
+    border-radius: 5em;
+    box-shadow: inset 0px 0px 3px rgba(0,0,0,.7);
+    color: white;
+    background-color: rgba(0,0,0,.3);
+}
+header li a:active {
+    box-shadow: inset 0px 5px 8px rgba(0,0,0,.6);
+    color: #a9a9a9;
+    text-shadow: none;
+    background: rgba(0,0,0,.14) linear-gradient(top, rgba(0,0,0,.2) 100%, transparent 0%);
+}
+
+
+
+/* Body Design */
+body {font-weight: 400;}
+main {background: #f4f4f4;padding-top: 5.5em;}
+h2 {font-weight: 500;letter-spacing: -0.05em;font-size: 3em;}
+h3, h4 {text-transform: uppercase;font-weight: 700;}
+.title {text-align: right;}
+.img img {box-shadow: 0px 1px 4px rgba(0,0,0,.3);}
+dl {border-bottom: 1px solid #dfdfdf;padding-top: 1em;}
+dt {font-family: var(--font-secondary);font-style: normal;font-weight: 700;font-size: 0.85em;text-transform: uppercase;padding: 0 0.5em 0.5em 0.5em;}
+dd {font-family: var(--font-secondary);border-top: 1px solid #dfdfdf;color: #999;font-style: normal;font-weight: 400;}
+dd a {display: block;text-decoration: none;color: #999;padding: 5px;}
+dd a:hover {background-color: #ccc;color: white;}
+p {padding-bottom: 1em;}
+p a, main li a {color: black;text-decoration: underline;}
+p a:hover, main li a:hover {color: #424e57;text-decoration: none;}
+.fullwidth {background-color: white;}
+.title {font-size: var(--text-sm);padding-top: .25em;line-height: 1.5}
+.cvh {font-size: var(--text-sm);padding: 1em 0 0 0;width: 100%;border-top: 1px dotted rgba(0, 0, 0, 0.1);}
+p.cvv {padding: 0;margin: 0;}
+ul.cvv {padding: 0 0 0 1em;}
+.history {column-count: 3;column-gap: 1em;column-fill: balance;padding-bottom: 0;}
+.history p {padding-bottom: 0}
+.history p:nth-of-type(n + 2) {text-indent: 1.5em;}
+.history p:first-child:first-letter {float: left;font-size: 5em;line-height: 1em;padding: 0px .15em 0 0;}
+
+footer {display: block;clear: both;background-color: white;border-top: 1px solid #f6f6f6;}
+footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;}
 
 
 /**** Portfolio ****/
-#pieces {padding: 20px 0 40px 10px;clear: both;position: relative;right: 10px;overflow: hidden;}
-#pieces li {list-style-type: none;float: left;padding: 0px;margin: 0 20px 20px 0px;box-shadow: 0px 0px 5px rgba(0,0,0,.4);overflow: hidden;width: 300px;height: 200px;border-radius: 4px;position: relative;z-index: 10;}
-#pieces li:nth-child(3n+3) {margin-right: 0px;}
-#pieces a {color: white !important;text-decoration: none;border-radius: 4px;display: block;overflow: hidden;width: 300px;height: 200px;}
-#pieces div {width: 300px;height: 200px;background-color: rgba(0,0,0,.8);position: absolute;top: 200px;left: 0px;border-radius: 4px;}
-#pieces h4 {padding: 100px 20px 8px 20px;font-size: 21px;font-weight: 400;text-shadow: 0px 0px 3px black;}
-#pieces p {padding: 0 20px 10px 20px;text-shadow: 0px 0px 3px black;}
-#pieces strong {text-transform: uppercase;color: #777;font-size: 11px;font-weight: normal;}
-#pieces a:hover {}
-#pieces a:hover div {top: 0px;}
-aside {display: block;border-top: 1px solid #dfdfdf;padding-bottom: 40px;}
-#subindex {}
-aside h3 {padding: 20px 5px 10px 5px !important;font-size: 28px;}
-aside h3 a {text-decoration: none;color: #506f88;}
-aside h5 strong {text-transform: uppercase;color: #999;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 12px;}
-aside h5 {font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 300;font-size: 13px;padding: 0 0 20px 5px;}
-aside dl {border-bottom: 1px solid #dfdfdf;}
-aside dt {font-style: normal;font-weight: 700;font-size: 12px;text-transform: uppercase;padding: 0 5px 5px 5px;}
-aside dd {padding: 5px;border-top: 1px solid #dfdfdf;color: #999;font-style: normal;font-weight: 400;}
-
-
-/**** biography ****/
-#biography aside {}
-#subcontact {float: right;width: 310px;}
-#biography aside a {display: block;text-decoration: none;color: #999;padding: 5px;}
-#biography aside dd {padding: 0;}
-#ph {padding: 5px !important;}
-#ph a {display: inline;}
-#biography aside {border-top: none !important;margin-left: 10px;margin-right: 15px;}
-#biography aside a:hover {background-color: #ccc;color: white;}
-#biography aside dl {border-bottom: none !important;}
-button {cursor: pointer;box-shadow: 0px 0px 4px #999;border: none;background-color: #323b42;display: block;padding: 8px 10px;font-size: 16px;letter-spacing: 1px;color: white;font-weight: 300;display: block;}
-button:hover {color: #323b42;background-color: white;}
-#biography #cv ul {padding: 0 0 20px 40px}
-#biography #cv li, .highlights li {font-family: "Chronicle SSm A", "Chronicle SSm B", georgia, times, serif;font-weight: 400;}
-#biography #cv h3 {text-transform: uppercase;font-size: 14px;}
-
-#careerhighlights {background-color: white;padding-top: 20px;}
-.highlights {display: block;clear:both;}
-.highlights h4 {text-transform: uppercase;font-size: 14px;float: left;width: 30%;display: block;padding: 20px 0 0 0;margin: 0;text-align: right;}
-.highlights ul {padding: 20px 0 20px 20px;margin: 0;float: right;width: 66%;display: block;border-bottom: 1px solid #dfdfdf;}
-.highlights li {padding-bottom: 5px;}
-
-#history {column-count: 3;column-gap: 0;column-fill: balance;padding-bottom: 0px;}
-#history p {padding-bottom: 0px;}
-#history p:nth-of-type(n+2) {text-indent: 1.5em;}
-#history p span, #biography article p span {text-transform: uppercase;font-family: 'Gotham SSm A', 'Gotham SSm B',helvetica,arial,sans-serif;font-style: normal;font-weight: 700;font-size: 11px}
-#history p:first-child:first-letter {float: left;font-size: 72px;line-height: 60px;padding: 0px 8px 0 3px;}
-
-
-/**** Footer ****/
-footer {display: block;clear: both}
-#copy {background-color: white;border-top: 1px solid #f6f6f6;}
-#copy p {font-size: 11px;font-weight: 400;color: #bcc8d1;padding: 20px 0;}
-#copy p a {font-weight: 700;color: #bcc8d1;text-decoration: none;}
-
+.pieces {}
+.pieces li {list-style-type: none;box-shadow: 0px 0px 5px rgba(0,0,0,.4);height: auto;overflow: hidden;border-radius: 4px;position: relative;z-index: 10;}
+.pieces img {padding: 0;margin: 0;}
+.pieces a {color: white;text-decoration: none;border-radius: 4px;display: block;width: 100%;height: 100%;overflow: hidden;}
+.pieces div {display: none;background-color: rgba(0,0,0,.8);position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;border-radius: 4px;}
+.pieces a:hover {}
+.pieces a:hover div {display: block}
+.pieces h4 {color: white;padding: 3em 1em 0.5em 1em;text-shadow: 0px 0px 3px black;}
+.pieces p {color: white;padding: 0 1em 1em 1em;text-shadow: 0px 0px 3px black;font-size: 0.85em;}
+.pieces strong {text-transform: uppercase;opacity: .5;font-weight: normal;}
 
 /**** Slides ****/
-#gallery {text-align: center !important;margin: 20px auto 0 auto;width:960px;overflow:hidden;z-index: 800;mask-box-image: url(images/mask.png) 100 stretch;-moz-mask-box-image: url(images/mask.png) 100 stretch;-webkit-mask-box-image: url(images/mask.png) 100 stretch;background: transparent;}
+/*** Must move to proper grid ***/
+.slideh {padding-top: 1em;}
+#gallery {text-align: center;margin: 1.5em auto 0 auto;width:960px;overflow:hidden;z-index: 800;mask-box-image: url(images/mask.png) 100 stretch;background: transparent;}
 #slides {height:643px;width:960px;overflow:hidden;}
 .slide {float:left;}
-#menu {margin: 0px auto;position: relative;bottom: 25px;}
-#gallery ul {margin:0px;padding:0px;}
+#menu {margin: 0px auto;position: relative;bottom: 2em;}
+#gallery ul {margin: 0;padding: 0;}
 #gallery li {background-color: transparent;display:inline-block;list-style:none;overflow:hidden;}
 #gallery li.act, #gallery li.act:hover, #gallery li a:hover {color: black;background-color: transparent;opacity: 1;}
 #gallery li.act a {cursor:default;opacity: 1;}
 #gallery li a {display:block;opacity: .2;padding: 0 7px;}
+.portdeets {border-top: 1px solid #dfdfdf}
+.portdeets h3 {padding: 0.75em 0.25em 0.25em 0.25em;color: #506f88;}
+.portdeets h5 {padding: 0 0.25em 0.25em 0.25em;font-weight: 400;font-family: var(--font-secondary);}
+.portdeets h5 strong {color: #999;font-size: 0.8em;text-transform: uppercase;}
+.portdeets dl {}
+.portdeets dt {text-transform: uppercase;padding: 0 0.25em 0.25em 0.25em;}
+.portdeets dd {padding: 0.25em;}
 
 
-
-/**** Responsive Web Design ****/
-@media only screen and (max-width: 960px) {
-    .structure, header nav {width: 740px !important;}
-    #tagline {padding-right: 0px;}
-    #gallery, #slides, #base ul {width: 768px;}
-    #gallery {position: relative;right: 14px;}
-    #portfolio_ind article {width: 100% !important}
-    .slide img {max-width: 740px;height: 496px;}
-    #more {padding: 0 10px 40px 10px;}
-    #pieces {padding: 20px 0 40px 10px;left: 0px;}
-    #pieces li {width: 225px;height: 150px;}
-    #pieces a {width: 225px;height: 150px;}
-    #pieces img {width: 225px;height: 150px;}
-    #pieces div {width: 225px;height: 150px;}
-    #pieces h4 {padding-top: 70px;font-size: 18px;}
-    #portfolio_ind article {width: 480px !important;}
-    #portfolio_ind aside {width: 240px !important;}
-    #biography #social, #biography aside {}
-    #base ul {overflow: visible;}
-    #about {width: 248px;padding: 40px 10px 0px 20px;}
-    #hideaways, #hideaways ul {width: 228px !important;;margin: 0 0;}
-    #hideaways ul li {margin-bottom: 10px;}
-    #introh {font-size: 40px;}
-
-}
 @media only screen and (max-width: 768px) {
-    #history {column-count: 1;}
-    .highlights h4 {text-transform: uppercase;font-size: 14px;float: none;width: 100%;display: block;padding: 20px 0 10px 20px;margin: 0;text-align: left;border-bottom: 1px solid #dfdfdf}
-    .highlights ul {float: none;width: 100%;border-bottom: none;padding-top: 10px;}
-    .structure, header nav, #base ul, #blog_single .structure {width: 480px !important;}
-    #gallery, #slides {width: 480px;}
-    #portfolio_ind article {width: 100% !important}
-    #about, #more, #hideaways, #social, #latest {width: 460px;}
-    #resume h4, #resume h4 em, #resume div dl {width: 450px}
-    #social, aside, #base h3 {width: 440px !important;}
-    header li a {padding: 8px 8px;font-size: 12px;}
-    header ul {padding-right: 4px;}
-    header h1 {float: left;top: 16px;left: 15px;}
-    header h1 a{width: 33px;height: 32px;}
-    .photo_left {margin: 0 10px 20px 10px;}
-    .structure h2 {padding: 20px 0 10px 10px;}
-    #index .structure h3 {padding-right: 20px;padding-left: 20px;font-size: 14px;}
-    .slide img {max-width: 480px;height: 321px;}
-    #slides {width: 480px;height:396px;}
-    .structure p {padding: 0px 15px 20px 15px;}
-    #about {float: left;padding: 40px 10px 0px 20px;}
-    #about p {text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
-    #ph a {display: inline !important;text-decoration: underline !important;color: blue !important;}
-    aside {display: block;float: none;padding: 0 0px 0px 0px;}
-    #pieces li:nth-child(3n+3) {margin-right: 20px;}
-    #pieces {padding: 20px 0 40px 20px;position: relative;right: 10px;overflow: hidden;left: 0px;}
-    #pieces li {width: 210px;height: 140px;}
-    #pieces a {width: 210px;height: 140px;}
-    #pieces img {width: 210px;height: 140px;}
-    #pieces div {width: 210px;height: 140px;}
-    #pieces h4 {padding-top: 60px;font-size: 18px;}
-    #portfolio_ind article {padding: 20px 0px 20px 0px;float: none;}
-    #portfolio_ind aside {position: relative;left: 15px;width: 440px !important;}
-    #biography #social, #biography aside {padding: 0px 0px 10px 0;}
-    #copy p {line-height: 1.5;padding: 20px 10px;}
-    #subcontact {float: none;}
-    #introc {padding-left: 0px !important;}
-    .photo_left {margin: 0 0 20px 15px;float: none;bottom: 0px;}
-    #introh {padding-left: 15px;padding-top: 50px;}
-    #tagline {padding: 0 20px 20px 15px;}
+    .intro {font-size: 2.5em;}
+    .tagline {font-size: 1.2em;}
+    .history {column-count: 1;}
+    .title, .cvh {padding: 1.5em 0;margin: 0.5em 1em 0 auto;}
+    .highlights. cvv {padding: 0 1.5em;}
+    .portdeets {padding-bottom: 2em;}
+    .pieces {grid-template-columns: repeat(3, 1fr);}
+    /* Must modernize to grid */
+    #gallery, #slides {width: 768px;}
+    #gallery {position: relative;right: 14px;}
+    .slide img {max-width: 740px;height: 496px;}
 }
-@media only screen and (max-width: 480px) {
-    .structure, header nav, #base ul, #blog_single .structure {width: 320px !important;}
+
+@media only screen and (max-width: 650px) {
+    article {display: block;}
+    .intro {padding: 0.5em 0;font-size: 2.5em;}
+    .tagline {font-size: 1em;}
+    .title {text-align: left;}
+    .img {padding: 1em 0;margin: 0;}
+    .pieces {grid-template-columns: repeat(2, 1fr);}
+    /* Must modernize to grid */
     #gallery, #slides {width: 320px;}
-    #social, aside, #base h3 {width: 300px !important;}
-    header li a {padding: 8px 8px;font-size: 12px;}
-    header ul {padding-right: 4px;}
-    header h1 {float: left;top: 16px;left: 5px;}
-    header h1 a {width: 33px;height: 32px;}
     .slide img {max-width: 320px;height: 214px;}
     #slides {width: 320px;height:264px;}
-    .structure p {padding: 0px 0 20px 0;font-size: 14px;}
-    #about {float: left;padding: 40px 10px 0px 20px;}
-    #about p {text-align: center;padding-left: 0px;padding-bottom: 20px;padding-right: 20px;}
-    #ph a {display: inline !important;text-decoration: underline !important;color: blue !important;}
-    aside {display: block;float: none;padding: 0 0px 0px 0px;}
-    #biography #social, #biography aside {padding: 0px 0px 15px 0;margin-left: 0px;position: relative;left: 0px;}
-    #pieces {padding: 20px 0 40px 10px;left: 0px;}
-    #pieces li {width: 300px;height: 200px;}
-    #pieces a {width: 300px;height: 200px;}
-    #pieces img {width: 300px;height: 200px;}
-    #pieces div {width: 300px;height: 200px;}
-    #pieces h4 {padding-top: 100px;font-size: 24px;}
-    #portfolio_ind article {padding: 20px 0px 20px 0px;float: none;}
-    #portfolio_ind aside {position: relative;right: 30px;left: 0px;width: 300px !important;}
-    #hideaways {padding: 30px 20px 20px 20px;margin: 0;}
-    #hideaways ul {padding-left: 68px;}
-    #hideaways ul li:nth-child(3) {padding-right: 150px;margin-bottom: 10px;}
-    #social {margin: 0 auto;padding: 0px 0px 20px 0px;}
-    #biography aside {padding-bottom: 5px;}
-    #copy p {line-height: 1.5;padding: 20px 10px;}
-    .design span {background-image: none !important;box-shadow: none;}
-    .business span {background-image: none !important;box-shadow: none;}
-    .it span {background-image: none !important;box-shadow: none;}
-    .development span {background-image: none !important;box-shadow: none;}
-    #introc {padding-left: 0px !important;}
-    aside dt {padding: 0 0 5px 0;}
-    .photo_left {margin: 0 0 20px 0px;float: none;bottom: 0px;}
-    #introh {padding-left: 0px;padding-top: 50px;font-size: 32px;}
-    #tagline {padding: 0 20px 20px 0px;font-size: 14px;}
-
 }
