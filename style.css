@@ -209,6 +209,7 @@ article {
     grid-column-end: 13;
     grid-row-start: 2;
     grid-row-end: 3;
+    font-size: 1em;
 }
 .img {
     grid-column-start: 1;
