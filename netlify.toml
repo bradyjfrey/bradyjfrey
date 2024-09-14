@@ -8,3 +8,15 @@ force = true
 from = "/*"
 to = "/error.html"
 status = 404
+
+[[redirects]]
+from = "/old/"
+to = "https://www.bradyjfrey.com"
+status = 301
+force = true
+
+[[redirects]]
+from = "/old/randyvo/index.html"
+to = "https://www.bradyjfrey.com"
+status = 301
+force = true
