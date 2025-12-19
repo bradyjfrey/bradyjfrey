@@ -18,3 +18,8 @@ status = 301
 from = "/old/randyvo"
 to = "https://www.bradyjfrey.com"
 status = 301
+
+[[redirects]]
+from = "/about"
+to = "https://www.bradyjfrey.com"
+status = 301
