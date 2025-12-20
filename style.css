@@ -345,6 +345,69 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .pieces p {color: white;padding: 0 1em 1em 1em;text-shadow: 0px 0px 3px black;font-size: 0.85em;}
 .pieces strong {text-transform: uppercase;opacity: .5;font-weight: normal;}
 
+
+.recent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    padding: 0;
+    margin: 0;
+}
+.recent li {
+    list-style-type: none;
+}
+.recent img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    right: 1em;
+}
+
+@media only screen and (max-width: 650px) {
+    .recent {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/**** Masonry Layout ****/
+.arch_mas {
+    padding-top: 2.5em;
+}
+.masonry {
+    columns: 3;
+    column-gap: 1em;
+    padding: 0;
+    margin: 0;
+}
+.masonry li {
+    list-style-type: none;
+    break-inside: avoid;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.masonry img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    right: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .masonry {
+        columns: 3;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .masonry {
+        columns: 2;
+    }
+}
+
 /**** Slides ****/
 /*** Must move to proper grid ***/
 .slideh {padding-top: 1em;}
