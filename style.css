@@ -416,6 +416,8 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .research-list li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-top: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    z-index: 1; 
 }
 .research-list li a {
     display: block;
@@ -424,29 +426,51 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     font-family: var(--font-secondary);
     font-size: 1em;
     text-transform: none;
-    font-weight: 100;
     max-width: 960px;
     margin: 0 auto;
     padding: 0 1.5em;
     text-align: left;
 }
-.research-list li a:hover {}
+.research-list li a:hover {
+    color: black;
+}
 .research-list li cite {
     font-style: normal;
     padding-top: 1em;
     display: block;
+    font-size: 1.5em;
 }
-.research-list li em {}
+.research-list li em {
+    font-weight: normal;
+}
 .research-list li p {
     margin: 0;
     padding: 1em 0;
+    font-weight: normal;
+    font-family: var(--font-primary);
+    display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      box-orient: vertical;
+      overflow: hidden;
 }
 .research-list li {
-  margin-inline: calc(-50vw + 50%);
-  padding-inline: calc(50vw - 50%);
+    margin-inline: calc(-50vw + 50%);
+    padding-inline: calc(50vw - 50%);
 }
 .research-list li:has(a:hover) {
     background: rgba(0, 0, 0, 0.05);
+}
+.research-list li a::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #f4f4f4 98%);
+    z-index: 100; 
 }
 
 
