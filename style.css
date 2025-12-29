@@ -529,10 +529,6 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .unpublishedworks figure + p {
     text-indent: 0;
 }
-sup + sup::before {
-    content: ", ";
-    font-size: 0.7em;
-}
 .unpublishedworks footer {
     background-color: transparent;
 }
