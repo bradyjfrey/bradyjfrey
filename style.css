@@ -412,6 +412,7 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 /**** Research Page ****/
 .research-list {
     list-style: none;
+    background-color: white;
 }
 .research-list li {
     position: relative;
@@ -459,7 +460,7 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     padding-inline: calc(50vw - 50%);
 }
 .research-list li:has(a:hover) {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.1);
 }
 .readmore {
     color: #ffffff;
@@ -478,9 +479,9 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     background-color: black;
 }
 .researchn {
-    font-family: "Archer A", "Archer B";
+    font-family: "WhitneyInd B R Bold A", "WhitneyInd B R Bold B";
     font-style: normal;
-    font-weight: 800;
+    font-weight: 400;
 }
 
 
