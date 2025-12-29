@@ -487,6 +487,59 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     color: #424e57;
 }
 
+
+/**** Unpublished Working Papers ****/
+.unpublishedworks h2 {
+    font-size: var(--text-xxxl);
+    font-family: var(--font-primary);
+    font-weight: 100;
+}
+.unpublishedworks h3 {
+    font-size: var(--text-md);
+    padding-top: 1em;
+}
+.abstractp {
+    font-style: italic;
+}
+.unpublishedworks blockquote {
+    padding: 0 1.5em 1em 1.5em;
+    font-style: italic;
+}
+.unpublishedworks ul, .unpublishedworks ol {
+    margin: 1em 0 1em 2.5em;
+    padding: 0;
+}
+.unpublishedworks p {
+    padding-bottom: 0;
+}
+.unpublishedworks p + p {
+    text-indent: 1.5em;
+}
+.unpublishedworks blockquote + p,
+.unpublishedworks ul + p,
+.unpublishedworks ol + p,
+.unpublishedworks figure + p {
+    text-indent: 0;
+}
+.unpublishedworks footer {
+    background-color: transparent;
+}
+.unpublishedworks h4 {
+    border-top: 1px solid white;
+    padding: 1em 0 0 0;
+}
+.unpublishedworks footer ol {
+    font-size: var(--text-sm);
+}
+.unpublishedworks footer li {
+    padding-bottom: 1em;
+}
+.unpublishedworks footer li::marker {
+    font-weight: bold;
+    font-family: var(--font-secondary);
+}
+
+
 /**** Slides ****/
 /*** Must move to proper grid ***/
 .slideh {padding-top: 1em;}
