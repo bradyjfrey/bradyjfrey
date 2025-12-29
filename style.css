@@ -501,11 +501,13 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .abstracth {
     border-top: 3px double rgba(0, 0, 0, 0.1);
     padding-top: 1em !important;
+    font-size: var(--text-sm) !important;
 }
 .abstractp {
     font-style: italic;
     border-bottom: 3px double rgba(0, 0, 0, 0.1);
     padding-bottom: 1.25em !important;
+    font-size: var(--text-sm);
 }
 .unpublishedworks blockquote {
     padding: 0 1.5em 1em 1.5em;
@@ -526,6 +528,10 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .unpublishedworks ol + p,
 .unpublishedworks figure + p {
     text-indent: 0;
+}
+sup + sup::before {
+    content: ", ";
+    font-size: 0.7em;
 }
 .unpublishedworks footer {
     background-color: transparent;
