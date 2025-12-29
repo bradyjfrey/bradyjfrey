@@ -482,18 +482,8 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     font-family: "WhitneyInd B R Bold A", "WhitneyInd B R Bold B";
     font-style: normal;
     font-weight: 400;
+    color: black;
 }
-.researchn2 {
-    font-family: "Archer A", "Archer B";
-    font-style: normal;
-    font-weight: 800;
-}
-.researchn3 {
-    font-family: "WhitneyInd W R Bold A", "WhitneyInd W R Bold B";
-    font-style: normal;
-    font-weight: 400;
-}
-
 
 /**** Slides ****/
 /*** Must move to proper grid ***/
