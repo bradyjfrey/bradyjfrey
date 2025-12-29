@@ -478,9 +478,9 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     background-color: black;
 }
 .researchn {
-    font-family: "WhitneyInd B R Bold A", "WhitneyInd B R Bold B";
+    font-family: "Archer Heavyweight A", "Archer Heavyweight B";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     color: rgba(0,0,0,0.25);
 }
 .research-list li a:hover .researchn {
