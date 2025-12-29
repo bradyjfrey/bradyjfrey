@@ -541,9 +541,9 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     padding-bottom: 1em;
 }
 .unpublishedworks footer li::marker {
-    font-family: "WhitneyInd B R Bold A", "WhitneyInd B R Bold B";
-    font-style: normal;
-    font-weight: 400;
+    font-weight: bold;
+    font-family: var(--font-secondary);
+    font-size: 0.75em;
 }
 
 
