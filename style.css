@@ -498,8 +498,14 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     font-size: var(--text-md);
     padding-top: 1em;
 }
+.abstracth {
+    border-top: 3px double rgba(0, 0, 0, 0.1);
+    padding-top: 1em !important;
+}
 .abstractp {
     font-style: italic;
+    border-bottom: 3px double rgba(0, 0, 0, 0.1);
+    padding-bottom: 1.25em !important;
 }
 .unpublishedworks blockquote {
     padding: 0 1.5em 1em 1.5em;
@@ -525,7 +531,7 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     background-color: transparent;
 }
 .unpublishedworks h4 {
-    border-top: 1px solid white;
+    border-top: 3px double rgba(0, 0, 0, 0.1);
     padding: 1em 0 0 0;
 }
 .unpublishedworks footer ol {
