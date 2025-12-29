@@ -477,6 +477,11 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .research-list li a:hover .readmore {
     background-color: black;
 }
+.researchn {
+    font-family: "Archer A", "Archer B";
+    font-style: normal;
+    font-weight: 800;
+}
 
 
 /**** Slides ****/
