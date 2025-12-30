@@ -562,7 +562,14 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 
 /* Fix alignment when sidenote is inside blockquote */
 blockquote .sidenote {
-    margin-right: calc(-28em - 1.5em);
+    margin-right: -28em;
+    font-style: normal;
+}
+
+/* Fix alignment and size when sidenote is inside figure */
+figure .sidenote {
+    font-size: 0.75rem;
+    text-indent: 0;
 }
 
 /* Highlight when targeted */
@@ -642,6 +649,7 @@ blockquote .sidenote {
     border-top: 3px double rgba(0, 0, 0, 0.1);
     padding-top: 1em !important;
     border: none;
+    text-shadow: none;
 }
 .abstractp {
     font-style: italic;
