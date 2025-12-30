@@ -16,6 +16,154 @@
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../images/touch180.png">
     <link rel="stylesheet" type="text/css" media="screen" href="../style.css">
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7216232/7417832/css/fonts.css">
+    <style>
+        /* Full-width band containers */
+        .title-band {
+            width: 100%;
+            background: #f4f4f4;
+            text-align: left;
+            padding-top: 5.5em;
+        }
+        .abstract-band {
+            width: 100%;
+            background: rgb(209, 209, 209);
+            text-align: left;
+        }
+        main {
+            background: white;
+            padding-top: 0;
+        }
+        /* Centered content inside bands */
+        .title-container,
+        .abstract-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5em;
+        }
+
+        /* Tufte-style sidenotes - pure CSS approach */
+        .unpublishedworks {
+            display: block;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5em 1.5em 1.5em;
+            counter-reset: sidenote-counter;
+        }
+
+        /* Constrain content width to leave room for sidenotes */
+        .unpublishedworks > *:not(.sidenote) {
+            max-width: 38em;
+        }
+
+        /* Sidenote reference styling */
+        .sidenote-ref {
+            counter-increment: sidenote-counter;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sidenote-ref::after {
+            content: counter(sidenote-counter);
+            font-size: 0.65em;
+            vertical-align: super;
+            line-height: 0;
+            color: #0066cc;
+            padding: 0 2px;
+            font-weight: 500;
+        }
+
+        /* Sidenote in margin */
+        .sidenote {
+            float: right;
+            clear: right;
+            width: 23em;
+            margin-right: -26em;
+            margin-top: 0.25rem;
+            margin-bottom: 1rem;
+            font-size: .75em;
+            line-height: 1.5;
+            font-family: var(--font-primary);
+            color: #444;
+            font-weight: normal;
+            text-transform: none;
+            text-indent: 0;
+        }
+
+        .sidenote::before {
+            content: counter(sidenote-counter) ". ";
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Fix alignment when sidenote is inside blockquote */
+        blockquote .sidenote {
+            margin-right: calc(-28em - 1.5em);
+        }
+
+        /* Highlight when targeted */
+        .sidenote:target {
+            background: #fff9c4;
+            padding: 0.5rem 0.6rem;
+            margin-left: -0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Sidenote links */
+        .sidenote a {
+            color: #555;
+            text-decoration: underline;
+            text-transform: none;
+        }
+
+        .sidenote a:hover {
+            color: #0066cc;
+            text-decoration-color: #0066cc;
+        }
+
+        /* Desktop: show sidenotes, hide endnotes */
+        @media (min-width: 960px) {
+            .endnotes {
+                display: none;
+            }
+        }
+
+        /* Mobile/Tablet: hide sidenotes, show endnotes */
+        @media (max-width: 959px) {
+            .unpublishedworks > *:not(.sidenote) {
+                max-width: 100%;
+            }
+
+            .sidenote {
+                display: none;
+            }
+
+            .endnotes {
+                display: block;
+            }
+        }
+
+        /* Skip link accessibility */
+        .skip-to-notes {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-to-notes:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            display: inline-block;
+            padding: 8px 16px;
+            background: #0066cc;
+            color: white;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .abstracth, .abstractp {border: none;}
+    </style>
 </head>
 <body>
     <header>
@@ -30,18 +178,26 @@
     </header>
 
     <main>
-        <article class="unpublishedworks">
-            <!-- Skip link for keyboard users -->
-            <a href="#endnotes" class="skip-to-notes">Skip to endnotes</a>
-            
-            <h2>On Denoting Mandarin</h2>
-            <h5 class="disclosure"><em>Unpublished Research:</em> October 23, 2023</h5>
+        <!-- Skip link for keyboard users -->
+        <a href="#endnotes" class="skip-to-notes">Skip to endnotes</a>
 
-            <section aria-label="Abstract">
+        <!-- Title and disclosure band -->
+        <div class="title-band">
+            <div class="title-container">
+                <h2>On Denoting Mandarin</h2>
+                <h5 class="disclosure"><em>Unpublished Research:</em> October 23, 2023</h5>
+            </div>
+        </div>
+
+        <!-- Abstract band -->
+        <div class="abstract-band">
+            <section class="abstract-container" aria-label="Abstract">
                 <h3 class="abstracth">Abstract</h3>
                 <p class="abstractp">Bertrand Russell's seminal <cite>On Denoting</cite> has played a central role in philosophical debates for over 100 years-asserting that phrases beginning with "the" are included in the same semantic classification as "a man, some man, any man, [and] every man." In Russell's view, definitive and indefinite descriptions are devices of quantification, not reference. While applications of Russell's Theory of Descriptions apply well in related West Germanic languages, the solution of empty names as abbreviated definite descriptions does not apply so easily in articleless languages such as Mandarin Chinese. Bare nominals and demonstrative phrases capture much of the spirit of <cite>On Denoting</cite> but struggle to achieve existence, uniqueness, and maximality claims without presupposition. The result is similar-looking definite translations, offering insight into cross-linguistic translations in Mandarin Chinese uniqueness and plurality.</p>
             </section>
-            
+        </div>
+
+        <article class="unpublishedworks">
             <section>
                 <h3>Introduction</h3>
                 <p>Russell's seminal work <cite>On Denoting</cite> has played a central role in philosophical debates for over 100 years; asserting that English phrases beginning with <i>the</i> are included in the same semantic classification as "a man, some man, any man, [and] every man".<a href="#fn1" id="fnref1" class="sidenote-ref" role="doc-noteref" aria-label="Footnote 1"></a><span class="sidenote" id="sn1" aria-hidden="true">Bertrand Russell, 1905, "II.—ON DENOTING," <cite>Mind</cite> XIV (4): 479, <a href="https://doi.org/10.1093/mind/XIV.4.479">https://doi.org/10.1093/mind/XIV.4.479</a>.</span> <cite>On Denoting</cite> was a response to the problem of empty names; where certain negative existentials, such as fictional names, were false through the use of a proper name that does not have an existing referent (e.g., Sherlock Holmes, Clark Kent, and the present King of France). Russell deemed ordinary names were not just proper names but abbreviated definite descriptions. In Russell's view, definitive descriptions (understood in the form of 'the F') and indefinite descriptions (understood in the form of 'an F') are devices of quantification, not reference.<a href="#fn2" id="fnref2" class="sidenote-ref" role="doc-noteref" aria-label="Footnote 2"></a><span class="sidenote" id="sn2" aria-hidden="true">Peter Ludlow, 2022, "Descriptions," In <cite>The Stanford Encyclopedia of Philosophy</cite>, edited by Edward N. Zalta and Uri Nodelman, Winter 2022, Metaphysics Research Lab, Stanford University, <a href="https://plato.stanford.edu/archives/win2022/entries/descriptions/">https://plato.stanford.edu/archives/win2022/entries/descriptions/</a>.</span></p>
