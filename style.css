@@ -481,6 +481,153 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 
 
 /**** Unpublished Working Papers ****/
+
+/* Full-width band containers */
+.title-band {
+    width: 100%;
+    background: #f4f4f4;
+    text-align: left;
+    padding-top: 5.5em;
+}
+.abstract-band {
+    width: 100%;
+    background: rgb(235, 235, 235);
+    text-align: left;
+}
+.fullreaders {
+    background: white;
+    padding-top: 0;
+}
+/* Centered content inside bands */
+.title-container,
+.abstract-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+/* Tufte-style sidenotes - pure CSS approach */
+.unpublishedworks {
+    display: block;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5em 1.5em 1.5em;
+    counter-reset: sidenote-counter;
+}
+
+/* Constrain content width to leave room for sidenotes */
+.unpublishedworks > *:not(.sidenote) {
+    max-width: 38em;
+}
+
+/* Sidenote reference styling */
+.sidenote-ref {
+    counter-increment: sidenote-counter;
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidenote-ref::after {
+    content: counter(sidenote-counter);
+    font-size: 0.65em;
+    vertical-align: super;
+    line-height: 0;
+    color: #0066cc;
+    padding: 0 2px;
+    font-weight: 500;
+}
+
+/* Sidenote in margin */
+.sidenote {
+    float: right;
+    clear: right;
+    width: 23em;
+    margin-right: -26em;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    font-size: .75em;
+    line-height: 1.5;
+    font-family: var(--font-primary);
+    color: #444;
+    font-weight: normal;
+    text-transform: none;
+    text-indent: 0;
+}
+
+.sidenote::before {
+    content: counter(sidenote-counter) ". ";
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Fix alignment when sidenote is inside blockquote */
+blockquote .sidenote {
+    margin-right: calc(-28em - 1.5em);
+}
+
+/* Highlight when targeted */
+.sidenote:target {
+    background: #fff9c4;
+    padding: 0.5rem 0.6rem;
+    margin-left: -0.6rem;
+    border-radius: 4px;
+}
+
+/* Sidenote links */
+.sidenote a {
+    color: #555;
+    text-decoration: underline;
+    text-transform: none;
+}
+
+.sidenote a:hover {
+    color: #0066cc;
+    text-decoration-color: #0066cc;
+}
+
+/* Desktop: show sidenotes, hide endnotes */
+@media (min-width: 960px) {
+    .endnotes {
+        display: none;
+    }
+}
+
+/* Mobile/Tablet: hide sidenotes, show endnotes */
+@media (max-width: 959px) {
+    .unpublishedworks > *:not(.sidenote) {
+        max-width: 100%;
+    }
+
+    .sidenote {
+        display: none;
+    }
+
+    .endnotes {
+        display: block;
+    }
+}
+
+/* Skip link accessibility */
+.skip-to-notes {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-to-notes:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    padding: 8px 16px;
+    background: #0066cc;
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
 .unpublishedworkst {
     font-size: var(--text-xxxl);
     font-family: var(--font-primary);
@@ -494,11 +641,13 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .abstracth {
     border-top: 3px double rgba(0, 0, 0, 0.1);
     padding-top: 1em !important;
+    border: none;
 }
 .abstractp {
     font-style: italic;
     border-bottom: 3px double rgba(0, 0, 0, 0.1);
-    padding-bottom: 1.25em !important;
+    padding-bottom: 1.5em !important;
+    border: none;
 }
 .unpublishedworks blockquote {
     padding: 0 1.5em 1em 1.5em;
@@ -541,7 +690,7 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .disclosure {
     font-family: var(--font-secondary);
     color: #ffffff;
-    margin: 0 0 1em 0;
+    margin: 0 0 2.5em 0;
     padding: 0.15em 0.5em;
     display: inline-block;
     border-radius: 2px;
