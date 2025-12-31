@@ -611,6 +611,12 @@ figure .sidenote {
     .endnotes {
         display: block;
     }
+
+    .endnotes a {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
 }
 
 /* Skip link accessibility */
