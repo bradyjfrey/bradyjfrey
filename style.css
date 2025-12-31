@@ -610,6 +610,7 @@ figure .sidenote {
 
     .endnotes {
         display: block;
+        margin-top: 1em;
     }
 
     .endnotes a {
