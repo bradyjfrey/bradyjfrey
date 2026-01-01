@@ -18,8 +18,3 @@ status = 301
 from = "/about"
 to = "https://www.bradyjfrey.com"
 status = 301
-
-[[redirects]]
-from = "/*"
-to = "https://www.bradyjfrey.com/error"
-status = 404
