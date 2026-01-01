@@ -5,11 +5,6 @@ status = 301
 force = true
 
 [[redirects]]
-from = "/*"
-to = "/error.html"
-status = 404
-
-[[redirects]]
 from = "/old"
 to = "https://www.bradyjfrey.com"
 status = 301
@@ -23,3 +18,8 @@ status = 301
 from = "/about"
 to = "https://www.bradyjfrey.com"
 status = 301
+
+[[redirects]]
+from = "/*"
+to = "https://www.bradyjfrey.com/error"
+status = 404
