@@ -645,6 +645,9 @@ figure .sidenote {
     font-size: var(--text-xxxl);
     font-family: var(--font-primary);
     font-weight: 100;
+    text-wrap: balance;
+    line-height: 1.2;
+    margin-bottom: .25em;
 }
 .unpublishedworks h3 {
     font-size: var(--text-md);
@@ -702,22 +705,50 @@ figure .sidenote {
     font-size: 0.75em;
 }
 .disclosure {
+    margin: 0 0 1em 0;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
     font-family: var(--font-secondary);
     color: #ffffff;
-    margin: 0 0 2.5em 0;
     padding: 0.15em 0.5em;
     display: inline-block;
     border-radius: 2px;
     background-color: rgb(158, 0, 0);
     text-decoration: none;
-    font-weight: normal;
     font-size: var(--text-sm);
 }
-.disclosure em {
+.res_auth {
+    padding: 0 0 1.5em 0;
+    font-weight: normal;
+    font-size: var(--text-md);
+}
+.author-photo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 10px;
+    display: inline-block;
+    border: 1px solid white;
+}
+.disc_date {
     font-style: normal;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    font-weight: bold;
+    display: block;
+    padding-bottom: 1.5em;
+}
+.date_st {
+    background-color: rgb(145, 0, 0);
+    color: white;
+}
+.date_st h5 {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0.5em 0 0.5em 1.75em;
+    text-align: left;
+    font-weight: normal;
 }
 .figurei {
     font-size: var(--text-sm);
