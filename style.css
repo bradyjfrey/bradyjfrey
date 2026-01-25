@@ -718,9 +718,11 @@ figure .sidenote {
     font-family: var(--font-secondary);
 }
 .date_st h5 {
-    width: 960px;
+    max-width: 960px;
+    width: 100%;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 0.5em 0 0.5em 1.75em;
+    padding: 0.5em 1.75em;
     text-align: left;
     font-weight: normal;
 }
