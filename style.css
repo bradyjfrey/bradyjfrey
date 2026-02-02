@@ -338,14 +338,15 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 
 
 .recent {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1em;
     padding: 0;
     margin: 0;
 }
 .recent li {
     list-style-type: none;
+    flex: 1 1 calc(50% - 0.5em);
 }
 .recent img {
     width: 100%;
@@ -356,8 +357,8 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 }
 
 @media only screen and (max-width: 650px) {
-    .recent {
-        grid-template-columns: 1fr;
+    .recent li {
+        flex: 1 1 100%;
     }
 }
 
