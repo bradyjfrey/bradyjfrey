@@ -160,7 +160,6 @@ article {
     padding: 0 1.5em 1.5em 1.5em;
     text-align: left;
     display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr, minmax(min-content, 300px));
     grid-template-rows: auto;
     column-gap: 1.5em;
     row-gap: 1em;
