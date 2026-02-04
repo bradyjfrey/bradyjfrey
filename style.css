@@ -726,6 +726,32 @@ figure .sidenote {
     text-align: left;
     font-weight: normal;
 }
+.doi {
+    background-color: #e0e0e0;
+    font-family: var(--font-secondary);
+    font-size: .75em;
+}
+.doi p {
+    max-width: 960px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0.5em 1.85em;
+    text-align: left;
+    font-weight: normal;
+    opacity: 0.5;
+}
+.doi a {
+    font-size: 1em;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 0.1em 0.3em;
+    border-radius: 2px;
+}
+.doi a:hover {
+    background: black;
+    color: white;
+}
 .figurei {
     font-size: var(--text-sm);
     font-style: normal;
