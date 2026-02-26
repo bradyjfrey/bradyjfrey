@@ -1,0 +1,38 @@
+User-agent: *
+Disallow: /zoe/
+
+User-agent: GPTBot
+Disallow: /zoe/
+
+User-agent: ChatGPT-User
+Disallow: /zoe/
+
+User-agent: Google-Extended
+Disallow: /zoe/
+
+User-agent: CCBot
+Disallow: /zoe/
+
+User-agent: anthropic-ai
+Disallow: /zoe/
+
+User-agent: ClaudeBot
+Disallow: /zoe/
+
+User-agent: Bytespider
+Disallow: /zoe/
+
+User-agent: PerplexityBot
+Disallow: /zoe/
+
+User-agent: Applebot-Extended
+Disallow: /zoe/
+
+User-agent: cohere-ai
+Disallow: /zoe/
+
+User-agent: FacebookBot
+Disallow: /zoe/
+
+User-agent: Meta-ExternalAgent
+Disallow: /zoe/

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Zoe’s New Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2c2c2c;
+    --paper: #faf8f4;
+    --accent: #3d6b8e;
+    --accent-light: #e8f0f5;
+    --warm: #c47a3a;
+    --warm-light: #faf0e6;
+    --muted: #7a7a72;
+    --rule: #ddd8d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .header-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .header-intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  h2 span {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.3rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  .tool-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .tool-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .tool-card:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+  }
+
+  .tool-card.gemini::before { background: var(--accent); }
+  .tool-card.perplexity::before { background: var(--warm); }
+
+  .tool-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .tool-card.gemini .tool-name { color: var(--accent); }
+  .tool-card.perplexity .tool-name { color: var(--warm); }
+
+  .tool-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .good-bad {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 580px) {
+    .good-bad { grid-template-columns: 1fr 1fr; }
+  }
+
+  .good-bad-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .good-bad-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+  }
+
+  .good-bad-card.good h3 { color: var(--accent); }
+  .good-bad-card.bad h3 { color: var(--warm); }
+
+  .good-bad-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .good-bad-card li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .good-bad-card li::before {
+    position: absolute;
+    left: 0; top: 0;
+    font-weight: 600;
+  }
+
+  .good-bad-card.good li::before { content: '\2713'; color: var(--accent); }
+  .good-bad-card.bad li::before { content: '\2717'; color: var(--warm); }
+  .good-bad-card li strong { font-weight: 600; color: var(--ink); }
+
+  .callout {
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .callout-warning {
+    background: var(--warm-light);
+    border-left: 4px solid var(--warm);
+  }
+
+  .callout-info {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+  }
+
+  .callout strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .callout-warning strong { color: var(--warm); }
+  .callout-info strong { color: var(--accent); }
+  .callout p { margin-bottom: 0.75rem; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .social-warning { margin-bottom: 1.25rem; }
+
+  .social-warning strong {
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .social-warning p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+
+  .rules-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: rules;
+  }
+
+  .rules-list li {
+    counter-increment: rules;
+    position: relative;
+    padding: 1rem 1rem 1rem 3.25rem;
+    margin-bottom: 0.75rem;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .rules-list li::before {
+    content: counter(rules);
+    position: absolute;
+    left: 1rem; top: 1rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent);
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  .rules-list li strong { font-weight: 600; color: var(--ink); }
+
+  .blocked {
+    background: #fdf6f6;
+    border: 1px solid #e8d0d0;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .blocked strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    color: #9b4444;
+  }
+
+  .blocked p { font-size: 0.95rem; line-height: 1.7; }
+
+  .closing {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .closing h2 {
+    border-bottom: none;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .closing p {
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 0.75rem;
+    font-size: 1.02rem;
+  }
+
+  .closing .signoff {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 520px) {
+    html { font-size: 16px; }
+    h1 { font-size: 2.2rem; }
+    .page { padding: 2rem 1.25rem 4rem; }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { max-width: 100%; padding: 0; }
+    .tool-card:hover { box-shadow: none; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="header-label">A guide from Dad</div>
+    <h1>Zoe’s New Tech</h1>
+    <p class="header-intro">You’re getting older, and like you said, it’s time to change how we handle technology. I’m loosening most of the controls on your devices because I trust you to make good decisions. This covers what’s changing, what I’d recommend, and the few things that stay off-limits and why.</p>
+  </header>
+
+  <section>
+    <h2><span>Time Restrictions</span></h2>
+    <p>School-night downtimes are still in place because we can’t monitor it every day. Once you’re consistently putting yourself to bed at reasonable hours on your own, those go away too. Weekend limits are now removed.</p>
+  </section>
+
+  <section>
+    <h2><span>Software Purchases &amp; Approvals</span></h2>
+    <p>You’re too young for a credit card, so purchases like in-game credit, new software, and game items still require our approval. As you move through high school, we’ll start introducing you to managing money on your own. For now, digital spending still goes through Apple Pay. You can earn money by helping around the house, doing chores, completing exposures, and learning to invest.</p>
+  </section>
+
+  <section>
+    <h2><span>Using AI</span></h2>
+    <p>Artificial intelligence (AI) is here to stay, and learning to use it now will help you (just like learning to type fast and code helped me at your age). Some tools aren’t well-built for you; ChatGPT has had serious safety issues with younger users, and Claude doesn’t allow users under 18. Here are two good options:</p>
+    <div class="tool-cards">
+      <div class="tool-card gemini">
+        <div class="tool-name">Google Gemini</div>
+        <p>Your everyday AI. Good for homework help, brainstorming, creative writing, answering questions, and learning new things. It has a “Guided Learning” mode that’s great for working through problems step by step, rather than just giving you the answer. Use this as your go-to.</p>
+      </div>
+      <div class="tool-card perplexity">
+        <div class="tool-name">Perplexity</div>
+        <p>A research tool. When you need sourced, cited answers for school projects or just want to dig into a topic, this is the one. It pulls from real websites and shows you where its information came from, so you can check it yourself. Think of it as a smarter search engine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>What AI Can &amp; Can’t Do</span></h2>
+    <div class="good-bad">
+      <div class="good-bad-card good">
+        <h3>Good at</h3>
+        <ul>
+          <li>Helping with homework by explaining concepts or solving problems, but not doing it for you</li>
+          <li>Explaining things in different ways until one clicks</li>
+          <li>Brainstorming ideas and helping you get unstuck</li>
+          <li>Summarizing long articles or documents</li>
+          <li>Practicing conversations (like preparing for a presentation)</li>
+          <li>Learning about topics you’re curious about</li>
+          <li>Helping you edit and improve your writing</li>
+        </ul>
+      </div>
+      <div class="good-bad-card bad">
+        <h3>Bad at</h3>
+        <ul>
+          <li><strong>Being right all the time.</strong> AI confidently says wrong things. This is called “hallucination.” Always check important facts.</li>
+          <li><strong>Replacing your own thinking.</strong> If you let AI write your essay, you didn’t learn anything.</li>
+          <li><strong>Being a therapist or a friend.</strong> It’s pattern-matching language, not actually caring. Talk to a real person.</li>
+          <li><strong>Knowing what happened today.</strong> Perplexity is better at this since it searches the web live.</li>
+          <li><strong>Math.</strong> Seriously, double-check any math it gives you.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>Social Media</span></h2>
+    <p>You already use YouTube and Discord. All social media is now open to you. There are a few things I need you to understand about these platforms:</p>
+
+    <div class="callout callout-warning">
+      <strong>People will lie to you, and worse.</strong>
+      <p>Some boys and grown men online will try to build trust with you, flatter you, or steer conversations toward personal or sexual topics. This is called grooming, and it’s deliberate. Others will say sexual or degrading things to women just because they can. You’ll encounter both.</p>
+      <p>If anyone online makes you feel special in a way that also feels secretive, that’s a red flag. If someone says something sexual or insulting to you, that’s not your fault and you won’t be in trouble for telling me.</p>
+    </div>
+
+    <div class="social-warning">
+      <strong>The images are fake.</strong>
+      <p>The beauty standards, the perfect bodies, the exciting lives; almost all of it is curated, filtered, and performed. The people posting it often don’t look or live like that either. The danger isn’t that you’ll believe one post; it’s that thousands of them slowly shift what you think is normal. It’s not.</p>
+    </div>
+
+    <div class="social-warning">
+      <strong>Protect your information.</strong>
+      <p>People will fish for details: your age, your location, your school, what you look like. The rules about hiding your real name and personal info apply doubly on social media. Don’t give anyone ways to find you in the real world.</p>
+    </div>
+
+    <div class="callout callout-info">
+      <p>If something happens on these platforms that scares you, confuses you, or just feels wrong, come to me. <strong style="display:inline; font-family:inherit; font-size:inherit; margin:0;">You will never be in trouble for telling me what happened.</strong></p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span>A Few Ground Rules</span></h2>
+    <ol class="rules-list">
+      <li><strong>Don’t share personal information.</strong> No address, school name, phone number, or photos that could identify where you are. Treat strangers online like strangers in public.</li>
+      <li><strong>Hide your real name.</strong> On video games, Reddit, social media, or forums, don’t use your real name if you don’t know the people in real life. This protects you and your family.</li>
+      <li><strong>Don’t use it to do your homework; use it to understand your homework.</strong> There’s a real difference between “write my essay on the Civil War” and “help me understand the economic causes of the Civil War so I can write about it.” Teachers can tell, and more importantly, you’re cheating yourself.</li>
+      <li><strong>Check your sources.</strong> If Perplexity cites something, click the link and make sure it actually says what the AI claims. If Gemini tells you a fact, verify it. This is a skill that’ll serve you well beyond AI.</li>
+      <li><strong>If something feels off, trust your gut.</strong> If an AI response makes you uncomfortable or seems wrong, close it and come to me. There’s nothing you could ask that would get you in trouble.</li>
+      <li><strong>It’s a tool, not a companion.</strong> AI is incredibly useful, but it’s software. It doesn’t know you, it doesn’t care about you, and it can’t replace the people in your life who do.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span>What Stays Blocked</span></h2>
+    <div class="blocked">
+      <p><strong>Character.AI and similar companion apps</strong> are off-limits. These are designed to make you feel like the AI is your friend or something more, and there’s real evidence that this can mess with your head, especially for people your age. This isn’t about trust; it’s about how those specific products are designed to abuse people. They’re engineered for engagement, not your wellbeing.</p>
+    </div>
+  </section>
+
+  <div class="closing">
+    <h2>One Last Thing</h2>
+    <p>AI is going to be a huge part of how the world works by the time you’re in college or traveling the world. Learning how to use it well, how to question it, how to spot when it’s wrong, and how to use it as a tool without depending on it is a genuine advantage. Most adults are still figuring this out. You’re getting a head start.</p>
+    <p>If you find something cool, show me. If you find something weird, tell me. I’m here to learn with you.</p>
+    <div class="signoff">Love, Dad</div>
+  </div>
+
+</div>
+</body>
+</html>
