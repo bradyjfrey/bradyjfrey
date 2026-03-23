@@ -28,12 +28,13 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     /* line-height */
     --heading-line-height: 1.5;
     --body-line-height: 1.5;
-}
-@include breakpoint(md) {
-    :root {
-        --text-base-size: 1em;
-        --text-scale-ratio: 1.25;
-    }
+
+    /* colors */
+    --color-text: #000;
+    --color-text-heading: #000;
+
+    /* spacing */
+    --space-xxs: 0;
 }
 body {
     font-size: var(--text-base-size);
