@@ -1,38 +1,51 @@
 User-agent: *
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: GPTBot
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: ChatGPT-User
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: Google-Extended
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: CCBot
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: anthropic-ai
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: ClaudeBot
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: Bytespider
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: PerplexityBot
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: Applebot-Extended
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: cohere-ai
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: FacebookBot
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
 
 User-agent: Meta-ExternalAgent
-Disallow: /zoe/
+Disallow: /daughter/
+Disallow: /mattress/
