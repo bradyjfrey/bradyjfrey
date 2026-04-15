@@ -125,12 +125,7 @@ p { margin-bottom: 1rem; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Profile Cards */
-.profile-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+/* Profile Card */
 .profile-card {
   background: white;
   border: 1px solid var(--rule);
@@ -146,19 +141,26 @@ a:hover { text-decoration: underline; }
   width: 4px;
   background: var(--accent);
 }
-.profile-card.warn::before { background: var(--warm); }
-.profile-card dt {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--accent);
-  margin-bottom: 0.15rem;
+.profile-card dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  gap: 0;
 }
-.profile-card.warn dt { color: var(--warm); }
+.profile-card dt {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  width: auto;
+  margin-right: 0.4rem;
+}
+.profile-card dt.warn { color: var(--warm); }
 .profile-card dd {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--muted);
   line-height: 1.65;
+  margin-right: 1.25rem;
 }
 
 /* Cooling Spectrum */
@@ -352,6 +354,41 @@ a:hover { text-decoration: underline; }
   color: var(--muted);
 }
 
+/* Compare Table */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.compare-table th {
+  background: var(--accent-light);
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+.compare-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  line-height: 1.5;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td:last-child {
+  font-weight: 600;
+  color: var(--warm);
+  white-space: nowrap;
+}
+
 @media (min-width: 580px) {
   h1 { font-size: 2.8rem; }
   .mattress-card { padding: 2rem 1.75rem; }
@@ -367,14 +404,14 @@ a:hover { text-decoration: underline; }
 <div class="header">
   <div class="header-label">Eastern King · Updated April 2026</div>
   <h1>Mattress Research</h1>
-  <p class="header-intro">Brady & Sheryl Frey's mattress research — sleep profiles, cooling data, and 13 mattresses ranked by recommendation strength.</p>
+  <p class="header-intro">Brady & Sheryl Frey's mattress research — sleep profiles, cooling data, and 8 mattresses ranked by recommendation strength. <a href="terms.html">References & Definitions</a></p>
 </div>
 
 </div>
 
 <nav class="jump-nav">
   <div class="jump-nav-inner">
-    <a href="#m01">01</a><a href="#m02">02</a><a href="#m03">03</a><a href="#m04">04</a><a href="#m05">05</a><a href="#m06">06</a><a href="#m07">07</a><a href="#m08">08</a><a href="#m09">09</a><a href="#m10">10</a><a href="#m11">11</a><a href="#m12">12</a><a href="#m13">13</a>
+    <a href="#m01">01</a><a href="#m02">02</a><a href="#m03">03</a><a href="#m04">04</a><a href="#m05">05</a><a href="#m06">06</a><a href="#m07">07</a><a href="#m08">08</a>
   </div>
 </nav>
 
@@ -382,14 +419,15 @@ a:hover { text-decoration: underline; }
 
 <section>
   <h2><span>Sleep Profile</span></h2>
-  <div class="profile-cards">
-    <dl class="profile-card"><dt>Size</dt><dd>Eastern King</dd></dl>
-    <dl class="profile-card"><dt>Brady</dt><dd>Side/back combo sleeper; degenerative disc disease</dd></dl>
-    <dl class="profile-card"><dt>Sheryl</dt><dd>Back sleeper; sleep apnea</dd></dl>
-    <dl class="profile-card"><dt>Firmness</dt><dd>Luxury firm / cushion firm (6–6.5/10)</dd></dl>
-    <dl class="profile-card"><dt>Construction</dt><dd>Coil/spring core for airflow; thin comfort layer</dd></dl>
-    <dl class="profile-card warn"><dt>Heat</dt><dd>Sleeps very hot; no all-foam, no dense latex</dd></dl>
-    <dl class="profile-card warn"><dt>Avoid</dt><dd>All-foam, dense latex slabs, air chambers, Saatva</dd></dl>
+  <div class="profile-card">
+    <dl>
+      <dt>Size</dt><dd>Eastern King</dd>
+      <dt>Brady</dt><dd>Side/back combo; DDD</dd>
+      <dt>Sheryl</dt><dd>Back sleeper; sleep apnea</dd>
+      <dt>Firmness</dt><dd>Luxury firm (6–6.5/10)</dd>
+      <dt>Construction</dt><dd>Coil/spring core; thin comfort layer</dd>
+      <dt class="warn">Avoid</dt><dd>All-foam, dense latex slabs, air chambers, Saatva; sleeps very hot</dd>
+    </dl>
   </div>
 </section>
 
@@ -397,15 +435,15 @@ a:hover { text-decoration: underline; }
   <h2><span>Cooling Spectrum</span></h2>
   <div class="spectrum-tier tier-coolest">
     <span class="tier-label">Coolest</span>
-    <span class="tier-names">Purple (open grid), Brooklyn Aurora Luxe (phase-change + copper), Helix Elite (GlacioTex + micro-coil air gap)</span>
+    <span class="tier-names">Purple (open grid), Brooklyn Bedding (phase-change + copper + ThermoPhase), Helix Elite/Luxe (GlacioTex + micro-coil air gap)</span>
   </div>
   <div class="spectrum-tier tier-cool">
     <span class="tier-label">Cool</span>
-    <span class="tier-names">Nolah Evolution (graphite AirFoamICE), Charles P. Rogers (Talalay latex)</span>
+    <span class="tier-names">Nolah Evolution (graphite AirFoamICE), Charles P. Rogers (Talalay latex), European Sleep Works (Talalay/Dunlop latex over coils)</span>
   </div>
   <div class="spectrum-tier tier-moderate">
     <span class="tier-label">Moderate</span>
-    <span class="tier-names">Beautyrest Black, Stearns & Foster, Serta, Sealy, DreamCloud, IKEA VATNESTRÖM</span>
+    <span class="tier-names">DreamCloud, IKEA VÅGSTRANDA</span>
   </div>
 </section>
 
@@ -439,213 +477,322 @@ a:hover { text-decoration: underline; }
 
 <section>
   <h2><span>The Research List</span></h2>
-  <p class="list-subtitle">12 mattresses across DTC, traditional, and craft brands. Sorted by recommendation strength.</p>
+  <p class="list-subtitle">8 mattresses across DTC, traditional, and craft brands. Sorted by recommendation strength.</p>
 
-  <!-- 1. Helix Midnight Elite -->
+  <!-- 1. European Sleep Works -->
   <div class="mattress-card" id="m01">
     <span class="card-rank">No. 01</span>
-    <span class="card-title">Helix Midnight Elite</span>
-    <span class="card-price">~$3,499 King</span>
-    <div class="card-meta"><a href="https://helixsleep.com/midnight-elite" target="_blank">Product Page</a></div>
-    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mancini's Sleepworld, 3062 W Jack London Blvd, Livermore, CA 94550</span></div>
+    <span class="card-title">European Sleep Works</span>
+    <span class="card-price">$2,100–$3,500 Eastern King (model dependent)</span>
+    <div class="card-meta"><a href="https://sleepworks.com/mattress/prices/" target="_blank">Mattress Prices</a></div>
+    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — 2966 Adeline St, Berkeley, CA 94703</span></div>
     <div class="card-body">
-      15.5" luxury hybrid. GlacioTex cooling cover, micro-coils in the comfort layer, high-density memory foams (4 lb and 7 lb), over pocketed coils. Single firmness at ~5.5–6/10 (medium). NapLab scored it 9.21, top 10% of all tested, with perfect 10/10 for cooling and pressure relief. 120-night trial, lifetime warranty. Swappable comfort layers if your first choice doesn't work.
+      Berkeley-based manufacturer building mattresses locally since 1970. All models use eco-certified components: Oeko-Tex and Greenguard Gold certified natural latex comfort layers, European pocketed coil bases, and stretch-knit cotton and Merino wool covers. Available in a range of firmness options. 100-day trial, 10-year full warranty. The latex-over-coils design provides the airflow you need without the dense latex slab problem you had with the Zenhaven — thin comfort layers breathe well over open coil cores. Highly rated locally with 255+ Yelp reviews; customers describe them as the most comfortable and longest-lasting mattresses they've owned, with some reporting 15–20 year lifespans.
     </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Comfort Layer</th><th>Coils</th><th>Eastern King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://sleepworks.com/mattress/alpine-classic-dunlop/" target="_blank">Alpine Classic Dunlop</a></td><td>2" Dunlop latex</td><td>1,200 pocketed basecoils</td><td>$2,100</td></tr>
+        <tr><td><a href="https://sleepworks.com/mattress/alpine-classic-latex/" target="_blank">Alpine Classic Talalay</a></td><td>2" Talalay latex</td><td>1,200 pocketed basecoils</td><td>$2,200</td></tr>
+        <tr><td><a href="https://sleepworks.com/mattress/alpine-hdm/" target="_blank">Alpine HDM</a></td><td>2" Talalay latex</td><td>2,000 HD microcoils + 1,200 basecoils</td><td>$2,700</td></tr>
+        <tr><td><a href="https://sleepworks.com/mattress/nordic-2-hdm/" target="_blank">Nordic II HDM</a></td><td>3.5" Talalay latex</td><td>4,000 HD microcoils + 1,200 basecoils</td><td>$3,500</td></tr>
+      </tbody>
+    </table>
+
     <ul class="card-bullets">
-      <li class="pro">Perfect cooling score (10/10) and perfect pressure relief score</li>
-      <li class="pro">Swappable comfort layers; one free swap if firmness is wrong</li>
-      <li class="pro">Testable at Mancini's in Livermore</li>
-      <li class="con">A 230 lb Reddit user with lower back issues found the Midnight sank too deep; swapped to Plus</li>
-      <li class="con">Single firmness only (5.5–6/10); may be too soft for your back sleeping</li>
+      <li class="pro">Handmade locally in Berkeley; test in person at the showroom</li>
+      <li class="pro">Eco-certified natural materials throughout (Oeko-Tex, Greenguard Gold)</li>
+      <li class="pro">Thin latex over coils = breathability without the dense latex heat trap</li>
+      <li class="pro">100-day trial; 10-year full warranty</li>
+      <li class="pro">Customers report 15–20 year lifespans; replaceable toppers extend life further</li>
+      <li class="con">Premium pricing; Nordic II HDM at $3,500 is among the most expensive on this list</li>
+      <li class="con">Latex comfort layer — even thin — may concern you given Zenhaven history</li>
+      <li class="con">Single retail location in Berkeley; no wide distribution</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
-        <span class="link-group-title">Expert Reviews</span>
-        <a href="https://naplab.com/mattress-reviews/helix-midnight-elite-review/" target="_blank">NapLab (9.21/10)</a>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/helix-elite-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/helix-midnight-elite-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.mattressclarity.com/reviews/helix-midnight-elite-mattress-review/" target="_blank">Mattress Clarity</a>
+        <span class="link-group-title">Product Pages</span>
+        <a href="https://sleepworks.com/mattress/alpine-classic-dunlop/" target="_blank">Alpine Classic Dunlop</a>
+        <a href="https://sleepworks.com/mattress/alpine-classic-latex/" target="_blank">Alpine Classic Talalay</a>
+        <a href="https://sleepworks.com/mattress/alpine-hdm/" target="_blank">Alpine HDM</a>
+        <a href="https://sleepworks.com/mattress/nordic-2-hdm/" target="_blank">Nordic II HDM</a>
       </div>
       <div class="link-group">
-        <span class="link-group-title">Reddit</span>
-        <a href="https://redditrecs.com/mattress/model/helix-midnight-elite" target="_blank">RedditRecs — Helix Midnight Elite Reviews</a>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=helix+midnight+elite" target="_blank">r/Mattress — Helix Midnight Elite Search</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Helix+Midnight+Elite+review" target="_blank">YouTube — Helix Midnight Elite Review</a>
+        <span class="link-group-title">Reviews</span>
+        <a href="https://www.yelp.com/biz/european-sleep-works-berkeley" target="_blank">Yelp (255+ reviews)</a>
+        <a href="https://www.berkeleyparentsnetwork.org/questions/european-sleep-works-yay-or-nay" target="_blank">Berkeley Parents Network</a>
+        <a href="https://mattressunderground.com/list-all/item/esw" target="_blank">The Mattress Underground</a>
+        <a href="https://forum.mattressunderground.com/t/european-sleep-works-experience/40092" target="_blank">Mattress Underground Forum</a>
+        <a href="https://www.beds.org/mattress/european-sleep-works-mattresses.php" target="_blank">Beds.org — ESW Reviews</a>
       </div>
     </div>
   </div>
 
-  <!-- 2. Purple Hybrid Premier 3 -->
+  <!-- 2. Helix Sleep -->
   <div class="mattress-card" id="m02">
     <span class="card-rank">No. 02</span>
-    <span class="card-title">Purple Hybrid Premier 3</span>
-    <span class="card-price">~$3,299 King</span>
-    <div class="card-meta"><a href="https://purple.com/mattresses/hybrid-premier" target="_blank">Product Page</a></div>
+    <span class="card-title">Helix Sleep</span>
+    <span class="card-price">$2,299–$3,599 King (model dependent)</span>
+    <div class="card-meta"><a href="https://helixsleep.com" target="_blank">Company Website</a></div>
+    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mancini's Sleepworld, 3062 W Jack London Blvd, Livermore, CA 94550</span></div>
+    <div class="card-body">
+      Hybrids designed by sleep scientists with foam comfort layers over zoned pocketed coils. The Luxe tier (13.5") adds a quilted pillow top and GlacioTex cooling cover; the Elite tier (15.5") adds microcoils in the comfort layer, 6" of comfort material, and GlacioTex Elite phase-change cooling. All models are CertiPUR-US and GREENGUARD Gold certified. Swappable comfort layers if your first choice doesn't work — one free swap included. Lifetime warranty on all models. Midnight models target side/combo sleepers (~5.5/10 medium); Dusk models target back/stomach sleepers (~7/10 slightly firm); Plus Luxe is built for heavier sleepers.
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Height</th><th>Firmness</th><th>Cooling</th><th>Trial</th><th>King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://helixsleep.com/products/dusk-luxe" target="_blank">Dusk Luxe</a></td><td>13.5"</td><td>7/10 (slightly firm)</td><td>GlacioTex</td><td>120 nights</td><td>$2,299</td></tr>
+        <tr><td><a href="https://helixsleep.com/products/helix-plus-luxe" target="_blank">Plus Luxe</a></td><td>13.5"</td><td>7/10 (slightly firm)</td><td>GlacioTex</td><td>100 nights</td><td>$2,299</td></tr>
+        <tr><td><a href="https://helixsleep.com/products/midnight-elite" target="_blank">Midnight Elite</a></td><td>15.5"</td><td>5.5/10 (medium)</td><td>GlacioTex Elite</td><td>120 nights</td><td>$3,599</td></tr>
+        <tr><td><a href="https://helixsleep.com/products/dusk-elite" target="_blank">Dusk Elite</a></td><td>15.5"</td><td>5.5/10 (medium)</td><td>GlacioTex Elite</td><td>100 nights</td><td>$3,599</td></tr>
+      </tbody>
+    </table>
+
+    <ul class="card-bullets">
+      <li class="pro">NapLab 9.21 (Midnight Elite), top 10% — perfect 10/10 cooling and pressure relief</li>
+      <li class="pro">Swappable comfort layers; one free swap if firmness is wrong</li>
+      <li class="pro">Testable at Mancini's in Livermore</li>
+      <li class="pro">Lifetime warranty on all models</li>
+      <li class="pro">Dusk models at 7/10 firmness may suit your back sleeping better than Midnight</li>
+      <li class="con">A 230 lb Reddit user with lower back issues found the Midnight sank too deep; swapped to Plus</li>
+      <li class="con">Midnight/Dusk Elite at $3,599 is premium pricing for a DTC brand</li>
+      <li class="con">Plus Luxe trial is only 100 nights vs. 120 on other models</li>
+    </ul>
+    <div class="card-links">
+      <div class="link-group">
+        <span class="link-group-title">Expert Reviews</span>
+        <a href="https://naplab.com/mattress-reviews/helix-midnight-elite-review/" target="_blank">NapLab — Midnight Elite (9.21/10)</a>
+        <a href="https://naplab.com/mattress-reviews/helix-dusk-elite-review/" target="_blank">NapLab — Dusk Elite</a>
+        <a href="https://naplab.com/mattress-reviews/helix-dusk-luxe-review/" target="_blank">NapLab — Dusk Luxe</a>
+        <a href="https://naplab.com/mattress-reviews/helix-plus-luxe-review/" target="_blank">NapLab — Plus Luxe (9.14/10)</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/helix-elite-mattress-review" target="_blank">Sleep Foundation — Elite</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/helix-luxe-mattress-review" target="_blank">Sleep Foundation — Luxe</a>
+        <a href="https://www.sleepadvisor.org/helix-sleep-mattress-review/" target="_blank">Sleep Advisor</a>
+        <a href="https://www.mattressclarity.com/reviews/helix-midnight-elite-mattress-review/" target="_blank">Mattress Clarity — Midnight Elite</a>
+        <a href="https://www.mattressclarity.com/reviews/helix-dusk-luxe-mattress-review/" target="_blank">Mattress Clarity — Dusk Luxe</a>
+      </div>
+      <div class="link-group">
+        <span class="link-group-title">Reddit</span>
+        <a href="https://redditrecs.com/mattress/model/helix-midnight-elite" target="_blank">RedditRecs — Helix Midnight Elite</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=helix+dusk" target="_blank">r/Mattress — Helix Dusk Search</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=helix+elite" target="_blank">r/Mattress — Helix Elite Search</a>
+      </div>
+      <div class="link-group">
+        <span class="link-group-title">YouTube</span>
+        <a href="https://www.youtube.com/results?search_query=Helix+Midnight+Elite+review" target="_blank">YouTube — Helix Midnight Elite Review</a>
+        <a href="https://www.youtube.com/results?search_query=Helix+Dusk+Elite+review" target="_blank">YouTube — Helix Dusk Elite Review</a>
+        <a href="https://www.youtube.com/results?search_query=Helix+Dusk+Luxe+review" target="_blank">YouTube — Helix Dusk Luxe Review</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Purple -->
+  <div class="mattress-card" id="m03">
+    <span class="card-rank">No. 03</span>
+    <span class="card-title">Purple</span>
+    <span class="card-price">$1,895–$3,195 King (model dependent)</span>
+    <div class="card-meta"><a href="https://purple.com/mattresses" target="_blank">All Mattresses</a></div>
     <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mattress Firm, 2498 Las Positas Rd, Livermore, CA 94551</span></div>
     <div class="card-body">
-      Completely different from memory foam. The GelFlex Grid is a hyper-elastic polymer that collapses under pressure points but stays firm everywhere else; open grid channels make it one of the coolest-sleeping materials available. 3" grid layer over responsive support coils. ~6/10 firmness. NapLab scored the Purple Hybrid 9.59 overall, #5 across all mattresses tested. Very bouncy and responsive; you sleep "on" it, not "in" it. 100-night trial, 10-year warranty. Love-it-or-hate-it feel; test in person.
+      Completely different from memory foam. Purple's GelFlex Grid is a hyper-elastic polymer that collapses under pressure points but stays firm everywhere else; open-air grid channels make it one of the coolest-sleeping materials available. Very bouncy and responsive — you sleep "on" it, not "in" it. The Purple Bed and PurplePlus are all-foam designs; the Restore and RestorePlus are hybrids with pocketed coil support cores for better airflow and edge support. The RestorePlus has a thicker 3" grid and 3-zone responsive coils for the most pressure relief and lumbar support. All models: 100-night trial, 10-year warranty. Love-it-or-hate-it feel; test in person at Mattress Firm.
     </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Height</th><th>GelFlex Grid</th><th>Support Core</th><th>King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://purple.com/mattresses/purple-bed?size=king" target="_blank">Purple Bed</a></td><td>9.25"</td><td>2"</td><td>Foam (all-foam)</td><td>$1,999</td></tr>
+        <tr><td><a href="https://purple.com/mattresses/plus?size=king" target="_blank">PurplePlus</a></td><td>11"</td><td>2"</td><td>Foam (all-foam)</td><td>$1,895</td></tr>
+        <tr><td><a href="https://purple.com/mattresses/restore?size=king" target="_blank">Restore Hybrid</a></td><td>11.5"</td><td>2"</td><td>8" pocketed coils</td><td>$2,895</td></tr>
+        <tr><td><a href="https://purple.com/mattresses/restore-plus?size=king" target="_blank">RestorePlus Hybrid</a></td><td>13"</td><td>3"</td><td>3-zone pocketed coils</td><td>$3,195</td></tr>
+      </tbody>
+    </table>
+
     <ul class="card-bullets">
       <li class="pro">Exceptional cooling; open-air grid channels unlike any foam</li>
-      <li class="pro">NapLab 9.59 — #5 overall, #2 specialty mattress</li>
       <li class="pro">Highest bounce of any mattress tested; great for repositioning with DDD</li>
+      <li class="pro">Testable at Mattress Firm in Livermore</li>
+      <li class="pro">RestorePlus 3-zone coils provide targeted lumbar support</li>
+      <li class="con">Purple Bed and PurplePlus are all-foam — no coil airflow; may sleep warmer</li>
       <li class="con">100-night trial and 10-year warranty are shortest on this list</li>
       <li class="con">Some reports of company instability and price increases</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
         <span class="link-group-title">Expert Reviews</span>
-        <a href="https://naplab.com/mattress-reviews/purple-hybrid-mattress-review/" target="_blank">NapLab (9.59/10)</a>
+        <a href="https://naplab.com/mattress-reviews/purple-restore-plus-review/" target="_blank">NapLab — RestorePlus (8.73/10)</a>
+        <a href="https://naplab.com/mattress-reviews/purple-mattress-review/" target="_blank">NapLab — Purple Bed (8.88/10)</a>
+        <a href="https://naplab.com/mattress-reviews/purple-plus-review/" target="_blank">NapLab — PurplePlus (8.38/10)</a>
+        <a href="https://naplab.com/mattress-reviews/purple-restore-review/" target="_blank">NapLab — Restore (8.16/10)</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/purple-mattress-review" target="_blank">Sleep Foundation</a>
         <a href="https://www.sleepadvisor.org/purple-hybrid-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.mattressclarity.com/reviews/purple-2-3-4/" target="_blank">Mattress Clarity</a>
+        <a href="https://www.mattressclarity.com/reviews/purple-mattress-review/" target="_blank">Mattress Clarity</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">Reddit</span>
         <a href="https://redditrecs.com/mattress/brand/purple/" target="_blank">RedditRecs — Purple Brand Reviews</a>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=purple+hybrid+premier" target="_blank">r/Mattress — Purple Hybrid Premier Search</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=purple+restore" target="_blank">r/Mattress — Purple Restore Search</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Purple+Hybrid+Premier+3+review" target="_blank">YouTube — Purple Hybrid Premier 3 Review</a>
+        <a href="https://www.youtube.com/results?search_query=Purple+RestorePlus+review" target="_blank">YouTube — Purple RestorePlus Review</a>
+        <a href="https://www.youtube.com/results?search_query=Purple+Restore+Hybrid+review" target="_blank">YouTube — Purple Restore Hybrid Review</a>
       </div>
     </div>
   </div>
 
-  <!-- 3. Purple RejuvenatePlus -->
-  <div class="mattress-card" id="m03">
-    <span class="card-rank">No. 03</span>
-    <span class="card-title">Purple RejuvenatePlus</span>
-    <span class="card-price">~$6,000+ King</span>
-    <div class="card-meta"><a href="https://purple.com/mattresses/rejuvenate-plus" target="_blank">Product Page</a></div>
-    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mattress Firm, 2498 Las Positas Rd, Livermore, CA 94551</span></div>
-    <div class="card-body">
-      Purple's luxury Rejuvenate line, replacing the Hybrid Premier. 16.5" tall with a Euro pillow top over the GelFlex Grid, adaptive foam, and zoned pocketed coils. Firmness ~6.5/10 (medium firm). Excellent lumbar support from zoning. Free white-glove delivery. 100-night trial, 10-year warranty. This is the Purple model positioned specifically for back sleepers. Test both Purples side-by-side at Mattress Firm to see which feel you prefer.
-    </div>
-    <ul class="card-bullets">
-      <li class="pro">6.5/10 firmness hits your luxury firm sweet spot exactly</li>
-      <li class="pro">Zoned coils provide targeted lumbar support; great for DDD</li>
-      <li class="pro">Free white-glove delivery included</li>
-      <li class="con">Most expensive mattress on this list by a wide margin</li>
-      <li class="con">Sleep Advisor tester rated it firmer than Purple claims (8/10 vs marketed "soft")</li>
-      <li class="con">100-night trial and 10-year warranty; shorter than competitors</li>
-    </ul>
-    <div class="card-links">
-      <div class="link-group">
-        <span class="link-group-title">Expert Reviews</span>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/purple-rejuvenate-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/purple-rejuvenateplus-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.mattressclarity.com/reviews/purple-rejuvenateplus-mattress-review/" target="_blank">Mattress Clarity</a>
-        <a href="https://sleepopolis.com/mattress-reviews/purple-rejuvenate-mattress-review/" target="_blank">Sleepopolis</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=purple+rejuvenate" target="_blank">r/Mattress — Purple Rejuvenate Search</a>
-        <a href="https://redditrecs.com/mattress/brand/purple/" target="_blank">RedditRecs — Purple Brand Reviews</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Purple+RejuvenatePlus+review" target="_blank">YouTube — Purple RejuvenatePlus Review</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4. Brooklyn Bedding Aurora Luxe -->
+  <!-- 4. Brooklyn Bedding -->
   <div class="mattress-card" id="m04">
     <span class="card-rank">No. 04</span>
-    <span class="card-title">Brooklyn Bedding Aurora Luxe</span>
-    <span class="card-price">~$1,398 King</span>
-    <div class="card-meta"><a href="https://www.brooklynbedding.com/products/aurora-luxe" target="_blank">Product Page</a></div>
+    <span class="card-title">Brooklyn Bedding</span>
+    <span class="card-price">$1,099–$1,865 King (model dependent)</span>
+    <div class="card-meta"><a href="https://brooklynbedding.com" target="_blank">Company Website</a></div>
     <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-no">No</span></div>
     <div class="card-body">
-      13.25" hybrid with phase-change cooling cover, TitanFlex foam, copper-gel memory foam, and pocketed coils. Three firmnesses: soft (4), medium-firm (6), firm (8). 120-night trial, 10-year warranty. Scored 4.5/5 on cooling tests with perfect scores in support and pressure relief. NapLab overall score 9.24, top 8%. Most affordable on this list.
+      Arizona-based DTC brand; all hybrids with zoned pocketed coil cores and three firmness options (soft 4, medium 6, firm 8). GlacioTex and phase-change cooling covers across the line, plus copper-infused foams. 120-night trial with $99 return fee, lifetime warranty on all models. The ThermoBalance is their newest flagship with triple-cooling tech and NapLab's highest score in the lineup (9.26, top 5%); the Aurora Luxe is the proven cooling specialist with copper-gel foam (NapLab 9.24, top 8%); the Spartan targets athletes with far-infrared recovery fabric; the Signature is the value entry point. All designed and assembled in the USA. GREENGUARD Gold and CertiPUR-US certified.
     </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Height</th><th>Cooling Tech</th><th>King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://brooklynbedding.com/products/signature-hybrid" target="_blank">Signature Hybrid</a></td><td>12.25"</td><td>GlacioTex cover</td><td>$1,865</td></tr>
+        <tr><td><a href="https://brooklynbedding.com/products/aurora" target="_blank">Aurora Luxe</a></td><td>13.25"</td><td>GlacioTex + copper-gel foam</td><td>$1,732</td></tr>
+        <tr><td><a href="https://brooklynbedding.com/products/brooklyn-spartan-hybrid" target="_blank">Spartan Hybrid</a></td><td>13"</td><td>FIR fabric + copper + gel + PCM</td><td>$1,099</td></tr>
+        <tr><td><a href="https://brooklynbedding.com/products/thermobalance" target="_blank">ThermoBalance</a></td><td>14"</td><td>ThermoCool cover + ThermoPhase foam + copper</td><td>$1,832</td></tr>
+      </tbody>
+    </table>
+
     <ul class="card-bullets">
-      <li class="pro">Best value; most affordable King on the list</li>
-      <li class="pro">Three firmness options to dial in your sweet spot</li>
-      <li class="pro">Phase-change cover actively regulates temperature</li>
-      <li class="con">10-year warranty (vs. lifetime from Helix Elite)</li>
+      <li class="pro">Strong value across the board; Spartan at $1,099 is the cheapest hybrid King on this list</li>
+      <li class="pro">Three firmness options on every model to dial in your sweet spot</li>
+      <li class="pro">ThermoBalance NapLab 9.26 (top 5%); Aurora Luxe 9.24 (top 8%)</li>
+      <li class="pro">120-night trial and lifetime warranty on all models</li>
       <li class="con">No showroom; online only</li>
+      <li class="con">$99 return fee if you send it back during trial</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
         <span class="link-group-title">Expert Reviews</span>
-        <a href="https://naplab.com/mattress-reviews/brooklyn-bedding-aurora-luxe-review/" target="_blank">NapLab (9.24/10)</a>
-        <a href="https://www.sleepadvisor.org/brooklyn-bedding-aurora-luxe-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/brooklyn-bedding-aurora-luxe-review" target="_blank">Sleep Foundation</a>
+        <a href="https://naplab.com/mattress-reviews/brooklyn-bedding-thermobalance-review/" target="_blank">NapLab — ThermoBalance (9.26/10)</a>
+        <a href="https://naplab.com/mattress-reviews/brooklyn-bedding-aurora-luxe-review/" target="_blank">NapLab — Aurora Luxe (9.24/10)</a>
+        <a href="https://naplab.com/mattress-reviews/brooklyn-bedding-signature-hybrid-review/" target="_blank">NapLab — Signature Hybrid (8.79/10)</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/brooklyn-bedding-aurora-luxe-review" target="_blank">Sleep Foundation — Aurora Luxe</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/brooklyn-bedding-signature-mattress-review" target="_blank">Sleep Foundation — Signature</a>
+        <a href="https://www.sleepadvisor.org/brooklyn-bedding-aurora-luxe-review/" target="_blank">Sleep Advisor — Aurora Luxe</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=aurora+luxe" target="_blank">r/Mattress — Aurora Luxe Search</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=brooklyn+bedding" target="_blank">r/Mattress — Brooklyn Bedding Search</a>
         <a href="https://redditrecs.com/mattress/brand/brooklyn-bedding/" target="_blank">RedditRecs — Brooklyn Bedding Reviews</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Brooklyn+Bedding+Aurora+Luxe+review" target="_blank">YouTube — Brooklyn Bedding Aurora Luxe Review</a>
+        <a href="https://www.youtube.com/results?search_query=Brooklyn+Bedding+Aurora+Luxe+review" target="_blank">YouTube — Aurora Luxe Review</a>
+        <a href="https://www.youtube.com/results?search_query=Brooklyn+Bedding+ThermoBalance+review" target="_blank">YouTube — ThermoBalance Review</a>
+        <a href="https://www.youtube.com/results?search_query=Brooklyn+Bedding+Spartan+review" target="_blank">YouTube — Spartan Review</a>
       </div>
     </div>
   </div>
 
-  <!-- 5. Nolah Evolution 15 -->
+  <!-- 5. Nolah -->
   <div class="mattress-card rank-mid" id="m05">
     <span class="card-rank">No. 05</span>
-    <span class="card-title">Nolah Evolution 15</span>
-    <span class="card-price">~$2,000–2,400 King</span>
-    <div class="card-meta"><a href="https://www.nolahsleep.com/nolah-evolution-15-hybrid-mattress" target="_blank">Product Page</a></div>
+    <span class="card-title">Nolah</span>
+    <span class="card-price">$2,499–$2,544 King (model dependent)</span>
+    <div class="card-meta"><a href="https://www.nolahsleep.com" target="_blank">Company Website</a></div>
     <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-no">No</span></div>
     <div class="card-body">
-      15" hybrid with Euro-top cover, proprietary AirFoamICE (graphite-infused for cooling), two dense polyfoam transitional layers, and an 8" zoned pocketed coil system. Available in plush (4–5), luxury firm (6–7), and firm (7–8). 120-night trial, lifetime warranty. Strong cooling scores across multiple review sites. "Luxury Firm" option aligns perfectly with your firmness preference.
+      Arizona-based DTC brand with three distinct approaches. The Evolution 15 is their flagship hybrid with copper-infused AirFoam, zoned Ascension coils, and three firmness options — "Luxury Firm" aligns with your preference. The Natural 11 is their eco pick: GREENGUARD Gold certified organic latex over zoned coils, scoring an exceptional 9.33 on NapLab (top 4%, 7th best overall). All models: 120-night trial, lifetime warranty. Designed and assembled in the USA.
     </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Height</th><th>Firmness</th><th>Construction</th><th>King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://www.nolahsleep.com/products/nolah-evolution-15" target="_blank">Evolution 15</a></td><td>14"</td><td>Plush / Lux Firm / Firm</td><td>AirFoam + zoned coils (hybrid)</td><td>$2,544</td></tr>
+        <tr><td><a href="https://www.nolahsleep.com/products/nolah-natural-11" target="_blank">Natural 11</a></td><td>11"</td><td>Medium-firm (6/10)</td><td>Organic latex + zoned coils (hybrid)</td><td>$2,499</td></tr>
+      </tbody>
+    </table>
+
     <ul class="card-bullets">
-      <li class="pro">Luxury Firm option matches your preferred firmness zone</li>
-      <li class="pro">Graphite-infused AirFoamICE for active heat dissipation</li>
-      <li class="pro">Lifetime warranty</li>
+      <li class="pro">Natural 11 NapLab 9.33 — top 4%, 7th best mattress tested overall</li>
+      <li class="pro">Evolution Luxury Firm option matches your preferred firmness zone</li>
+      <li class="pro">Natural 11 uses organic latex + coils for breathability without dense foam heat</li>
+      <li class="pro">Lifetime warranty and 120-night trial on all models</li>
       <li class="con">No showroom; online only</li>
-      <li class="con">Less brand recognition than traditional names</li>
+      <li class="con">$99 return pickup fee on Evolution and Natural</li>
+      <li class="con">Natural 11 uses latex — thin layer, but may concern you given Zenhaven history</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
         <span class="link-group-title">Expert Reviews</span>
-        <a href="https://naplab.com/mattress-reviews/nolah-evolution-review/" target="_blank">NapLab</a>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/nolah-evolution-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/nolah-evolution-mattress-review/" target="_blank">Sleep Advisor</a>
+        <a href="https://naplab.com/mattress-reviews/nolah-natural-mattress-review/" target="_blank">NapLab — Natural 11 (9.33/10)</a>
+        <a href="https://naplab.com/mattress-reviews/nolah-evolution-15-review/" target="_blank">NapLab — Evolution 15 (9.01/10)</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/nolah-evolution-mattress-review" target="_blank">Sleep Foundation — Evolution</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/nolah-natural-mattress-review" target="_blank">Sleep Foundation — Natural</a>
+        <a href="https://www.sleepadvisor.org/nolah-evolution-mattress-review/" target="_blank">Sleep Advisor — Evolution</a>
+        <a href="https://www.sleepadvisor.org/nolah-natural-11-mattress-review/" target="_blank">Sleep Advisor — Natural 11</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=nolah+evolution" target="_blank">r/Mattress — Nolah Evolution Search</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=nolah" target="_blank">r/Mattress — Nolah Search</a>
         <a href="https://redditrecs.com/mattress/brand/nolah/" target="_blank">RedditRecs — Nolah Reviews</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Nolah+Evolution+15+review" target="_blank">YouTube — Nolah Evolution 15 Review</a>
+        <a href="https://www.youtube.com/results?search_query=Nolah+Evolution+15+review" target="_blank">YouTube — Evolution 15 Review</a>
+        <a href="https://www.youtube.com/results?search_query=Nolah+Natural+11+review" target="_blank">YouTube — Natural 11 Review</a>
       </div>
     </div>
   </div>
 
-  <!-- 6. Charles P. Rogers Estate SE-GL -->
+  <!-- 6. Charles P. Rogers -->
   <div class="mattress-card rank-mid" id="m06">
     <span class="card-rank">No. 06</span>
-    <span class="card-title">Charles P. Rogers Estate SE-GL</span>
-    <span class="card-price">~$1,799+ King</span>
-    <div class="card-meta"><a href="https://www.charlesprogers.com/products/se-estate-mattress" target="_blank">Product Page</a></div>
+    <span class="card-title">Charles P. Rogers</span>
+    <span class="card-price">$2,349–$3,999 King (model dependent)</span>
+    <div class="card-meta"><a href="https://www.charlesprogers.com" target="_blank">Company Website</a></div>
     <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-no">No (NYC/NJ showrooms only)</span></div>
     <div class="card-body">
-      Two-part system: replaceable comfort topper over reversible base. Double-thick natural Talalay latex comfort layer over Powercore2 pocketed coils with double-strength edge coils. SE-GL is medium firm (6/10). Founded 1855; makes their own coils in-house. 100-night trial. White-glove delivery $200. When the topper wears out, replace just the top. Testers found it "buoyant and tidy rather than plush" with good midsection support. Wirecutter gave it a standalone review.
+      American manufacturer since 1855; makes their own Powercore pocketed coils in-house. All models use natural Talalay latex comfort layers over proprietary coil systems — thin latex over coils, not the dense slab you hated in the Zenhaven. The Estate SE features a two-part system with a replaceable comfort topper over a reversible base (Wirecutter reviewed). The Lifetime is the flagship: King gets two independent comfort cassettes so each side can be a different firmness, with a lifetime innerspring warranty. 180-day trial on all models (20% restocking + $200 recycling fee). White-glove delivery $200.
     </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Height</th><th>Comfort Layer</th><th>Firmness</th><th>King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://www.charlesprogers.com/products/tradition-mattresses" target="_blank">Tradition</a></td><td>13"</td><td>Organic latex + cooling gel foam</td><td>Gently firm</td><td>$2,349</td></tr>
+        <tr><td><a href="https://www.charlesprogers.com/products/se-estate-mattress" target="_blank">Estate SE / SE-GL</a></td><td>13–14"</td><td>Talalay latex (replaceable topper)</td><td>Firm (SE) / Plush (SE-GL)</td><td>$2,699</td></tr>
+        <tr><td><a href="https://www.charlesprogers.com/products/estate-lifetime" target="_blank">Estate Lifetime</a></td><td>14.25"</td><td>Talalay latex + cooling gel + nanosprings</td><td>Firm / Medium / Soft</td><td>$3,999</td></tr>
+      </tbody>
+    </table>
+
     <ul class="card-bullets">
-      <li class="pro">Replaceable topper extends mattress lifespan significantly</li>
+      <li class="pro">Estate SE replaceable topper extends mattress lifespan significantly</li>
+      <li class="pro">Estate Lifetime: split-firmness King — each side customizable independently</li>
       <li class="pro">Natural Talalay latex breathes well (not the dense type you hated in the Zenhaven)</li>
-      <li class="pro">Reversible base lets you fine-tune firmness</li>
-      <li class="con">Some reviewer concerns about long-term durability</li>
+      <li class="pro">180-day trial — longest trial period on this list</li>
+      <li class="pro">In-house coil manufacturing since 1855; Wirecutter-reviewed</li>
+      <li class="con">20% restocking fee + $200 recycling charge on returns</li>
       <li class="con">No local showroom; online purchase only from CA</li>
+      <li class="con">Some reviewer concerns about long-term durability</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
         <span class="link-group-title">Expert Reviews</span>
-        <a href="https://www.nytimes.com/wirecutter/reviews/charles-p-rogers-estate-se-mattress-review/" target="_blank">Wirecutter</a>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/charles-p-rogers-estate-se-mattress-review" target="_blank">Sleep Foundation</a>
+        <a href="https://www.nytimes.com/wirecutter/reviews/charles-p-rogers-estate-se-mattress-review/" target="_blank">Wirecutter — Estate SE</a>
+        <a href="https://www.sleepfoundation.org/mattress-reviews/charles-p-rogers-estate-se-mattress-review" target="_blank">Sleep Foundation — Estate SE</a>
         <a href="https://yawnder.com/charles-p-rogers-mattress-reviews/" target="_blank">Yawnder</a>
       </div>
       <div class="link-group">
@@ -654,222 +801,101 @@ a:hover { text-decoration: underline; }
       </div>
       <div class="link-group">
         <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Charles+P+Rogers+Estate+SE+review" target="_blank">YouTube — Charles P. Rogers Estate SE Review</a>
+        <a href="https://www.youtube.com/results?search_query=Charles+P+Rogers+Estate+mattress+review" target="_blank">YouTube — Charles P. Rogers Estate Review</a>
       </div>
     </div>
   </div>
 
-  <!-- 7. Beautyrest Black -->
-  <div class="mattress-card rank-mid" id="m07">
+  <!-- 7. DreamCloud -->
+  <div class="mattress-card rank-low" id="m07">
     <span class="card-rank">No. 07</span>
-    <span class="card-title">Beautyrest Black</span>
-    <span class="card-price">~$2,099–3,499+ King</span>
-    <div class="card-meta"><a href="https://www.beautyrest.com/products/black-hybrid-mattress" target="_blank">Product Page</a></div>
-    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mancini's Sleepworld, 3062 W Jack London Blvd, Livermore, CA 94550</span></div>
-    <div class="card-body">
-      Simmons' luxury line, redesigned 2024 with Series 1–4. Hybrid with T3 triple-stranded pocketed coils, available in firm, medium, and plush. Uses BlackICE 4.0 technology, heat-wicking SilkAIR fiber, and springs. Free white-glove delivery. 100-night trial, 10-year warranty. You liked this brand in 2015. NapLab scored the Black Hybrid at 8.56, bottom 42% of all tested. Performance doesn't match the price.
-    </div>
-    <ul class="card-bullets">
-      <li class="pro">Brand you already liked in 2015; current version has upgraded cooling</li>
-      <li class="pro">Testable at Mancini's in Livermore</li>
-      <li class="pro">Free white-glove delivery</li>
-      <li class="con">Customers report permanent indentations after 9 months to 2.5 years</li>
-      <li class="con">NapLab 8.56 — bottom 42%; poor value for the price</li>
-      <li class="con">10-year warranty only</li>
-    </ul>
-    <div class="card-links">
-      <div class="link-group">
-        <span class="link-group-title">Expert Reviews</span>
-        <a href="https://naplab.com/mattress-reviews/beautyrest-black-hybrid-review/" target="_blank">NapLab (8.56/10)</a>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/beautyrest-black-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/beautyrest-black-mattress-review/" target="_blank">Sleep Advisor</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=beautyrest+black" target="_blank">r/Mattress — Beautyrest Black Search</a>
-        <a href="https://www.slumbersearch.com/beautyrest-black-mattress-reviews" target="_blank">Slumbersearch — Independent Reviews</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Beautyrest+Black+review" target="_blank">YouTube — Beautyrest Black Review</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 8. Stearns & Foster Lux Estate -->
-  <div class="mattress-card rank-mid" id="m08">
-    <span class="card-rank">No. 08</span>
-    <span class="card-title">Stearns & Foster Lux Estate</span>
-    <span class="card-price">~$2,500–4,000+ King</span>
-    <div class="card-meta"><a href="https://www.stearnsandfoster.com/collections/lux-estate" target="_blank">Product Page</a></div>
-    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mancini's Sleepworld, 3062 W Jack London Blvd, Livermore, CA 94550</span></div>
-    <div class="card-body">
-      Traditional luxury brand (since 1846). Hybrid with IntelliCoil HD system, multiple firmness options. You tested this in 2015 (ultra firm too hard, firm too soft); current line redesigned. Available in soft, medium, and firm. Free white-glove delivery. 90-night trial, 10-year warranty. Recent Mancini's Livermore customers were happy with the medium. Worth retesting since the line has changed.
-    </div>
-    <ul class="card-bullets">
-      <li class="pro">You were close to liking this in 2015; now has a "medium" option that may split the difference</li>
-      <li class="pro">Testable at Mancini's; recent Livermore buyers praised it</li>
-      <li class="pro">Free white-glove delivery</li>
-      <li class="con">Shortest trial on this list (90 nights)</li>
-      <li class="con">10-year warranty only</li>
-    </ul>
-    <div class="card-links">
-      <div class="link-group">
-        <span class="link-group-title">Expert Reviews</span>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/stearns-and-foster-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/stearns-and-foster-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.mattressclarity.com/reviews/stearns-and-foster/" target="_blank">Mattress Clarity</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=stearns+and+foster+lux+estate" target="_blank">r/Mattress — Stearns & Foster Search</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Stearns+Foster+Lux+Estate+review" target="_blank">YouTube — Stearns & Foster Lux Estate Review</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 9. Sealy Posturepedic Plus Hybrid -->
-  <div class="mattress-card rank-low" id="m09">
-    <span class="card-rank">No. 09</span>
-    <span class="card-title">Sealy Posturepedic Plus Hybrid</span>
-    <span class="card-price">~$1,200–2,000 King</span>
-    <div class="card-meta"><a href="https://www.sealy.com/mattresses/posturepedic-plus/" target="_blank">Product Page</a></div>
-    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mancini's Sleepworld, 3062 W Jack London Blvd, Livermore, CA 94550</span></div>
-    <div class="card-body">
-      Traditional brand. Zoned support coils, multiple firmness options. More affordable entry point. Earned 5/5 for edge support, ease of movement, and both side- and back-sleeping comfort in Yahoo testing. Free white-glove delivery through retailers. 100-night trial via Mancini's, 10-year warranty.
-    </div>
-    <ul class="card-bullets">
-      <li class="pro">Strong value; affordable King option from a legacy brand</li>
-      <li class="pro">Testable at Mancini's in Livermore</li>
-      <li class="pro">5/5 scores for edge support and ease of movement</li>
-      <li class="con">Less specialized for chronic pain than Purple</li>
-      <li class="con">10-year warranty</li>
-    </ul>
-    <div class="card-links">
-      <div class="link-group">
-        <span class="link-group-title">Expert Reviews</span>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/sealy-posturepedic-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/sealy-posturepedic-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.mattressnerd.com/sealy-posturepedic-mattress-review/" target="_blank">Mattress Nerd</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=sealy+posturepedic" target="_blank">r/Mattress — Sealy Posturepedic Search</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Sealy+Posturepedic+Plus+Hybrid+review" target="_blank">YouTube — Sealy Posturepedic Plus Hybrid Review</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 10. Serta Perfect Sleeper Hybrid -->
-  <div class="mattress-card rank-low" id="m10">
-    <span class="card-rank">No. 10</span>
-    <span class="card-title">Serta Perfect Sleeper Hybrid</span>
-    <span class="card-price">~$1,500–2,500 King</span>
-    <div class="card-meta"><a href="https://www.serta.com/mattresses/perfect-sleeper" target="_blank">Product Page</a></div>
-    <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — Mancini's Sleepworld, 3062 W Jack London Blvd, Livermore, CA 94550</span></div>
-    <div class="card-body">
-      You liked the iComfort Genius Everfeel in 2015. Current hybrid line uses coil base with gel memory foam. Multiple firmness options. 120-night trial through select retailers, 10-year warranty. The hybrid construction should breathe better than the all-foam iComfort you tested a decade ago.
-    </div>
-    <ul class="card-bullets">
-      <li class="pro">Brand lineage from the iComfort you liked in 2015</li>
-      <li class="pro">Testable at Mancini's in Livermore</li>
-      <li class="pro">Hybrid coils improve airflow over old all-foam iComfort</li>
-      <li class="con">Current line is different enough from the 2015 model that your old impression may not transfer</li>
-      <li class="con">10-year warranty</li>
-    </ul>
-    <div class="card-links">
-      <div class="link-group">
-        <span class="link-group-title">Expert Reviews</span>
-        <a href="https://www.sleepfoundation.org/mattress-reviews/serta-perfect-sleeper-mattress-review" target="_blank">Sleep Foundation</a>
-        <a href="https://www.sleepadvisor.org/serta-perfect-sleeper-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://www.mattressnerd.com/serta-perfect-sleeper-mattress-review/" target="_blank">Mattress Nerd</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=serta+perfect+sleeper" target="_blank">r/Mattress — Serta Perfect Sleeper Search</a>
-      </div>
-      <div class="link-group">
-        <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=Serta+Perfect+Sleeper+Hybrid+review" target="_blank">YouTube — Serta Perfect Sleeper Hybrid Review</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 11. DreamCloud Premier -->
-  <div class="mattress-card rank-low" id="m11">
-    <span class="card-rank">No. 11</span>
-    <span class="card-title">DreamCloud Premier</span>
-    <span class="card-price">~$1,200–1,500 King</span>
-    <div class="card-meta"><a href="https://www.dreamcloudsleep.com/mattress/dreamcloud-premier" target="_blank">Product Page</a></div>
+    <span class="card-title">DreamCloud</span>
+    <span class="card-price">$1,369–$2,199 King (model dependent)</span>
+    <div class="card-meta"><a href="https://www.dreamcloudsleep.com/mattress" target="_blank">All Mattresses</a></div>
     <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-no">No</span></div>
     <div class="card-body">
-      Budget-friendly luxury hybrid. Cashmere-blend cover, gel memory foam over pocketed coils. Medium firm (~6.5/10). 365-night trial, lifetime warranty. Strong value if you want to keep spend down. Not as refined as Helix Elite, but the longest trial period on this list. Good "low-risk test" option.
+      Budget-to-mid-range hybrid line — all models use individually wrapped coils with memory foam comfort layers. The Premier Hybrid is the value sweet spot (NapLab 9.08, top 17%); the Luxe adds a tri-zone support system and phase-change cooling; the Ultra is the plushest at 15" with 5-zone support; the PressureSmart Firm targets back/stomach sleepers with a reinforced lumbar band. All models: 365-night trial (longest on this list), Forever Warranty. CertiPUR-US certified, fiberglass-free. Strong "low-risk test" option given the year-long trial.
     </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Model</th><th>Height</th><th>Firmness</th><th>Cooling</th><th>King</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://www.dreamcloudsleep.com/mattresses/premier-hybrid-mattress/king" target="_blank">Premier Hybrid</a></td><td>13"</td><td>Medium-firm</td><td>Cooling fibers</td><td>$1,369</td></tr>
+        <tr><td><a href="https://www.dreamcloudsleep.com/mattresses/luxe-hybrid-mattress/king" target="_blank">Luxe Hybrid</a></td><td>14"</td><td>Medium</td><td>Phase change + cooling fibers</td><td>$1,789</td></tr>
+        <tr><td><a href="https://www.dreamcloudsleep.com/mattresses/pressuresmart-firm-mattress/king" target="_blank">PressureSmart Firm</a></td><td>11"</td><td>Firm</td><td>CloudCool top</td><td>$1,999</td></tr>
+        <tr><td><a href="https://www.dreamcloudsleep.com/mattresses/ultra-hybrid-mattress/king" target="_blank">Ultra Hybrid</a></td><td>15"</td><td>Medium-soft</td><td>Phase change + 4x cooling fibers</td><td>$2,199</td></tr>
+      </tbody>
+    </table>
+
     <ul class="card-bullets">
-      <li class="pro">365-night trial; longest on this list</li>
-      <li class="pro">Lifetime warranty</li>
-      <li class="pro">Lowest price on the list; strong value</li>
-      <li class="con">Less refined materials than premium competitors</li>
+      <li class="pro">365-night trial — longest on this list by far</li>
+      <li class="pro">Forever Warranty on all models</li>
+      <li class="pro">Premier Hybrid NapLab 9.08 (top 17%); best value-to-performance ratio on this list</li>
+      <li class="pro">Premier at $1,369 is one of the most affordable Kings on this list</li>
       <li class="con">No showroom; online only</li>
-      <li class="con">Gel memory foam comfort layer may retain some heat (moderate cooling tier)</li>
+      <li class="con">Gel memory foam comfort layers may retain some heat (moderate cooling tier)</li>
+      <li class="con">Less refined materials than premium competitors</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
         <span class="link-group-title">Expert Reviews</span>
+        <a href="https://naplab.com/mattress-reviews/dreamcloud-premier-review/" target="_blank">NapLab — Premier Hybrid (9.08/10)</a>
+        <a href="https://naplab.com/mattress-reviews/dreamcloud-luxe-hybrid-review/" target="_blank">NapLab — Luxe Hybrid (8.86/10)</a>
+        <a href="https://naplab.com/mattress-reviews/dreamcloud-ultra-hybrid-review/" target="_blank">NapLab — Ultra Hybrid (8.55/10)</a>
         <a href="https://www.sleepfoundation.org/mattress-reviews/dreamcloud-mattress-review" target="_blank">Sleep Foundation</a>
         <a href="https://www.sleepadvisor.org/dreamcloud-mattress-review/" target="_blank">Sleep Advisor</a>
-        <a href="https://naplab.com/mattress-reviews/dreamcloud-review/" target="_blank">NapLab</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">Reddit</span>
         <a href="https://redditrecs.com/mattress/model/dreamcloud-dreamcloud" target="_blank">RedditRecs — DreamCloud Reviews</a>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=dreamcloud+premier" target="_blank">r/Mattress — DreamCloud Premier Search</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=dreamcloud" target="_blank">r/Mattress — DreamCloud Search</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=DreamCloud+Premier+review" target="_blank">YouTube — DreamCloud Premier Review</a>
+        <a href="https://www.youtube.com/results?search_query=DreamCloud+Premier+Hybrid+review" target="_blank">YouTube — DreamCloud Premier Hybrid Review</a>
+        <a href="https://www.youtube.com/results?search_query=DreamCloud+Luxe+Hybrid+review" target="_blank">YouTube — DreamCloud Luxe Hybrid Review</a>
       </div>
     </div>
   </div>
 
-  <!-- 12. IKEA VATNESTRÖM -->
-  <div class="mattress-card rank-low" id="m12">
-    <span class="card-rank">No. 12</span>
-    <span class="card-title">IKEA VATNESTRÖM</span>
-    <span class="card-price">~$1,049 King</span>
-    <div class="card-meta"><a href="https://www.ikea.com/us/en/p/vatnestroem-pocket-spring-mattress-medium-firm-natural-10493935/" target="_blank">Product Page</a></div>
+  <!-- 8. IKEA VÅGSTRANDA -->
+  <div class="mattress-card rank-low" id="m08">
+    <span class="card-rank">No. 08</span>
+    <span class="card-title">IKEA VÅGSTRANDA</span>
+    <span class="card-price">~$649 King</span>
+    <div class="card-meta"><a href="https://www.ikea.com/us/en/p/vagstranda-pocket-spring-mattress-medium-firm-white-20511873/" target="_blank">Product Page</a></div>
     <div class="card-showroom"><span class="showroom-label">Showroom: </span><span class="showroom-yes">Yes — IKEA Emeryville, 4400 Shellmound St, Emeryville, CA 94608</span></div>
     <div class="card-body">
-      10.25" pocket spring mattress with natural materials: 100% cotton cover, latex-infused foam comfort layer, linen and viscose blend transition layer, and fabric-wrapped pocket coil base. Medium firm. Five comfort zones for hip and shoulder support with natural spine alignment. Made in Germany. Comes compressed in a box; compatible with adjustable beds. 90-night trial, 10-year warranty. You already like the HAUGSVAR in the guest room — this is IKEA's premium step up with natural materials and better airflow through the pocket spring design.
+      11" double-layer pocket spring mattress with a soft stretch fabric cover and foam cushioning layer. Available in plush, medium firm, and firm. The innovative double-layer pocket spring system adjusts as you move during sleep, helping keep your spine aligned with minimal motion transfer to your partner. Seven comfort zones provide targeted support for hips and shoulders. 90-day trial, 10-year warranty. You already like the HAUGSVAR in the guest room — the VÅGSTRANDA is IKEA's step up with a more advanced dual-spring system and better zoned support.
     </div>
     <ul class="card-bullets">
       <li class="pro">You already trust IKEA — the HAUGSVAR is the only mattress everyone likes</li>
-      <li class="pro">Cheapest King on this list at $1,049</li>
-      <li class="pro">Natural materials (cotton, latex, linen) for breathability</li>
+      <li class="pro">Cheapest King on this list at $649</li>
+      <li class="pro">Three firmness options (plush, medium firm, firm) to match your preference</li>
       <li class="pro">Testable at IKEA Emeryville</li>
-      <li class="con">Not a hybrid; thinner profile at 10.25" may not provide enough support for DDD</li>
-      <li class="con">No dedicated lumbar or edge support</li>
-      <li class="con">90-night trial and 10-year warranty; no lifetime option</li>
+      <li class="pro">Seven comfort zones and dual-layer springs for spine alignment</li>
+      <li class="con">Some users report center sagging over time, especially with two sleepers of different weights</li>
+      <li class="con">Edge support concerns; some reviewers report rolling toward the center</li>
+      <li class="con">Pocket springs can be noisy; springs may catch on each other</li>
+      <li class="con">90-day trial and 10-year warranty; no lifetime option</li>
     </ul>
     <div class="card-links">
       <div class="link-group">
         <span class="link-group-title">Expert Reviews</span>
-        <a href="https://www.mattressnut.com/vatnestrom-mattress-reviews/" target="_blank">Mattress Nut</a>
+        <a href="https://naplab.com/mattress-reviews/ikea-vagstranda-review/" target="_blank">NapLab</a>
+        <a href="https://sleepiverse.com/mattress-reviews/ikea-vagstranda-mattress-review/" target="_blank">Sleepiverse</a>
+        <a href="https://dweva.com/blogs/mattress/ikea-vagstranda-pocket-spring-mattress-reviews" target="_blank">Dweva</a>
         <a href="https://www.slumbersearch.com/ikea-mattress-reviews" target="_blank">Slumbersearch — All IKEA Mattresses Ranked</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">Reddit</span>
-        <a href="https://www.reddit.com/r/Mattress/search/?q=ikea+vatnestrom" target="_blank">r/Mattress — IKEA VATNESTRÖM Search</a>
+        <a href="https://www.reddit.com/r/Mattress/search/?q=ikea+vagstranda" target="_blank">r/Mattress — IKEA VÅGSTRANDA Search</a>
       </div>
       <div class="link-group">
         <span class="link-group-title">YouTube</span>
-        <a href="https://www.youtube.com/results?search_query=IKEA+VATNESTR%C3%96M+review" target="_blank">YouTube — IKEA VATNESTRÖM Review</a>
+        <a href="https://www.youtube.com/results?search_query=IKEA+V%C3%85GSTRANDA+review" target="_blank">YouTube — IKEA VÅGSTRANDA Review</a>
       </div>
     </div>
   </div>
