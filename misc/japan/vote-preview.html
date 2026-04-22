@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Japan Trip — Voting Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2b2a28;
+  --paper: #f7f3ec;
+  --paper-shade: #efeae1;
+  --vermillion: #b8412f;
+  --vermillion-soft: #f3e1dc;
+  --muted: #555148;
+  --rule: #dcd5c8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.header-mark {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--vermillion);
+  margin-bottom: 1.25rem;
+  opacity: 0.9;
+}
+.header-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 0.9rem;
+}
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.7rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.header-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  letter-spacing: 0.4em;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  padding-left: 0.4em;
+}
+.header-intro {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* Jump Nav */
+.jump-nav {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.jump-nav-inner {
+  display: inline-flex;
+  gap: 4px;
+}
+.jump-nav a {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: none;
+  padding: 6px 14px;
+  border-radius: 2px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  transition: color 0.15s, background 0.15s;
+}
+.jump-nav a:hover {
+  color: var(--vermillion);
+  background: var(--vermillion-soft);
+}
+.jump-nav .kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 400;
+  margin-right: 4px;
+  color: var(--vermillion);
+  opacity: 0.75;
+}
+
+/* Sections */
+section {
+  margin-bottom: 4rem;
+  scroll-margin-top: 80px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.section-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: var(--vermillion);
+  letter-spacing: 0.15em;
+}
+.section-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: -1rem;
+  margin-bottom: 1.75rem;
+  font-style: italic;
+}
+
+h3 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+section > h3:first-of-type { margin-top: 0; }
+
+/* Lists */
+ol {
+  list-style: none;
+  padding: 0;
+  counter-reset: item;
+}
+li {
+  border-bottom: 1px solid var(--rule);
+  font-size: 1rem;
+  line-height: 1.65;
+  position: relative;
+  counter-increment: item;
+}
+li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--vermillion);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 1;
+}
+li:last-child {
+  border-bottom: none;
+}
+
+/* Links */
+a {
+  color: var(--vermillion);
+  text-decoration: none;
+  border-bottom: 1px solid var(--vermillion-soft);
+  transition: border-color 0.15s;
+}
+a:hover {
+  border-bottom-color: var(--vermillion);
+}
+li > a {
+  display: block;
+  padding: 0.85rem 0 0.85rem 1.9rem;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: none;
+  transition: color 0.15s, background 0.15s;
+}
+li > a:hover {
+  background: var(--vermillion-soft);
+}
+li > a:hover .entry-name {
+  color: var(--vermillion);
+}
+
+/* Entry styling — name, then descriptor */
+.entry-name {
+  font-weight: 600;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.entry-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer .mark {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vermillion);
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .page { padding: 2.5rem 1.25rem 4rem; }
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.6rem; }
+  .section-head { gap: 0.6rem; flex-wrap: wrap; }
+  .section-jp { font-size: 1rem; }
+}
+
+/* Voting prototype */
+li {
+  display: flex;
+  align-items: flex-start;
+}
+li > a { flex: 1; min-width: 0; }
+.vote-ctrl {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.65rem 0.25rem 0.65rem 1rem;
+  min-width: 3rem;
+}
+.vote-ctrl button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color 0.15s, background 0.15s;
+}
+.vote-ctrl .vote-up:hover,
+.vote-ctrl .vote-up.flash {
+  color: var(--vermillion);
+  background: var(--vermillion-soft);
+}
+.vote-ctrl .vote-down:hover,
+.vote-ctrl .vote-down.flash {
+  color: var(--ink);
+  background: var(--paper-shade);
+}
+.vote-ctrl .score {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 1.5ch;
+  text-align: center;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+li[data-score^="-"] .score { color: var(--muted); }
+
+.arrow-inline {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--vermillion);
+  font-weight: 700;
+}
+
+.mode-controls {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mode-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 0.35rem;
+}
+.mode-btn, .mode-reset {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 4px 10px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.mode-btn:hover, .mode-reset:hover {
+  border-color: var(--vermillion);
+  color: var(--vermillion);
+}
+.mode-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.mode-reset {
+  margin-left: 0.6rem;
+  color: var(--muted);
+}
+
+/* View Transitions: smooth reorder */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.35s;
+  }
+}
+
+@media (max-width: 600px) {
+  .vote-ctrl { min-width: 3.25rem; padding-left: 0.5rem; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <span class="header-mark" aria-hidden="true"></span>
+    <div class="header-label">Voting Prototype</div>
+    <h1>Things to Do in Japan</h1>
+    <div class="header-jp" aria-hidden="true">日本旅行</div>
+    <p class="header-intro">Click <span class="arrow-inline">&#8593;</span> or <span class="arrow-inline">&#8595;</span> on any row to vote. Votes live only in this tab &mdash; refresh to reset.</p>
+    <div class="mode-controls">
+      <span class="mode-label">Ordering:</span>
+      <button type="button" class="mode-btn is-active" data-mode="stable">Stable order</button>
+      <button type="button" class="mode-btn" data-mode="sorted">Reorder by score</button>
+      <button type="button" class="mode-reset" title="Clear all votes">Reset</button>
+    </div>
+  </header>
+
+  <nav class="jump-nav">
+    <div class="jump-nav-inner">
+      <a href="#tokyo"><span class="kanji">東京</span>Tokyo</a>
+      <a href="#kyoto"><span class="kanji">京都</span>Kyoto</a>
+      <a href="#nara"><span class="kanji">奈良</span>Nara</a>
+      <a href="#osaka"><span class="kanji">大阪</span>Osaka</a>
+    </div>
+  </nav>
+
+  <section id="tokyo">
+    <div class="section-head">
+      <h2>Tokyo</h2>
+      <span class="section-jp" aria-hidden="true">東京</span>
+    </div>
+
+    <h3>Anime, Gaming &amp; Youth Culture</h3>
+    <ol>
+      <li data-vote-id="ufotable-cafe-tokyo" data-score="0"><a href="https://www.ufotable.co.jp/cafe/ufo-tokyo/"><span class="entry-name">ufotable Cafe Tokyo</span><span class="entry-desc">: Demon Slayer collab cafe, Akihabara; reservation only via LivePocket.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="pokemon-center-tokyo-dx-pokemon-cafe" data-score="0"><a href="https://www.pokemoncenter-online.com/?l=en-PCT2"><span class="entry-name">Pok&eacute;mon Center Tokyo DX &amp; Pok&eacute;mon Cafe</span><span class="entry-desc">: Nihonbashi Takashimaya; cafe needs advance reservation.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="pokemon-center-shibuya" data-score="0"><a href="https://www.pokemoncenter-online.com/?l=en-PCSB"><span class="entry-name">Pok&eacute;mon Center Shibuya</span><span class="entry-desc">: Shibuya PARCO 6th floor; Mewtwo statue, Pok&eacute;mon Design Lab.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="pokemon-store-tokyo-station" data-score="0"><a href="https://www.tokyoeki-1bangai.co.jp/street/character"><span class="entry-name">Pok&eacute;mon Store Tokyo Station</span><span class="entry-desc">: Tokyo Character Street; exclusive Stationmaster Pikachu.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="nintendo-tokyo" data-score="0"><a href="https://www.nintendo.com/jp/officialstore/index.html"><span class="entry-name">Nintendo Tokyo</span><span class="entry-desc">: Shibuya PARCO 6th floor.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="warner-bros-studio-tour-tokyo" data-score="0"><a href="https://www.wbstudiotour.jp/en/"><span class="entry-name">Warner Bros. Studio Tour Tokyo</span><span class="entry-desc">: The Making of Harry Potter, Toshimaen.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="nakano-broadway" data-score="0"><a href="https://www.gotokyo.org/en/spot/72/index.html"><span class="entry-name">Nakano Broadway</span><span class="entry-desc">: Vintage anime and manga collector mall; less touristy than Akihabara.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="akihabara-electric-town" data-score="0"><a href="https://www.gotokyo.org/en/spot/55/index.html"><span class="entry-name">Akihabara Electric Town</span><span class="entry-desc">: Animate flagship, Mandarake, retro arcades.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="harajuku-takeshita-street" data-score="0"><a href="https://www.gotokyo.org/en/spot/56/index.html"><span class="entry-name">Harajuku &amp; Takeshita Street</span><span class="entry-desc">: Youth fashion, kawaii culture.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="shibuya-sky" data-score="0"><a href="https://www.shibuya-scramble-square.com/sky/en/"><span class="entry-name">Shibuya Sky</span><span class="entry-desc">: Observation deck atop Shibuya Scramble Square.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="shinjuku-3d-cat-cross-shinjuku-vision" data-score="0"><a href="https://xs-vision.jp/"><span class="entry-name">Shinjuku 3D Cat (Cross Shinjuku Vision)</span><span class="entry-desc">: Giant calico cat on a curved LED screen at Shinjuku Station's east exit; free to view. Dedicated Cat Channel plays on the hour and at :15, :30, :45.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="sanrio-puroland" data-score="0"><a href="https://en.puroland.jp/"><span class="entry-name">Sanrio Puroland</span><span class="entry-desc">: Tama; indoor kawaii theme park, Hello Kitty.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+
+    <h3>Food, Miniatures &amp; Japanese Brands</h3>
+    <ol>
+      <li data-vote-id="small-worlds-miniature-museum" data-score="0"><a href="https://smallworlds.jp/en/"><span class="entry-name">Small Worlds Miniature Museum</span><span class="entry-desc">: Ariake; 7,000 sq m of 1/80-scale dioramas including Evangelion and Sailor Moon. Pairs well with teamLab Planets.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="cupnoodles-museum-yokohama" data-score="0"><a href="https://www.cupnoodles-museum.jp/en/yokohama/"><span class="entry-name">Cupnoodles Museum Yokohama</span><span class="entry-desc">: Design your own cup; hands-on Chicken Ramen Factory where you make noodles from scratch.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="tsukiji-outer-market" data-score="0"><a href="https://www.tsukiji.or.jp/english/"><span class="entry-name">Tsukiji Outer Market</span><span class="entry-desc">: Street food, knives, kitchenware.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="toyosu-market" data-score="0"><a href="https://www.toyosu-market.or.jp/en/"><span class="entry-name">Toyosu Market</span><span class="entry-desc">: The wholesale fish market that replaced inner Tsukiji; tuna auction viewing.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="omoide-yokocho-memory-lane" data-score="0"><a href="https://shinjuku-omoide.com/"><span class="entry-name">Omoide Yokocho (Memory Lane)</span><span class="entry-desc">: Tiny yakitori and ramen alley in Shinjuku.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="golden-gai" data-score="0"><a href="https://www.gotokyo.org/en/spot/62/index.html"><span class="entry-name">Golden Gai</span><span class="entry-desc">: Shinjuku; postage-stamp-sized bars, atmospheric at dusk.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="ameyoko-market" data-score="0"><a href="https://www.gotokyo.org/en/spot/71/index.html"><span class="entry-name">Ameyoko Market</span><span class="entry-desc">: Ueno; open-air street market.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="yanaka-ginza" data-score="0"><a href="https://www.gotokyo.org/en/spot/55/index.html"><span class="entry-name">Yanaka Ginza</span><span class="entry-desc">: Old-school shopping street, retro Tokyo feel.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="tokyo-ramen-street" data-score="0"><a href="https://www.tokyoeki-1bangai.co.jp/street/ramen"><span class="entry-name">Tokyo Ramen Street</span><span class="entry-desc">: Tokyo Station basement; eight famous ramen shops in one corridor.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="don-quijote-mega-store-shibuya" data-score="0"><a href="https://www.donki-global.com/"><span class="entry-name">Don Quijote Mega Store, Shibuya</span><span class="entry-desc">: Chaotic everything-store; quintessential Japan.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="itoya-ginza" data-score="0"><a href="https://www.ito-ya.co.jp/ext/lang/en/index.html"><span class="entry-name">Itoya Ginza</span><span class="entry-desc">: 12-floor stationery flagship.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="daiso-harajuku-flagship" data-score="0"><a href="https://www.daiso-sangyo.co.jp/en/"><span class="entry-name">Daiso Harajuku Flagship</span><span class="entry-desc">: 100-yen store.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="hands-shibuya" data-score="0"><a href="https://info.hands.net/en/list/shibuya/"><span class="entry-name">Hands Shibuya</span><span class="entry-desc">: Eclectic Japanese department store, formerly Tokyu Hands.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+
+    <h3>Culture, Temples &amp; Museums</h3>
+    <ol>
+      <li data-vote-id="senso-ji-temple" data-score="0"><a href="https://www.senso-ji.jp/english/"><span class="entry-name">Sens&#333;-ji Temple</span><span class="entry-desc">: Asakusa; Tokyo's oldest, Nakamise shopping street en route.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="meiji-jingu" data-score="0"><a href="https://www.meijijingu.or.jp/en/"><span class="entry-name">Meiji Jing&#363;</span><span class="entry-desc">: Shinto shrine inside a 100-acre forest, central Tokyo.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="tokyo-national-museum" data-score="0"><a href="https://www.tnm.jp/?lang=en"><span class="entry-name">Tokyo National Museum</span><span class="entry-desc">: Ueno; flagship national collection.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="imperial-palace-east-gardens" data-score="0"><a href="https://www.kunaicho.go.jp/e-event/higashigyoen02.html"><span class="entry-name">Imperial Palace East Gardens</span><span class="entry-desc">: Free; ruins of Edo Castle.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="nezu-museum" data-score="0"><a href="https://www.nezu-muse.or.jp/en/"><span class="entry-name">Nezu Museum</span><span class="entry-desc">: Aoyama; Asian art plus a beautiful traditional garden.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="hama-rikyu-gardens" data-score="0"><a href="https://www.tokyo-park.or.jp/teien/en/hama-rikyu/"><span class="entry-name">Hama-riky&#363; Gardens</span><span class="entry-desc">: Edo-period garden on Tokyo Bay; teahouse on an island.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="mori-art-museum" data-score="0"><a href="https://www.mori.art.museum/en/"><span class="entry-name">Mori Art Museum</span><span class="entry-desc">: Roppongi Hills; contemporary.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="teamlab-borderless" data-score="0"><a href="https://www.teamlab.art/e/tokyo/"><span class="entry-name">teamLab Borderless</span><span class="entry-desc">: Azabudai Hills; the new flagship.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="teamlab-planets" data-score="0"><a href="https://www.teamlab.art/e/planets/"><span class="entry-name">teamLab Planets</span><span class="entry-desc">: Toyosu; water rooms, Floating Flower Garden.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+  </section>
+
+  <section id="kyoto">
+    <div class="section-head">
+      <h2>Kyoto</h2>
+      <span class="section-jp" aria-hidden="true">京都</span>
+    </div>
+
+    <h3>Anime, Gaming &amp; Kimono</h3>
+    <ol>
+      <li data-vote-id="pokemon-center-kyoto" data-score="0"><a href="https://www.pokemoncenter-online.com/?l=en-PCKT"><span class="entry-name">Pok&eacute;mon Center Kyoto</span><span class="entry-desc">: SUINA Muromachi; Heian-period Pikachu plushies in kimono, exclusive to this location.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kimono-rental-wargo-gion" data-score="0"><a href="https://kyotokimonorental.com/en/shop/6"><span class="entry-name">Kimono Rental Wargo Gion</span><span class="entry-desc">: Large selection, English-friendly, around 3,300 yen.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kimono-rental-okamoto" data-score="0"><a href="https://www.okamoto-kimono-en.com/"><span class="entry-name">Kimono Rental Okamoto</span><span class="entry-desc">: Five locations near Kiyomizu and Gion; over 1,000 kimonos in stock at all times.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="toei-kyoto-studio-park" data-score="0"><a href="https://www.toei-eigamura.com/global/en/"><span class="entry-name">T&#333;ei Kyoto Studio Park</span><span class="entry-desc">: Uzumasa; samurai-drama backlot you can walk through, ninja shows.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kyoto-international-manga-museum" data-score="0"><a href="https://www.kyotomm.jp/en/"><span class="entry-name">Kyoto International Manga Museum</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+
+    <h3>Food, Markets &amp; Atmosphere</h3>
+    <ol>
+      <li data-vote-id="nishiki-market" data-score="0"><a href="https://www.kyoto-nishiki.or.jp/en/"><span class="entry-name">Nishiki Market</span><span class="entry-desc">: Kyoto's Kitchen; 400-meter covered market.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="sanjo-kai-shotengai" data-score="0"><a href="https://www.sanjyokai.kyoto.jp/"><span class="entry-name">Sanj&#333;-kai Shotengai</span><span class="entry-desc">: Local covered shopping arcade; less touristed than Nishiki, where locals actually shop.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="pontocho-alley" data-score="0"><a href="https://ja.kyoto.travel/komafuda/show.php?id=2203&amp;lang=en"><span class="entry-name">Pontocho Alley</span><span class="entry-desc">: Lantern-lit dining alley along the Kamogawa.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="sannen-zaka-ninen-zaka" data-score="0"><a href="https://www.insidekyoto.com/ninen-zaka-and-sannen-zaka-preserved-districts"><span class="entry-name">Sannen-zaka &amp; Ninen-zaka</span><span class="entry-desc">: Preserved sloped streets en route to Kiyomizu; full of food, sweets, and crafts.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="demachi-futaba" data-score="0"><a href="http://www.kyogashi.info/"><span class="entry-name">Demachi Futaba</span><span class="entry-desc">: Legendary mame mochi shop, Imadegawa.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="arabica-higashiyama" data-score="0"><a href="https://arabica.coffee/en/"><span class="entry-name">Arabica Higashiyama</span><span class="entry-desc">: The original location of the global coffee export.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="wife-husband-cafe" data-score="0"><a href="https://www.wifeandhusband.jp/"><span class="entry-name">Wife &amp; Husband Cafe</span><span class="entry-desc">: Kitaoji, near the Kamo River; reservation-required coffee shop that also rents picnic baskets with thermos, cups, tablecloth, and folding chairs for a riverbank picnic. 90-minute rental around &yen;500.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+
+    <h3>Temples, Gardens &amp; History</h3>
+    <ol>
+      <li data-vote-id="kinkaku-ji" data-score="0"><a href="https://www.shokoku-ji.jp/en/kinkakuji/"><span class="entry-name">Kinkaku-ji</span><span class="entry-desc">: The Golden Pavilion.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="ginkaku-ji" data-score="0"><a href="https://www.shokoku-ji.jp/en/ginkakuji/"><span class="entry-name">Ginkaku-ji</span><span class="entry-desc">: The Silver Pavilion; start of the Philosopher's Path.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="ryoan-ji" data-score="0"><a href="https://www.ryoanji.jp/top.html"><span class="entry-name">Ry&#333;an-ji</span><span class="entry-desc">: The iconic Zen rock garden.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="fushimi-inari-taisha" data-score="0"><a href="https://inari.jp/en/"><span class="entry-name">Fushimi Inari Taisha</span><span class="entry-desc">: The red torii tunnel; go early or at dusk.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kiyomizu-dera" data-score="0"><a href="https://www.kiyomizudera.or.jp/en/"><span class="entry-name">Kiyomizu-dera</span><span class="entry-desc">: World Heritage Site; the wooden stage with city views.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="arashiyama" data-score="0"><a href="https://www.tenryuji.com/en/"><span class="entry-name">Arashiyama</span><span class="entry-desc">: Bamboo Grove, Tenry&#363;-ji, and Iwatayama Monkey Park.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="okochi-sanso-villa-garden" data-score="0"><a href="https://www.okochi-sanso.com/"><span class="entry-name">&#332;k&#333;chi Sans&#333; Villa &amp; Garden</span><span class="entry-desc">: Arashiyama; the former mountain villa of silent-film actor Denjir&#333; &#332;k&#333;chi, up past the bamboo grove. Paid entry but significantly less crowded; admission includes matcha and a sweet.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="sanjusangen-do" data-score="0"><a href="https://www.sanjusangendo.jp/"><span class="entry-name">Sanj&#363;sangen-d&#333;</span><span class="entry-desc">: 1,001 standing Kannon statues.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="nijo-castle" data-score="0"><a href="https://nijo-jocastle.city.kyoto.lg.jp/?lang=en"><span class="entry-name">Nij&#333; Castle</span><span class="entry-desc">: Tokugawa shogun's Kyoto residence; nightingale floors.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kyoto-imperial-palace-kyoto-gyoen-national-garden" data-score="0"><a href="https://sankan.kunaicho.go.jp/english/"><span class="entry-name">Kyoto Imperial Palace &amp; Kyoto Gyoen National Garden</span><span class="entry-desc">: Free; the palace proper is a guided tour, surrounding gardens are open for walking.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="to-ji" data-score="0"><a href="https://toji.or.jp/en/"><span class="entry-name">T&#333;-ji</span><span class="entry-desc">: Five-story pagoda, walking distance from Kyoto Station.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="daitoku-ji" data-score="0"><a href="https://kyoto.travel/en/shrine_temple/138.html"><span class="entry-name">Daitoku-ji</span><span class="entry-desc">: Sub-temple complex, less crowded, Zen gardens.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kyoto-national-museum" data-score="0"><a href="https://www.kyohaku.go.jp/eng/"><span class="entry-name">Kyoto National Museum</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="philosopher-s-path" data-score="0"><a href="https://kyoto.travel/en/destinations/philosophers-path-tetsugakunomichi/"><span class="entry-name">Philosopher's Path</span><span class="entry-desc">: Canal-side walk between Ginkaku-ji and Nanzen-ji; cherry trees.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="murin-an-garden" data-score="0"><a href="https://murin-an.jp/en/"><span class="entry-name">Murin-an Garden</span><span class="entry-desc">: Higashiyama/Okazaki; Meiji-era stroll garden designed by Ogawa Jihei VII, uses the Higashiyama mountains as borrowed scenery. Historically significant as the site of the 1903 pre-Russo-Japanese War council.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kyoto-railway-museum" data-score="0"><a href="https://www.kyotorailwaymuseum.jp/en/"><span class="entry-name">Kyoto Railway Museum</span><span class="entry-desc">: 53 trains including steam locomotives; great model dioramas.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kamo-river-northern-walk" data-score="0"><a href="https://www.japan.travel/en/spot/1183/"><span class="entry-name">Kamo River Northern Walk</span><span class="entry-desc">: Free; walking north from the Gion and Pontocho area along the Kamogawa gets progressively quieter and more local.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+  </section>
+
+  <section id="nara">
+    <div class="section-head">
+      <h2>Nara</h2>
+      <span class="section-jp" aria-hidden="true">奈良</span>
+    </div>
+    <p class="section-note">Easy day trip from Kyoto, about 45 minutes.</p>
+    <ol>
+      <li data-vote-id="todai-ji" data-score="0"><a href="https://www.todaiji.or.jp/en/"><span class="entry-name">T&#333;dai-ji</span><span class="entry-desc">: Great Buddha hall; one of the world's largest wooden structures.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="nara-park" data-score="0"><a href="https://www.pref.nara.jp/dd_aspx_menuid-1690.htm"><span class="entry-name">Nara Park</span><span class="entry-desc">: 1,200-plus free-roaming deer that bow for crackers.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kasuga-taisha" data-score="0"><a href="https://www.kasugataisha.or.jp/about_en/"><span class="entry-name">Kasuga Taisha</span><span class="entry-desc">: Lantern-lined Shinto shrine.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+  </section>
+
+  <section id="osaka">
+    <div class="section-head">
+      <h2>Osaka</h2>
+      <span class="section-jp" aria-hidden="true">大阪</span>
+    </div>
+    <p class="section-note">Day trip from Kyoto, about 15 minutes by Shinkansen.</p>
+    <ol>
+      <li data-vote-id="dotonbori" data-score="0"><a href="https://www.dotonbori.or.jp/en/"><span class="entry-name">D&#333;tonbori</span><span class="entry-desc">: The iconic neon street-food strip; Glico sign, takoyaki, kushikatsu.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="kuromon-ichiba-market" data-score="0"><a href="https://kuromon.com/en"><span class="entry-name">Kuromon Ichiba Market</span><span class="entry-desc">: Osaka's Kitchen; 580 meters of stalls.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="pokemon-center-osaka-dx-pokemon-cafe" data-score="0"><a href="https://www.pokemoncenter-online.com/?l=en-PCODX"><span class="entry-name">Pok&eacute;mon Center Osaka DX &amp; Pok&eacute;mon Cafe</span><span class="entry-desc">: Shinsaibashi.</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+      <li data-vote-id="osaka-castle" data-score="0"><a href="https://www.osakacastle.net/english/"><span class="entry-name">Osaka Castle</span></a><div class="vote-ctrl"><button type="button" class="vote-up" aria-label="Upvote">&#8593;</button><span class="score">0</span><button type="button" class="vote-down" aria-label="Downvote">&#8595;</button></div></li>
+    </ol>
+  </section>
+
+  <footer>
+    <div class="mark" aria-hidden="true"></div>
+    <div>Brady, Ava, &amp; Sheryl Frey &middot; May 14&ndash;23, 2026</div>
+  </footer>
+
+</div>
+
+
+<script>
+(function () {
+  var state = {}; // { slug: score }
+  var rows = Array.prototype.slice.call(document.querySelectorAll('li[data-vote-id]'));
+  var lists = Array.prototype.slice.call(document.querySelectorAll('ol'));
+  var mode = 'stable';
+  var originalOrder = new WeakMap();
+
+  // Remember each list's original order so we can restore it.
+  lists.forEach(function (ol) {
+    originalOrder.set(ol, Array.prototype.slice.call(ol.children));
+  });
+
+  // Assign unique view-transition-names (so the browser can animate reorders).
+  rows.forEach(function (li) {
+    var slug = li.dataset.voteId.replace(/[^a-z0-9-]/g, '-');
+    li.style.viewTransitionName = 'row-' + slug;
+    state[li.dataset.voteId] = 0;
+  });
+
+  function render(li) {
+    var score = state[li.dataset.voteId];
+    li.dataset.score = score;
+    li.querySelector('.score').textContent = score;
+  }
+
+  function reorder() {
+    lists.forEach(function (ol) {
+      var sorted;
+      if (mode === 'sorted') {
+        var orig = originalOrder.get(ol);
+        sorted = orig.slice().sort(function (a, b) {
+          var diff = state[b.dataset.voteId] - state[a.dataset.voteId];
+          if (diff !== 0) return diff;
+          return orig.indexOf(a) - orig.indexOf(b);
+        });
+      } else {
+        sorted = originalOrder.get(ol);
+      }
+      sorted.forEach(function (li) { ol.appendChild(li); });
+    });
+  }
+
+  function withTransition(fn) {
+    if (document.startViewTransition) {
+      document.startViewTransition(fn);
+    } else {
+      fn();
+    }
+  }
+
+  function handleVote(e) {
+    var btn = e.target.closest('.vote-up, .vote-down');
+    if (!btn) return;
+    e.preventDefault();
+    var li = btn.closest('li[data-vote-id]');
+    if (!li) return;
+    var delta = btn.classList.contains('vote-up') ? 1 : -1;
+    state[li.dataset.voteId] += delta;
+    btn.classList.add('flash');
+    setTimeout(function () { btn.classList.remove('flash'); }, 180);
+    withTransition(function () {
+      render(li);
+      if (mode === 'sorted') reorder();
+    });
+  }
+
+  function setMode(next) {
+    if (next === mode) return;
+    mode = next;
+    document.querySelectorAll('.mode-btn').forEach(function (b) {
+      b.classList.toggle('is-active', b.dataset.mode === mode);
+    });
+    withTransition(reorder);
+  }
+
+  function reset() {
+    rows.forEach(function (li) {
+      state[li.dataset.voteId] = 0;
+      render(li);
+    });
+    withTransition(reorder);
+  }
+
+  document.addEventListener('click', handleVote);
+  document.querySelectorAll('.mode-btn').forEach(function (b) {
+    b.addEventListener('click', function () { setMode(b.dataset.mode); });
+  });
+  var resetBtn = document.querySelector('.mode-reset');
+  if (resetBtn) resetBtn.addEventListener('click', reset);
+})();
+</script>
+</body>
+</html>
