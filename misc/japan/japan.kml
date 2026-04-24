@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Japan Trip — Things to Do</name>
+    <description>May 14–23, 2026. Tokyo, Kyoto, Nara, Osaka, Yokohama.</description>
+
+    <Style id="tokyo"><IconStyle><color>ff2f41b8</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon></IconStyle></Style>
+    <Style id="kyoto"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/orange-circle.png</href></Icon></IconStyle></Style>
+    <Style id="nara"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon></IconStyle></Style>
+    <Style id="osaka"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon></IconStyle></Style>
+    <Style id="yokohama"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon></IconStyle></Style>
+
+    <Folder>
+      <name>Tokyo — 東京</name>
+
+      <Folder>
+        <name>Anime, Gaming &amp; Youth Culture</name>
+
+        <Placemark>
+          <name>ufotable Cafe Tokyo</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Demon Slayer collab cafe, Akihabara; reservation only via LivePocket. <a href="https://www.ufotable.co.jp/cafe/ufo-tokyo/">Site</a>]]></description>
+          <Point><coordinates>139.7710,35.6995,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Pokémon Center Tokyo DX &amp; Pokémon Cafe</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Nihonbashi Takashimaya; cafe needs advance reservation. <a href="https://www.pokemoncenter-online.com/?l=en-PCT2">Site</a>]]></description>
+          <Point><coordinates>139.7737,35.6813,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Pokémon Center Shibuya</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Shibuya PARCO 6th floor; Mewtwo statue, Pokémon Design Lab. <a href="https://www.pokemoncenter-online.com/?l=en-PCSB">Site</a>]]></description>
+          <Point><coordinates>139.6984,35.6630,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Pokémon Store Tokyo Station</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Tokyo Character Street; exclusive Stationmaster Pikachu. <a href="https://www.tokyoeki-1bangai.co.jp/street/character">Site</a>]]></description>
+          <Point><coordinates>139.7674,35.6811,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Nintendo Tokyo</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Shibuya PARCO 6th floor. <a href="https://www.nintendo.com/jp/officialstore/index.html">Site</a>]]></description>
+          <Point><coordinates>139.6984,35.6630,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Warner Bros. Studio Tour Tokyo</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[The Making of Harry Potter, Toshimaen. <a href="https://www.wbstudiotour.jp/en/">Site</a>]]></description>
+          <Point><coordinates>139.6423,35.7451,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Nakano Broadway</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Vintage anime and manga collector mall; less touristy than Akihabara. <a href="https://www.gotokyo.org/en/spot/72/index.html">Site</a>]]></description>
+          <Point><coordinates>139.6650,35.7078,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Akihabara Electric Town</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Animate flagship, Mandarake, retro arcades. <a href="https://www.gotokyo.org/en/spot/55/index.html">Site</a>]]></description>
+          <Point><coordinates>139.7710,35.6989,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Harajuku &amp; Takeshita Street</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Youth fashion, kawaii culture. <a href="https://www.gotokyo.org/en/spot/56/index.html">Site</a>]]></description>
+          <Point><coordinates>139.7030,35.6715,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kiddy Land Harajuku</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Five-floor character toy flagship on Omotesando — Hello Kitty, Studio Ghibli, Snoopy, Rilakkuma, Sanrio floors. <a href="https://www.kiddyland.co.jp/harajuku/">Site</a>]]></description>
+          <Point><coordinates>139.7070,35.6665,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Mipig Cafe Harajuku</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Reservation-only micro pig cafe with two Takeshita-area locations; book a timeslot online and hang out with the pigs. <a href="https://mipig.cafe/">Site</a>]]></description>
+          <Point><coordinates>139.7040,35.6705,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Shibuya Sky</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Observation deck atop Shibuya Scramble Square. <a href="https://www.shibuya-scramble-square.com/sky/en/">Site</a>]]></description>
+          <Point><coordinates>139.7016,35.6580,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Shinjuku 3D Cat (Cross Shinjuku Vision)</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Giant calico cat on a curved LED screen at Shinjuku Station's east exit; free. Cat Channel plays on the hour and at :15, :30, :45. <a href="https://xs-vision.jp/">Site</a>]]></description>
+          <Point><coordinates>139.7038,35.6913,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Sanrio Puroland</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Tama; indoor kawaii theme park, Hello Kitty. <a href="https://en.puroland.jp/">Site</a>]]></description>
+          <Point><coordinates>139.4258,35.6305,0</coordinates></Point>
+        </Placemark>
+      </Folder>
+
+      <Folder>
+        <name>Food, Miniatures &amp; Japanese Brands</name>
+
+        <Placemark>
+          <name>Small Worlds Miniature Museum</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Ariake; 7,000 sq m of 1/80-scale dioramas including Evangelion and Sailor Moon. Pairs well with teamLab Planets. <a href="https://smallworlds.jp/en/">Site</a>]]></description>
+          <Point><coordinates>139.7933,35.6334,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Cupnoodles Museum Yokohama</name>
+          <styleUrl>#yokohama</styleUrl>
+          <description><![CDATA[Design your own cup; hands-on Chicken Ramen Factory where you make noodles from scratch. <a href="https://www.cupnoodles-museum.jp/en/yokohama/">Site</a>]]></description>
+          <Point><coordinates>139.6358,35.4561,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Tsukiji Outer Market</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Street food, knives, kitchenware. <a href="https://www.tsukiji.or.jp/english/">Site</a>]]></description>
+          <Point><coordinates>139.7706,35.6656,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Toyosu Market</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[The wholesale fish market that replaced inner Tsukiji; tuna auction viewing. <a href="https://www.toyosu-market.or.jp/en/">Site</a>]]></description>
+          <Point><coordinates>139.7821,35.6459,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Omoide Yokocho (Memory Lane)</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Tiny yakitori and ramen alley in Shinjuku. <a href="https://shinjuku-omoide.com/">Site</a>]]></description>
+          <Point><coordinates>139.6999,35.6929,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Golden Gai</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Shinjuku; postage-stamp-sized bars, atmospheric at dusk. <a href="https://www.gotokyo.org/en/spot/62/index.html">Site</a>]]></description>
+          <Point><coordinates>139.7043,35.6940,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Ameyoko Market</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Ueno; open-air street market. <a href="https://www.gotokyo.org/en/spot/71/index.html">Site</a>]]></description>
+          <Point><coordinates>139.7747,35.7095,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Yanaka Ginza</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Old-school shopping street, retro Tokyo feel.]]></description>
+          <Point><coordinates>139.7658,35.7274,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Tokyo Ramen Street</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Tokyo Station basement; eight famous ramen shops in one corridor. <a href="https://www.tokyoeki-1bangai.co.jp/street/ramen">Site</a>]]></description>
+          <Point><coordinates>139.7663,35.6797,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Don Quijote Mega Store, Shibuya</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Chaotic everything-store; quintessential Japan. <a href="https://www.donki-global.com/">Site</a>]]></description>
+          <Point><coordinates>139.6998,35.6612,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Itoya Ginza</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[12-floor stationery flagship. <a href="https://www.ito-ya.co.jp/ext/lang/en/index.html">Site</a>]]></description>
+          <Point><coordinates>139.7660,35.6729,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Daiso Harajuku Flagship</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[100-yen store. <a href="https://www.daiso-sangyo.co.jp/en/">Site</a>]]></description>
+          <Point><coordinates>139.7037,35.6707,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Marion Crepes (Takeshita Street)</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[The original Harajuku crepe stand since 1976. <a href="https://www.marion.co.jp/">Site</a>]]></description>
+          <Point><coordinates>139.7040,35.6716,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Hands Shibuya</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Eclectic Japanese department store, formerly Tokyu Hands. <a href="https://info.hands.net/en/list/shibuya/">Site</a>]]></description>
+          <Point><coordinates>139.6956,35.6609,0</coordinates></Point>
+        </Placemark>
+      </Folder>
+
+      <Folder>
+        <name>Culture, Temples &amp; Museums</name>
+
+        <Placemark>
+          <name>Sensō-ji Temple</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Asakusa; Tokyo's oldest, Nakamise shopping street en route. <a href="https://www.senso-ji.jp/english/">Site</a>]]></description>
+          <Point><coordinates>139.7967,35.7148,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Meiji Jingū</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Shinto shrine inside a 100-acre forest, central Tokyo. <a href="https://www.meijijingu.or.jp/en/">Site</a>]]></description>
+          <Point><coordinates>139.6993,35.6764,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Tokyo National Museum</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Ueno; flagship national collection. <a href="https://www.tnm.jp/?lang=en">Site</a>]]></description>
+          <Point><coordinates>139.7766,35.7188,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Imperial Palace East Gardens</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Free; ruins of Edo Castle. <a href="https://www.kunaicho.go.jp/e-event/higashigyoen02.html">Site</a>]]></description>
+          <Point><coordinates>139.7574,35.6874,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Nezu Museum</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Aoyama; Asian art plus a beautiful traditional garden. <a href="https://www.nezu-muse.or.jp/en/">Site</a>]]></description>
+          <Point><coordinates>139.7165,35.6643,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Hama-rikyū Gardens</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Edo-period garden on Tokyo Bay; teahouse on an island. <a href="https://www.tokyo-park.or.jp/teien/en/hama-rikyu/">Site</a>]]></description>
+          <Point><coordinates>139.7634,35.6599,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Mori Art Museum</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Roppongi Hills; contemporary. <a href="https://www.mori.art.museum/en/">Site</a>]]></description>
+          <Point><coordinates>139.7293,35.6605,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>teamLab Borderless</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Azabudai Hills; the new flagship. <a href="https://www.teamlab.art/e/tokyo/">Site</a>]]></description>
+          <Point><coordinates>139.7407,35.6595,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>teamLab Planets</name>
+          <styleUrl>#tokyo</styleUrl>
+          <description><![CDATA[Toyosu; water rooms, Floating Flower Garden. <a href="https://www.teamlab.art/e/planets/">Site</a>]]></description>
+          <Point><coordinates>139.7902,35.6494,0</coordinates></Point>
+        </Placemark>
+      </Folder>
+    </Folder>
+
+    <Folder>
+      <name>Kyoto — 京都</name>
+
+      <Folder>
+        <name>Anime, Gaming &amp; Kimono</name>
+
+        <Placemark>
+          <name>Pokémon Center Kyoto</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[SUINA Muromachi; Heian-period Pikachu plushies in kimono, exclusive to this location. <a href="https://www.pokemoncenter-online.com/?l=en-PCKT">Site</a>]]></description>
+          <Point><coordinates>135.7599,35.0053,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kimono Rental Wargo Gion</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Large selection, English-friendly, around 3,300 yen. <a href="https://kyotokimonorental.com/en/shop/6">Site</a>]]></description>
+          <Point><coordinates>135.7774,35.0035,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kimono Rental Okamoto</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Five locations near Kiyomizu and Gion; over 1,000 kimonos in stock. <a href="https://www.okamoto-kimono-en.com/">Site</a>]]></description>
+          <Point><coordinates>135.7842,34.9961,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Tōei Kyoto Studio Park</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Uzumasa; samurai-drama backlot you can walk through, ninja shows. <a href="https://www.toei-eigamura.com/global/en/">Site</a>]]></description>
+          <Point><coordinates>135.7060,35.0159,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kyoto International Manga Museum</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[<a href="https://www.kyotomm.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7594,35.0148,0</coordinates></Point>
+        </Placemark>
+      </Folder>
+
+      <Folder>
+        <name>Food, Markets &amp; Atmosphere</name>
+
+        <Placemark>
+          <name>Nishiki Market</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Kyoto's Kitchen; 400-meter covered market. <a href="https://www.kyoto-nishiki.or.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7649,35.0049,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Sanjō-kai Shotengai</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Local covered shopping arcade; less touristed than Nishiki, where locals actually shop. <a href="https://www.sanjyokai.kyoto.jp/">Site</a>]]></description>
+          <Point><coordinates>135.7554,35.0108,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Pontocho Alley</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Lantern-lit dining alley along the Kamogawa. <a href="https://ja.kyoto.travel/komafuda/show.php?id=2203&lang=en">Site</a>]]></description>
+          <Point><coordinates>135.7707,35.0070,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Sannen-zaka &amp; Ninen-zaka</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Preserved sloped streets en route to Kiyomizu; food, sweets, and crafts. <a href="https://www.insidekyoto.com/ninen-zaka-and-sannen-zaka-preserved-districts">Site</a>]]></description>
+          <Point><coordinates>135.7815,34.9964,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Demachi Futaba</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Legendary mame mochi shop, Imadegawa. <a href="http://www.kyogashi.info/">Site</a>]]></description>
+          <Point><coordinates>135.7701,35.0303,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Arabica Higashiyama</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[The original location of the global coffee export. <a href="https://arabica.coffee/en/">Site</a>]]></description>
+          <Point><coordinates>135.7812,34.9977,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Wife &amp; Husband Cafe</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Kitaoji, near the Kamo River; reservation-required coffee shop that also rents picnic baskets with thermos, cups, tablecloth, and folding chairs. 90-minute rental around ¥500. <a href="https://www.wifeandhusband.jp/">Site</a>]]></description>
+          <Point><coordinates>135.7549,35.0398,0</coordinates></Point>
+        </Placemark>
+      </Folder>
+
+      <Folder>
+        <name>Temples, Gardens &amp; History</name>
+
+        <Placemark>
+          <name>Kinkaku-ji</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[The Golden Pavilion. <a href="https://www.shokoku-ji.jp/en/kinkakuji/">Site</a>]]></description>
+          <Point><coordinates>135.7292,35.0394,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Ginkaku-ji</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[The Silver Pavilion; start of the Philosopher's Path. <a href="https://www.shokoku-ji.jp/en/ginkakuji/">Site</a>]]></description>
+          <Point><coordinates>135.7982,35.0268,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Ryōan-ji</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[The iconic Zen rock garden. <a href="https://www.ryoanji.jp/top.html">Site</a>]]></description>
+          <Point><coordinates>135.7183,35.0345,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Fushimi Inari Taisha</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[The red torii tunnel; go early or at dusk. <a href="https://inari.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7727,34.9671,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kiyomizu-dera</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[World Heritage Site; the wooden stage with city views. <a href="https://www.kiyomizudera.or.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7850,34.9949,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Arashiyama</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Bamboo Grove, Tenryū-ji, and Iwatayama Monkey Park. <a href="https://www.tenryuji.com/en/">Site</a>]]></description>
+          <Point><coordinates>135.6718,35.0170,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Ōkōchi Sansō Villa &amp; Garden</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Arashiyama; former mountain villa of silent-film actor Denjirō Ōkōchi, up past the bamboo grove. Admission includes matcha and a sweet. <a href="https://www.okochi-sanso.com/">Site</a>]]></description>
+          <Point><coordinates>135.6682,35.0184,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Sanjūsangen-dō</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[1,001 standing Kannon statues. <a href="https://www.sanjusangendo.jp/">Site</a>]]></description>
+          <Point><coordinates>135.7719,34.9881,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Nijō Castle</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Tokugawa shogun's Kyoto residence; nightingale floors. <a href="https://nijo-jocastle.city.kyoto.lg.jp/?lang=en">Site</a>]]></description>
+          <Point><coordinates>135.7479,35.0143,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kyoto Imperial Palace &amp; Kyoto Gyoen National Garden</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Free; the palace proper is a guided tour, surrounding gardens are open for walking. <a href="https://sankan.kunaicho.go.jp/english/">Site</a>]]></description>
+          <Point><coordinates>135.7622,35.0254,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Tō-ji</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Five-story pagoda, walking distance from Kyoto Station. <a href="https://toji.or.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7478,34.9810,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Daitoku-ji</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Sub-temple complex, less crowded, Zen gardens. <a href="https://kyoto.travel/en/shrine_temple/138.html">Site</a>]]></description>
+          <Point><coordinates>135.7456,35.0428,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kyoto National Museum</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[<a href="https://www.kyohaku.go.jp/eng/">Site</a>]]></description>
+          <Point><coordinates>135.7731,34.9901,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Philosopher's Path</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Canal-side walk between Ginkaku-ji and Nanzen-ji; cherry trees. <a href="https://kyoto.travel/en/destinations/philosophers-path-tetsugakunomichi/">Site</a>]]></description>
+          <Point><coordinates>135.7952,35.0235,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Murin-an Garden</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Higashiyama/Okazaki; Meiji-era stroll garden designed by Ogawa Jihei VII, uses the Higashiyama mountains as borrowed scenery. Site of the 1903 pre-Russo-Japanese War council. <a href="https://murin-an.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7880,35.0127,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kyoto Railway Museum</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[53 trains including steam locomotives; great model dioramas. <a href="https://www.kyotorailwaymuseum.jp/en/">Site</a>]]></description>
+          <Point><coordinates>135.7474,34.9875,0</coordinates></Point>
+        </Placemark>
+
+        <Placemark>
+          <name>Kamo River Northern Walk</name>
+          <styleUrl>#kyoto</styleUrl>
+          <description><![CDATA[Walking north from Gion and Pontocho along the Kamogawa gets progressively quieter and more local. <a href="https://www.japan.travel/en/spot/1183/">Site</a>]]></description>
+          <Point><coordinates>135.7715,35.0200,0</coordinates></Point>
+        </Placemark>
+      </Folder>
+    </Folder>
+
+    <Folder>
+      <name>Nara — 奈良</name>
+      <description>Easy day trip from Kyoto, about 45 minutes.</description>
+
+      <Placemark>
+        <name>Tōdai-ji</name>
+        <styleUrl>#nara</styleUrl>
+        <description><![CDATA[Great Buddha hall; one of the world's largest wooden structures. <a href="https://www.todaiji.or.jp/en/">Site</a>]]></description>
+        <Point><coordinates>135.8398,34.6890,0</coordinates></Point>
+      </Placemark>
+
+      <Placemark>
+        <name>Nara Park</name>
+        <styleUrl>#nara</styleUrl>
+        <description><![CDATA[1,200-plus free-roaming deer that bow for crackers. <a href="https://www.pref.nara.jp/dd_aspx_menuid-1690.htm">Site</a>]]></description>
+        <Point><coordinates>135.8430,34.6851,0</coordinates></Point>
+      </Placemark>
+
+      <Placemark>
+        <name>Kasuga Taisha</name>
+        <styleUrl>#nara</styleUrl>
+        <description><![CDATA[Lantern-lined Shinto shrine. <a href="https://www.kasugataisha.or.jp/about_en/">Site</a>]]></description>
+        <Point><coordinates>135.8487,34.6815,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Osaka — 大阪</name>
+      <description>Day trip from Kyoto, about 15 minutes by Shinkansen.</description>
+
+      <Placemark>
+        <name>Dōtonbori</name>
+        <styleUrl>#osaka</styleUrl>
+        <description><![CDATA[The iconic neon street-food strip; Glico sign, takoyaki, kushikatsu. <a href="https://www.dotonbori.or.jp/en/">Site</a>]]></description>
+        <Point><coordinates>135.5015,34.6687,0</coordinates></Point>
+      </Placemark>
+
+      <Placemark>
+        <name>Kuromon Ichiba Market</name>
+        <styleUrl>#osaka</styleUrl>
+        <description><![CDATA[Osaka's Kitchen; 580 meters of stalls. <a href="https://kuromon.com/en">Site</a>]]></description>
+        <Point><coordinates>135.5058,34.6664,0</coordinates></Point>
+      </Placemark>
+
+      <Placemark>
+        <name>Pokémon Center Osaka DX &amp; Pokémon Cafe</name>
+        <styleUrl>#osaka</styleUrl>
+        <description><![CDATA[Shinsaibashi. <a href="https://www.pokemoncenter-online.com/?l=en-PCODX">Site</a>]]></description>
+        <Point><coordinates>135.5012,34.6737,0</coordinates></Point>
+      </Placemark>
+
+      <Placemark>
+        <name>Osaka Castle</name>
+        <styleUrl>#osaka</styleUrl>
+        <description><![CDATA[<a href="https://www.osakacastle.net/english/">Site</a>]]></description>
+        <Point><coordinates>135.5259,34.6873,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+  </Document>
+</kml>
