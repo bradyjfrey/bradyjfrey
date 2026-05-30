@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>All Masakuni Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#0d1318; --ink-dim:#4a5560; --ink-faint:#9ba5b0;
+    --rule:#d8dee4; --rule-strong:#8a97a5; --panel:#f4f7f9; --photo:#eef2f6;
+    --accent:#2165a8; --accent-soft:#e7eff7;
+    --display:'Fraunces',serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .page{max-width:1200px;margin:0 auto;padding:2.6rem 1.4rem 5rem;}
+  .header{display:flex;justify-content:space-between;align-items:center;gap:1rem 1.5rem;flex-wrap:wrap;padding-bottom:.6rem;margin-bottom:1.8rem;}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem;}
+  .title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;}
+  h1{font-family:var(--display);font-weight:500;font-size:3rem;line-height:.95;letter-spacing:-.01em;color:var(--ink);}
+  .tally{font-family:var(--mono);font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);text-align:right;white-space:nowrap;}
+  .tally b{color:var(--accent);}
+  .intro{max-width:680px;margin-top:1.1rem;color:var(--ink-dim);font-size:1.02rem;}
+  .intro strong{color:var(--ink);}
+  .intro code{font-family:var(--mono);font-size:.86em;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:.05em .35em;border-radius:3px;}
+
+  .pagelink{display:inline-flex;align-items:center;gap:.5em;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1.5px solid var(--accent);border-radius:4px;padding:.5em .9em;transition:background .12s,color .12s;}
+  .pagelink:hover{background:var(--accent);color:#fff;}
+
+  .legend{border-radius:5px;padding:1.4rem 1.5rem 1.2rem;margin-bottom:2.4rem;background:var(--panel);}
+  .legend h2{font-family:var(--display);font-size:1.3rem;font-weight:600;margin-bottom:.2rem;}
+  .legend .sub{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:1.1rem;}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:.55rem 1.8rem;}
+  .leg{display:flex;gap:.7rem;align-items:flex-start;}
+  .leg-code{font-family:var(--mono);font-weight:700;font-size:.78rem;color:#fff;border:1.5px solid;border-radius:3px;padding:.12em .45em;min-width:3.4em;text-align:center;flex-shrink:0;line-height:1.35;}
+  .leg-txt{display:flex;flex-direction:column;line-height:1.4;}
+  .leg-txt b{font-size:.92rem;font-weight:700;color:var(--ink);}
+  .leg-txt span{font-size:.84rem;color:var(--ink-dim);}
+  .mats{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;}
+  .mats .mats-h{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);margin-right:.4rem;}
+
+  .chip{display:inline-block;border:1.5px solid;border-radius:3px;padding:.2em .55em;width:fit-content;max-width:100%;line-height:1.35;color:#fff;overflow-wrap:break-word;font-size:.62rem;font-weight:600;letter-spacing:-.01em;}
+  .body > .chip{margin-top:auto;}
+
+  .nav{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);margin:0 -1.4rem 2.2rem;padding:.6rem 1.4rem;}
+  .nav-inner{display:flex;flex-wrap:wrap;gap:.25rem .4rem;justify-content:center;}
+  .nav a{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.02em;color:var(--ink-dim);text-decoration:none;padding:.2em .5em;border-radius:3px;display:inline-flex;gap:.35em;align-items:center;}
+  .nav a:hover{background:var(--accent-soft);color:var(--accent);}
+  .nav a em{font-style:normal;color:var(--accent);font-weight:700;}
+  .nav a.allnav{color:var(--accent);font-weight:700;}
+
+  .cat{margin-bottom:2.6rem;scroll-margin-top:3.6rem;}
+  .cat-head{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.8rem;}
+  .cat-head h2{font-family:var(--display);font-size:1.7rem;font-weight:600;letter-spacing:-.01em;}
+  .cat-count{font-family:var(--mono);font-size:.9rem;font-weight:600;color:var(--accent);}
+  .cat-intro{max-width:780px;margin-bottom:1.1rem;color:var(--ink-dim);font-size:.95rem;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:.8rem;}
+  .card{border:1px solid var(--rule);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;background:#fff;scroll-margin-top:4.5rem;}
+  .card.feat{border:2.5px solid #e0b400;background:#fff8cc;}
+  .card.feat .ph{background:#fdf3c0;}
+  .ph{background:var(--photo);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--rule);}
+  .ph img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;}
+  .body{padding:.8rem .85rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1;}
+  .model{font-family:var(--mono);font-size:.84rem;font-weight:700;letter-spacing:.02em;color:var(--accent);user-select:all;}
+  h3{font-family:var(--body);font-weight:600;font-size:.98rem;line-height:1.25;color:var(--ink);}
+  .spec{list-style:disc;padding-left:1.1em;font-family:var(--body);font-size:.82rem;color:var(--ink-dim);}
+  .spec li{padding:.05rem 0;}
+  .note{font-size:.86rem;color:var(--ink-dim);line-height:1.45;}
+
+  footer{margin-top:3rem;padding-top:1.4rem;border-top:2px solid var(--ink);color:var(--ink-dim);font-size:.82rem;line-height:1.6;}
+  footer .mono{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+  footer a{color:var(--accent);}
+
+  @media(max-width:600px){
+    h1{font-size:2.2rem;}
+    .page{padding:2rem 1.1rem 4rem;}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.6rem;}
+    .body{padding:.6rem .65rem .8rem;}
+    .legend{padding:1.1rem 1.1rem 1rem;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <h1>All Masakuni Tools</h1>
+    <a class="pagelink" href="index.html">← Back to the core five tools</a>
+  </header>
+
+  <section class="legend">
+    <div class="legend-grid">
+      <div class="leg"><span class="leg-code" style="background:#4a5560;border-color:#4a5560">0000</span><div class="leg-txt"><b>Standard carbon</b><span>The classic forged high-carbon steel. Takes a keen edge; needs oiling to prevent rust.</span></div></div><div class="leg"><span class="leg-code" style="background:#2f7d4f;border-color:#2f7d4f">0050</span><div class="leg-txt"><b>Prime carbon</b><span>Upgraded steel and finish over standard, a durable grade made for daily professional use.</span></div></div><div class="leg"><span class="leg-code" style="background:#8a6300;border-color:#8a6300">0100</span><div class="leg-txt"><b>Specially made carbon</b><span>Highest-quality, super-finished carbon steel; the top of the standard catalogue.</span></div></div><div class="leg"><span class="leg-code" style="background:#5e3f93;border-color:#5e3f93">0200</span><div class="leg-txt"><b>Type A / B / C carbon</b><span>An alternate carbon pattern offered in three weights/forms (A heavy, B wide, C small).</span></div></div><div class="leg"><span class="leg-code" style="background:#b03a2e;border-color:#b03a2e">0300</span><div class="leg-txt"><b>Custom / made-to-order</b><span>Hand-built to order in the highest class; often engraved. Expect a wait.</span></div></div><div class="leg"><span class="leg-code" style="background:#1f7a8c;border-color:#1f7a8c">0800</span><div class="leg-txt"><b>S-series (ergonomic)</b><span>A separate sub-line with reworked ergonomics and handle geometry.</span></div></div><div class="leg"><span class="leg-code" style="background:#2165a8;border-color:#2165a8">8000</span><div class="leg-txt"><b>Stainless-coated carbon</b><span>Carbon core with a stainless coating; the rust-resistant sibling of the standard tool.</span></div></div><div class="leg"><span class="leg-code" style="background:#3a3f9c;border-color:#3a3f9c">S</span><div class="leg-txt"><b>Patent series</b><span>A newer patented design sold under the MAS-S line.</span></div></div><div class="leg"><span class="leg-code" style="background:#2a2620;border-color:#2a2620">SS</span><div class="leg-txt"><b>SS premium / made-to-order</b><span>The MAS-SS premium line, made to order, finest finish.</span></div></div><div class="leg"><span class="leg-code" style="background:#8a5a2a;border-color:#8a5a2a">SW</span><div class="leg-txt"><b>Swedish special steel</b><span>Blade forged from fine Swedish steel in the Japanese-sword tradition, with stainless screw and spring.</span></div></div>
+    </div>
+  </section>
+
+  <nav class="nav"><div class="nav-inner">
+    <a href="#cat-trimming">Trimming Shears<em>40</em></a><a href="#cat-bud">Bud Trimming Shears<em>9</em></a><a href="#cat-defoliating">Defoliating Shears<em>2</em></a><a href="#cat-concave">Concave Branch Cutters<em>19</em></a><a href="#cat-wirecutter">Wire Cutters<em>19</em></a><a href="#cat-wirepliers">Wire Pliers<em>10</em></a><a href="#cat-rootcutter">Root Cutters<em>6</em></a><a href="#cat-knob">Knob Cutters<em>11</em></a><a href="#cat-saw">Pruning Saws<em>5</em></a><a href="#cat-splitter">Trunk Splitters<em>3</em></a><a href="#cat-jin">Jin Pliers<em>3</em></a><a href="#cat-grafting">Grafting Knives &amp; Chisels<em>6</em></a><a href="#cat-graving">Graving Chisels<em>3</em></a><a href="#cat-graver">Gravers<em>5</em></a><a href="#cat-pruning">Pruning Shears (2001 / 2010 / 2020)<em>7</em></a><a href="#cat-gardening">Gardening Shears<em>8</em></a><a href="#cat-tweezers">Tweezers &amp; Probes<em>14</em></a><a href="#cat-turntable">Turntables<em>7</em></a><a href="#cat-bending">Bending Tools (Jacks &amp; Levers)<em>7</em></a><a href="#cat-repotting">Repotting Tools<em>9</em></a><a href="#cat-scoop">Scoops &amp; Sieves<em>2</em></a><a href="#cat-watering">Watering Cans &amp; Nozzles<em>6</em></a><a href="#cat-toolset">Tool Sets<em>18</em></a><a href="#cat-knife">Bonsai Knives<em>2</em></a><a href="#cat-cleaning">Brooms &amp; Brushes<em>3</em></a><a href="#cat-care">Care &amp; Maintenance<em>5</em></a>
+  </div></nav>
+
+  <section class="cat" id="cat-trimming">
+    <div class="cat-head"><h2>Trimming Shears</h2><span class="cat-count">40</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0001">
+        <div class="ph"><img src="images/652.jpg" alt="Trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0001</p>
+          <h3>Trimming shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          <p class="note">For heavy duty. Original Bonsai shears in Japan. The longest-seller over 50 years.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0001">
+        <div class="ph"><img src="images/837.jpg" alt="Trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0001</p>
+          <h3>Trimming shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          <p class="note">For heavy duty. Original Bonsai shears in Japan. The longest-seller over 50 years.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-001">
+        <div class="ph"><img src="images/846.jpg" alt="Trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-001</p>
+          <h3>Trimming shears</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>150g (0.33lb)</li></ul>
+          <p class="note">For heavy duty. Original Bonsai shears in Japan. The longest-seller over 50 years.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0002">
+        <div class="ph"><img src="images/653.jpg" alt="Trimming shears · Long handled" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0002</p>
+          <h3>Trimming shears · Long handled</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Long handled shears for wide application. The longest-seller over 50 years with No.1.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0002">
+        <div class="ph"><img src="images/838.jpg" alt="Trimming shears · Long handled" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0002</p>
+          <h3>Trimming shears · Long handled</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g</li></ul>
+          <p class="note">Long handled shears for wide application. The longest-seller over 50 years with No.1.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-002">
+        <div class="ph"><img src="images/847.jpg" alt="Trimming shears · Long handled" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-002</p>
+          <h3>Trimming shears · Long handled</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>110g (0.24lb)</li></ul>
+          <p class="note">Long handled shears for wide application. The longest-seller over 50 years with No.1.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0028">
+        <div class="ph"><img src="images/654.jpg" alt="Trimming shears · Medium size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0028</p>
+          <h3>Trimming shears · Medium size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">Middle size shears for small Bonsai or narrow places. Also the longest-seller with No.1 and No.2. HIGH quality shears for advanced class.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0028">
+        <div class="ph"><img src="images/841.jpg" alt="Trimming shears · Medium size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0028</p>
+          <h3>Trimming shears · Medium size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">Middle size shears for small Bonsai or narrow places. Also the longest-seller with No.1 and No.2. HIGH quality shears for advanced class.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-028">
+        <div class="ph"><img src="images/849.jpg" alt="Trimming shears · Medium size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-028</p>
+          <h3>Trimming shears · Medium size</h3>
+          <ul class="spec"><li>185mm (7.28in)</li><li>95g (0.21lb)</li></ul>
+          <p class="note">Middle size shears for small Bonsai or narrow places. Also the longest-seller with No.1 and No.2. HIGH quality shears for advanced class.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0051">
+        <div class="ph"><img src="images/655.jpg" alt="Trimming shears · Prime" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0051</p>
+          <h3>Trimming shears · Prime</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          <p class="note">Heavy duty durable shears for professionals.</p>
+          <span class="chip" style="background:#2f7d4f;border-color:#2f7d4f">0050 Prime carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0052">
+        <div class="ph"><img src="images/656.jpg" alt="Trimming shears · Prime" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0052</p>
+          <h3>Trimming shears · Prime</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Long handled durable shears for professionals.</p>
+          <span class="chip" style="background:#2f7d4f;border-color:#2f7d4f">0050 Prime carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0053">
+        <div class="ph"><img src="images/657.jpg" alt="Trimming shears · Prime" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0053</p>
+          <h3>Trimming shears · Prime</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>180g (0.40lb)</li></ul>
+          <p class="note">Middle size durable shears for professionals. Highest quality super finished shears, specially made for professionals and advanced amateurs.</p>
+          <span class="chip" style="background:#2f7d4f;border-color:#2f7d4f">0050 Prime carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0101">
+        <div class="ph"><img src="images/658.jpg" alt="Trimming shears · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0101</p>
+          <h3>Trimming shears · Specially made</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          <p class="note">Highest quality super finished Trimming Shears.</p>
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0102">
+        <div class="ph"><img src="images/659.jpg" alt="Trimming shears · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0102</p>
+          <h3>Trimming shears · Specially made</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Highest quality super finished Trimming Shears with long handle.</p>
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-103">
+        <div class="ph"><img src="images/850.jpg" alt="Trimming shears · D-type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-103</p>
+          <h3>Trimming shears · D-type</h3>
+          <ul class="spec"><li>175mm (6.89in)</li><li>75g (0.17lb)</li></ul>
+          <p class="note">The wide application Bud Trimming Shears. Also suitable for small Bonsai trimming work.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0128">
+        <div class="ph"><img src="images/660.jpg" alt="Trimming shears · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0128</p>
+          <h3>Trimming shears · Specially made</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">Highest quality super finished Trimming Shears middle size.</p>
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0201">
+        <div class="ph"><img src="images/661.jpg" alt="Trimming shears - A" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0201</p>
+          <h3>Trimming shears - A</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Heavy duty shears.</p>
+          <span class="chip" style="background:#5e3f93;border-color:#5e3f93">0200 Type A / B / C carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0201">
+        <div class="ph"><img src="images/843.jpg" alt="Trimming shears - A" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0201</p>
+          <h3>Trimming shears - A</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Heavy duty shears.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-201">
+        <div class="ph"><img src="images/851.jpg" alt="Trimming shears · A-type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-201</p>
+          <h3>Trimming shears · A-type</h3>
+          <ul class="spec"><li>195mm (7.68in)</li><li>135g (0.30lb)</li></ul>
+          <p class="note">Heavy duty shears.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0202">
+        <div class="ph"><img src="images/662.jpg" alt="Trimming shears - B" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0202</p>
+          <h3>Trimming shears - B</h3>
+          <ul class="spec"><li>185mm (7.28in)</li><li>120g (0.26lb)</li></ul>
+          <p class="note">Wide application shears.</p>
+          <span class="chip" style="background:#5e3f93;border-color:#5e3f93">0200 Type A / B / C carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0202">
+        <div class="ph"><img src="images/844.jpg" alt="Trimming shears - B" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0202</p>
+          <h3>Trimming shears - B</h3>
+          <ul class="spec"><li>185mm (7.28in)</li><li>120g (0.26lb)</li></ul>
+          <p class="note">Wide application shears.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0228">
+        <div class="ph"><img src="images/663.jpg" alt="Trimming shears - C" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0228</p>
+          <h3>Trimming shears - C</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Suitable for small Bonsai work.</p>
+          <span class="chip" style="background:#5e3f93;border-color:#5e3f93">0200 Type A / B / C carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0228">
+        <div class="ph"><img src="images/845.jpg" alt="Trimming shears - C" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0228</p>
+          <h3>Trimming shears - C</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Suitable for small Bonsai work.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-228">
+        <div class="ph"><img src="images/852.jpg" alt="Trimming shears · C-type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-228</p>
+          <h3>Trimming shears · C-type</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Suitable for small Bonsai work.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0301">
+        <div class="ph"><img src="images/776.jpg" alt="Trimming shears · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0301</p>
+          <h3>Trimming shears · Custom made</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>120g</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0302">
+        <div class="ph"><img src="images/777.jpg" alt="Trimming shears · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0302</p>
+          <h3>Trimming shears · Custom made</h3>
+          <ul class="spec"><li>185mm (7.28in)</li><li>110g</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0328">
+        <div class="ph"><img src="images/778.jpg" alt="Trimming shears · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0328</p>
+          <h3>Trimming shears · Custom made</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>70g</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0351">
+        <div class="ph"><img src="images/779.jpg" alt="Trimming shears · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0351</p>
+          <h3>Trimming shears · Custom made</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>140g</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0352">
+        <div class="ph"><img src="images/780.jpg" alt="Trimming shears · Long handle · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0352</p>
+          <h3>Trimming shears · Long handle · Custom made</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>120g (0.26lb)</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0353">
+        <div class="ph"><img src="images/781.jpg" alt="Trimming shears · Middle size · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0353</p>
+          <h3>Trimming shears · Middle size · Custom made</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>80g (0.18lb)</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0801">
+        <div class="ph"><img src="images/664.jpg" alt="Trimming shears · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0801</p>
+          <h3>Trimming shears · Small size</h3>
+          <ul class="spec"><li>155mm (6.10in)</li><li>90g (0.20lb)</li></ul>
+          
+          <span class="chip" style="background:#1f7a8c;border-color:#1f7a8c">0800 S-series (ergonomic)</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0802">
+        <div class="ph"><img src="images/665.jpg" alt="Trimming shears · Long blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0802</p>
+          <h3>Trimming shears · Long blade</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>145g (0.32lb)</li></ul>
+          
+          <span class="chip" style="background:#1f7a8c;border-color:#1f7a8c">0800 S-series (ergonomic)</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8001">
+        <div class="ph"><img src="images/783.jpg" alt="Trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8001</p>
+          <h3>Trimming shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          <p class="note">For heavy duty. Original Bonsai shears in Japan. The longest-seller over 50 years.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8002">
+        <div class="ph"><img src="images/784.jpg" alt="Trimming shears · Long handled" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8002</p>
+          <h3>Trimming shears · Long handled</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Long handled shears for wide application. The longest-seller over 50 years with No.1.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8028">
+        <div class="ph"><img src="images/798.jpg" alt="Trimming shears · Medium size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8028</p>
+          <h3>Trimming shears · Medium size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">Middle size shears for small Bonsai or narrow places. Also the longest-seller with No.1 and No.2. HIGH quality shears for advanced class.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8201">
+        <div class="ph"><img src="images/811.jpg" alt="Trimming shears - A" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8201</p>
+          <h3>Trimming shears - A</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Heavy duty shears.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8202">
+        <div class="ph"><img src="images/812.jpg" alt="Trimming shears - B" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8202</p>
+          <h3>Trimming shears - B</h3>
+          <ul class="spec"><li>185mm (7.28in)</li><li>120g (0.26lb)</li></ul>
+          <p class="note">Wide application shears.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8228">
+        <div class="ph"><img src="images/818.jpg" alt="Trimming shears - C" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8228</p>
+          <h3>Trimming shears - C</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Suitable for small Bonsai work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8801">
+        <div class="ph"><img src="images/826.jpg" alt="Trimming shears · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8801</p>
+          <h3>Trimming shears · Small size</h3>
+          <ul class="spec"><li>155mm (6.10in)</li><li>90g (0.20lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8802">
+        <div class="ph"><img src="images/827.jpg" alt="Trimming shears · Long blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8802</p>
+          <h3>Trimming shears · Long blade</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>145g (0.32lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-bud">
+    <div class="cat-head"><h2>Bud Trimming Shears</h2><span class="cat-count">9</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0003">
+        <div class="ph"><img src="images/669.jpg" alt="Bud trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0003</p>
+          <h3>Bud trimming shears</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Extra sharp Bud Shears with long handle.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0003">
+        <div class="ph"><img src="images/839.jpg" alt="Bud trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0003</p>
+          <h3>Bud trimming shears</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Extra sharp Bud Shears with long handle.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0005">
+        <div class="ph"><img src="images/670.jpg" alt="Bud trimming shears for Pines and Junipers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0005</p>
+          <h3>Bud trimming shears for Pines and Junipers</h3>
+          <ul class="spec"><li>145mm (5.71in)</li><li>60g</li></ul>
+          <p class="note">The handle is open not to hurt the leaves of Pines or Junipers.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0005">
+        <div class="ph"><img src="images/840.jpg" alt="Bud trimming shears for Pines and Junipers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0005</p>
+          <h3>Bud trimming shears for Pines and Junipers</h3>
+          <ul class="spec"><li>145mm (5.71in)</li></ul>
+          <p class="note">The handle is open not to hurt the leaves of Pines or Junipers.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0103">
+        <div class="ph"><img src="images/671.jpg" alt="Bud trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0103</p>
+          <h3>Bud trimming shears</h3>
+          <ul class="spec"><li>160mm (6.30in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">The wide application Bud Trimming Shears. Also suitable for small Bonsai trimming work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0103">
+        <div class="ph"><img src="images/842.jpg" alt="Bud trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0103</p>
+          <h3>Bud trimming shears</h3>
+          <ul class="spec"><li>160mm (6.30in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">The wide application Bud Trimming Shears. Also suitable for small Bonsai trimming work.</p>
+          <span class="chip" style="background:#3a3f9c;border-color:#3a3f9c">S Patent series</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8003">
+        <div class="ph"><img src="images/785.jpg" alt="Bud trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8003</p>
+          <h3>Bud trimming shears</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Extra sharp Bud Shears with long handle.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8005">
+        <div class="ph"><img src="images/786.jpg" alt="Bud trimming shears for Pines and Junipers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8005</p>
+          <h3>Bud trimming shears for Pines and Junipers</h3>
+          <ul class="spec"><li>145mm (5.71in)</li><li>60g</li></ul>
+          <p class="note">The handle is open not to hurt the leaves of Pines or Junipers.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8103">
+        <div class="ph"><img src="images/803.jpg" alt="Bud trimming shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8103</p>
+          <h3>Bud trimming shears</h3>
+          <ul class="spec"><li>160mm (6.30in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">The wide application Bud Trimming Shears. Also suitable for small Bonsai trimming work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-defoliating">
+    <div class="cat-head"><h2>Defoliating Shears</h2><span class="cat-count">2</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0006">
+        <div class="ph"><img src="images/672.jpg" alt="Defoliating shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0006</p>
+          <h3>Defoliating shears</h3>
+          <ul class="spec"><li>155mm (6.10in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">MASAKUNI&#x27;s original shears specially made for Defoliation cutting.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8006">
+        <div class="ph"><img src="images/787.jpg" alt="Leaf cutter" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8006</p>
+          <h3>Leaf cutter</h3>
+          <ul class="spec"><li>155mm (6 1/8&amp;quot;in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">MASAKUNI&#x27;s original shears specially made for Defoliation cutting.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-concave">
+    <div class="cat-head"><h2>Concave Branch Cutters</h2><span class="cat-count">19</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0016">
+        <div class="ph"><img src="images/679.jpg" alt="Concave branch cutter" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0016</p>
+          <h3>Concave branch cutter</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>220g (0.49lb)</li></ul>
+          <p class="note">Very famous original cutter No.16. The best-seller tool in Bonsai world. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0061">
+        <div class="ph"><img src="images/680.jpg" alt="Concave branch cutter · New type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0061</p>
+          <h3>Concave branch cutter · New type</h3>
+          <ul class="spec"><li>215mm (8.46in)</li><li>185g (0.41lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0116">
+        <div class="ph"><img src="images/681.jpg" alt="Concave branch cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0116</p>
+          <h3>Concave branch cutter · Small size</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Very handy cutter for middle and small size branches. Also the best-seller with No.16. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0161">
+        <div class="ph"><img src="images/875.jpg" alt="Brunch cutter · Crescent Blade · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0161</p>
+          <h3>Brunch cutter · Crescent Blade · Small size</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>125g</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0216">
+        <div class="ph"><img src="images/682.jpg" alt="Twig cutter" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0216</p>
+          <h3>Twig cutter</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>120g (0.26lb)</li></ul>
+          <p class="note">Extra narrow cutter for twig. Very convinient tool for group planting, SATSUKI AZALEA or narrow places. This tool have come to be the mew best-seller tool among the advanced Bonsai people. Use at the twig diameter below 3mm.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0316">
+        <div class="ph"><img src="images/683.jpg" alt="Concave branch cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0316</p>
+          <h3>Concave branch cutter · Large size</h3>
+          <ul class="spec"><li>300mm (11.8in)</li><li>520g (1.15lb)</li></ul>
+          <p class="note">Large size mighty cutter for heavy duty work. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0416">
+        <div class="ph"><img src="images/772.jpg" alt="Concave branch cutter · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0416</p>
+          <h3>Concave branch cutter · Specially made</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>210g (0.46lb)</li></ul>
+          
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0516">
+        <div class="ph"><img src="images/773.jpg" alt="Concave branch cutter · Small size · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0516</p>
+          <h3>Concave branch cutter · Small size · Specially made</h3>
+          <ul class="spec"><li>170mm (6.69in)</li></ul>
+          
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0616">
+        <div class="ph"><img src="images/774.jpg" alt="Twig cutter · Specially made · Narrow type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0616</p>
+          <h3>Twig cutter · Specially made · Narrow type</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>110g</li></ul>
+          
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0716">
+        <div class="ph"><img src="images/684.jpg" alt="Concave branch cutter · Spherical blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0716</p>
+          <h3>Concave branch cutter · Spherical blade</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>200g</li></ul>
+          <p class="note">The spherical blades brings the beautiful concave cutting end. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0816">
+        <div class="ph"><img src="images/685.jpg" alt="Concave branch cutter · Small size · Spherical blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0816</p>
+          <h3>Concave branch cutter · Small size · Spherical blade</h3>
+          <ul class="spec"><li>170mm (6.69in)</li></ul>
+          <p class="note">Handy type spherical blade cutter. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#1f7a8c;border-color:#1f7a8c">0800 S-series (ergonomic)</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8016">
+        <div class="ph"><img src="images/794.jpg" alt="Concave branch cutter" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8016</p>
+          <h3>Concave branch cutter</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>220g (0.49lb)</li></ul>
+          <p class="note">Very famous original cutter No.16. The best-seller tool in Bonsai world. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8061">
+        <div class="ph"><img src="images/802.jpg" alt="Brunch cutter · Crescent Blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8061</p>
+          <h3>Brunch cutter · Crescent Blade</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>185g (0.41lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8116">
+        <div class="ph"><img src="images/806.jpg" alt="Concave branch cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8116</p>
+          <h3>Concave branch cutter · Small size</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">Very handy cutter for middle and small size branches. Also the best-seller with No.16. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8161">
+        <div class="ph"><img src="images/810.jpg" alt="Brunch cutter · Crescent Blade · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8161</p>
+          <h3>Brunch cutter · Crescent Blade · Small size</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>125g</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8216">
+        <div class="ph"><img src="images/816.jpg" alt="Twig cutter" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8216</p>
+          <h3>Twig cutter</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>120g (0.26lb)</li></ul>
+          <p class="note">Extra narrow cutter for twig. Very convinient tool for group planting, SATSUKI AZALEA or narrow places. This tool have come to be the mew best-seller tool among the advanced Bonsai people. Use at the twig diameter below 3mm.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8316">
+        <div class="ph"><img src="images/819.jpg" alt="Concave branch cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8316</p>
+          <h3>Concave branch cutter · Large size</h3>
+          <ul class="spec"><li>300mm (11.8in)</li><li>520g (1.15lb)</li></ul>
+          <p class="note">Large size mighty cutter for heavy duty work. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8716">
+        <div class="ph"><img src="images/825.jpg" alt="Concave branch cutter · Spherical blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8716</p>
+          <h3>Concave branch cutter · Spherical blade</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>200g</li></ul>
+          <p class="note">The spherical blades brings the beautiful concave cutting end. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8816">
+        <div class="ph"><img src="images/830.jpg" alt="Concave branch cutter · Spherical blade · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8816</p>
+          <h3>Concave branch cutter · Spherical blade · Small size</h3>
+          <ul class="spec"><li>170mm (6.69in)</li></ul>
+          <p class="note">Handy type spherical blade cutter. Use at the branch diameter below half of the blade.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-wirecutter">
+    <div class="cat-head"><h2>Wire Cutters</h2><span class="cat-count">19</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0007">
+        <div class="ph"><img src="images/686.jpg" alt="Wire cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0007</p>
+          <h3>Wire cutter · Large size</h3>
+          <ul class="spec"><li>290mm (11.4in)</li><li>450g (0.99lb)</li></ul>
+          <p class="note">Large size cutter for heavy duty work. The handle is designed for one-hand operation. Use at the wire diameters below; Maximum Al:4.88mm(# 6) Cu:4.06mm(# 8) *Fe:3.25mm(#10) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0008">
+        <div class="ph"><img src="images/687.jpg" alt="Wire cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0008</p>
+          <h3>Wire cutter · Small size</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>250g (0.55lb)</li></ul>
+          <p class="note">Very famous MASAKUNI&#x27;s wire cutter No.8. The best-seller wire cutter in Bonsai world. Use at the wire diameters below; Maximum Al:4.06mm(# 8) Cu:3.25mm(#10) *Fe:2.03mm(#14) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-SS-008">
+        <div class="ph"><img src="images/848.jpg" alt="Wire cutter · New type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-SS-008</p>
+          <h3>Wire cutter · New type</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>135g (0.30lb)</li></ul>
+          <p class="note">Very famous MASAKUNI&#x27;s wire cutter No.8. The best-seller wire cutter in Bonsai world. Use at the wire diameters below; Maximum Al:4.06mm(# 8) Cu:3.25mm(#10) *Fe:2.03mm(#14) *Annealed.</p>
+          <span class="chip" style="background:#2a2620;border-color:#2a2620">SS premium / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0009">
+        <div class="ph"><img src="images/688.jpg" alt="Wire cutter · Miniature size shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0009</p>
+          <h3>Wire cutter · Miniature size shears</h3>
+          <ul class="spec"><li>110mm (4.33in)</li><li>60g (0.13lb)</li></ul>
+          <p class="note">Very handy, very small shears for wire. It&#x27;s small but very durable tool. Use at the wire diameters below; Maximum Al:2.03mm(#14) Cu:1.63mm(#16) *Fe:0.95mm(#20) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0088">
+        <div class="ph"><img src="images/689.jpg" alt="Wire cutter" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0088</p>
+          <h3>Wire cutter</h3>
+          <ul class="spec"><li>205mm (8.07in)</li><li>220g (0.49lb)</li></ul>
+          <p class="note">Very durable cutter. Suitable for iron wire. Use at the wire diameters below; Maximum Al:4.88mm(# 6) Cu:4.06mm(# 8) *Fe:3.25mm(#10) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0108">
+        <div class="ph"><img src="images/690.jpg" alt="Wire cutter · Miniature size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0108</p>
+          <h3>Wire cutter · Miniature size</h3>
+          <ul class="spec"><li>120mm (4.72in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Very cute cutter for MAME Bonsai work or thin wires at the top of the branch. Use at the wire diameters below; Maximum Al:2.03mm(#14) Cu:1.63mm(#16) *Fe:0.95mm(#20) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0207">
+        <div class="ph"><img src="images/691.jpg" alt="Wire cutter · Tilt · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0207</p>
+          <h3>Wire cutter · Tilt · Large size</h3>
+          <ul class="spec"><li>280mm (11.0in)</li><li>420g (0.93lb)</li></ul>
+          <p class="note">Newly designed cutter with tilt-head. Especially in unwiring of the branch-crowded trees, this head angle is very effective to catch wire easily, and brings the efficient work. Use at the wire diameters below; Maximum Al:4.88mm(# 6) Cu:4.06mm(# 8) *Fe:3.25mm(#10) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0208">
+        <div class="ph"><img src="images/692.jpg" alt="Wire cutter · Tilt · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0208</p>
+          <h3>Wire cutter · Tilt · Small size</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>200g (0.44lb)</li></ul>
+          <p class="note">Handy type of No.207. Use at the wire diameters below; Maximum Al:4.88mm(# 8) Cu:4.06mm(#10) *Fe:3.25mm(#14) *Annealed.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0307">
+        <div class="ph"><img src="images/769.jpg" alt="Wire cutter · Specially made · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0307</p>
+          <h3>Wire cutter · Specially made · Large size</h3>
+          <ul class="spec"><li>290mm (11.4in)</li><li>440g</li></ul>
+          
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0308">
+        <div class="ph"><img src="images/770.jpg" alt="Wire cutter · Specially made · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0308</p>
+          <h3>Wire cutter · Specially made · Small size</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>240g</li></ul>
+          
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0309">
+        <div class="ph"><img src="images/693.jpg" alt="Wire cutter · Long handle" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0309</p>
+          <h3>Wire cutter · Long handle</h3>
+          <ul class="spec"><li>155mm (6.10in)</li><li>65g (0.14lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0408">
+        <div class="ph"><img src="images/771.jpg" alt="Wire cutter · Specially made · Miniature size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0408</p>
+          <h3>Wire cutter · Specially made · Miniature size</h3>
+          <ul class="spec"><li>120mm (4.72in)</li><li>70g</li></ul>
+          
+          <span class="chip" style="background:#8a6300;border-color:#8a6300">0100 Specially made carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8007">
+        <div class="ph"><img src="images/788.jpg" alt="Wire cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8007</p>
+          <h3>Wire cutter · Large size</h3>
+          <ul class="spec"><li>290mm (11.4in)</li><li>450g (0.99lb)</li></ul>
+          <p class="note">Large size cutter for heavy duty work. The handle is designed for one-hand operation. Use at the wire diameters below; Maximum Al:4.88mm(# 6) Cu:4.06mm(# 8) *Fe:3.25mm(#10) *Annealed.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8008">
+        <div class="ph"><img src="images/789.jpg" alt="Wire cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8008</p>
+          <h3>Wire cutter · Small size</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>250g (0.55lb)</li></ul>
+          <p class="note">Very famous MASAKUNI&#x27;s wire cutter No.8. The best-seller wire cutter in Bonsai world. Use at the wire diameters below; Maximum Al:4.06mm(# 8) Cu:3.25mm(#10) *Fe:2.03mm(#14) *Annealed.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8009">
+        <div class="ph"><img src="images/790.jpg" alt="Wire cutter · Mini shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8009</p>
+          <h3>Wire cutter · Mini shears</h3>
+          <ul class="spec"><li>110mm (4.33in)</li><li>60g (0.13lb)</li></ul>
+          <p class="note">Very handy, very small shears for wire. It&#x27;s small but very durable tool. Use at the wire diameters below; Maximum Al:2.03mm(#14) Cu:1.63mm(#16) *Fe:0.95mm(#20) *Annealed.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8107">
+        <div class="ph"><img src="images/804.jpg" alt="Wire cutter · Long handle · Miniature size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8107</p>
+          <h3>Wire cutter · Long handle · Miniature size</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>120g</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8108">
+        <div class="ph"><img src="images/805.jpg" alt="Wire cutter · Miniature size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8108</p>
+          <h3>Wire cutter · Miniature size</h3>
+          <ul class="spec"><li>120mm (4.72in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Very cute cutter for MAME Bonsai work or thin wires at the top of the branch. Use at the wire diameters below; Maximum Al:2.03mm(#14) Cu:1.63mm(#16) *Fe:0.95mm(#20) *Annealed.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8207">
+        <div class="ph"><img src="images/813.jpg" alt="Wire cutter · Tilt · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8207</p>
+          <h3>Wire cutter · Tilt · Large size</h3>
+          <ul class="spec"><li>280mm (11.0in)</li><li>420g (0.93lb)</li></ul>
+          <p class="note">Newly designed cutter with tilt-head. Especially in unwiring of the branch-crowded trees, this head angle is very effective to catch wire easily, and brings the efficient work. Use at the wire diameters below; Maximum Al:4.88mm(# 6) Cu:4.06mm(# 8) *Fe:3.25mm(#10) *Annealed.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8208">
+        <div class="ph"><img src="images/814.jpg" alt="Wire cutter · Tilt · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8208</p>
+          <h3>Wire cutter · Tilt · Small size</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>200g (0.44lb)</li></ul>
+          <p class="note">Handy type of No.207. Use at the wire diameters below; Maximum Al:4.88mm(# 8) Cu:4.06mm(#10) *Fe:3.25mm(#14) *Annealed.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-wirepliers">
+    <div class="cat-head"><h2>Wire Pliers</h2><span class="cat-count">10</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0010">
+        <div class="ph"><img src="images/872.jpg" alt="Wire pliers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0010</p>
+          <h3>Wire pliers</h3>
+          <ul class="spec"><li>120mm (4.72in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">Specially designed for thin wires at the top of branches or twigs.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0018(L)">
+        <div class="ph"><img src="images/694.jpg" alt="Wire pliers · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0018(L)</p>
+          <h3>Wire pliers · Large size</h3>
+          <ul class="spec"><li>240mm (9.45in)</li><li>290g (0.64lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0018(S)">
+        <div class="ph"><img src="images/695.jpg" alt="Wire pliers · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0018(S)</p>
+          <h3>Wire pliers · Small size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>170g (0.37lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0118(L)">
+        <div class="ph"><img src="images/696.jpg" alt="Wire pliers · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0118(L)</p>
+          <h3>Wire pliers · Large size</h3>
+          <ul class="spec"><li>250mm (9.84in)</li><li>250g (0.55lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0118(S)">
+        <div class="ph"><img src="images/697.jpg" alt="Wire pliers · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0118(S)</p>
+          <h3>Wire pliers · Small size</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>180g (0.40lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8010">
+        <div class="ph"><img src="images/791.jpg" alt="Wire pliers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8010</p>
+          <h3>Wire pliers</h3>
+          <ul class="spec"><li>120mm (4.72in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">Specially designed for thin wires at the top of branches or twigs.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8018(L)">
+        <div class="ph"><img src="images/795.jpg" alt="Wire pliers · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8018(L)</p>
+          <h3>Wire pliers · Large size</h3>
+          <ul class="spec"><li>240mm (9.45in)</li><li>290g (0.64lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8018(S)">
+        <div class="ph"><img src="images/796.jpg" alt="Wire pliers · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8018(S)</p>
+          <h3>Wire pliers · Small size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>170g (0.37lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8118(L)">
+        <div class="ph"><img src="images/807.jpg" alt="Wire pliers · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8118(L)</p>
+          <h3>Wire pliers · Large size</h3>
+          <ul class="spec"><li>250mm (9.84in)</li><li>250g (0.55lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8118(S)">
+        <div class="ph"><img src="images/808.jpg" alt="Wire pliers · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8118(S)</p>
+          <h3>Wire pliers · Small size</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>180g (0.40lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-rootcutter">
+    <div class="cat-head"><h2>Root Cutters</h2><span class="cat-count">6</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0014">
+        <div class="ph"><img src="images/698.jpg" alt="Root cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0014</p>
+          <h3>Root cutter · Large size</h3>
+          <ul class="spec"><li>360mm (14.2in)</li><li>1,100g (2.43lb)</li></ul>
+          <p class="note">Mighty cutter for heavy duty work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0015">
+        <div class="ph"><img src="images/699.jpg" alt="Root cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0015</p>
+          <h3>Root cutter · Small size</h3>
+          <ul class="spec"><li>250mm (9.84in)</li><li>560g (1.23lb)</li></ul>
+          <p class="note">Handy but mighty cutter for heavy duty work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0040">
+        <div class="ph"><img src="images/700.jpg" alt="Root cutter for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0040</p>
+          <h3>Root cutter for Satsuki and Azalea</h3>
+          <ul class="spec"><li>300mm (11.8in)</li><li>410g (0.90lb)</li></ul>
+          <p class="note">Specially designed for easy-crack tree like SATSUKI AZALEA . Having the wide blade to make the one action cutting.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8014">
+        <div class="ph"><img src="images/792.jpg" alt="Root cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8014</p>
+          <h3>Root cutter · Large size</h3>
+          <ul class="spec"><li>360mm (14.2in)</li><li>1,100g (2.43lb)</li></ul>
+          <p class="note">Mighty cutter for heavy duty work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8015">
+        <div class="ph"><img src="images/793.jpg" alt="Root cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8015</p>
+          <h3>Root cutter · Small size</h3>
+          <ul class="spec"><li>250mm (9.84in)</li><li>500g (1.10lb)</li></ul>
+          <p class="note">Handy but mighty cutter for heavy duty work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8040">
+        <div class="ph"><img src="images/801.jpg" alt="Root cutter for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8040</p>
+          <h3>Root cutter for Satsuki and Azalea</h3>
+          <ul class="spec"><li>300mm (11.8in)</li><li>410g (0.90lb)</li></ul>
+          <p class="note">Specially designed for easy-crack tree like SATSUKI AZALEA . Having the wide blade to make the one action cutting.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-knob">
+    <div class="cat-head"><h2>Knob Cutters</h2><span class="cat-count">11</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0035">
+        <div class="ph"><img src="images/701.jpg" alt="Knob cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0035</p>
+          <h3>Knob cutter · Large size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0036">
+        <div class="ph"><img src="images/702.jpg" alt="Knob cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0036</p>
+          <h3>Knob cutter · Small size</h3>
+          <ul class="spec"><li>145mm (5.71in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Specially designed for MAME Bonsai work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0135">
+        <div class="ph"><img src="images/703.jpg" alt="Knob cutter · Long handle" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0135</p>
+          <h3>Knob cutter · Long handle</h3>
+          <ul class="spec"><li>230mm (9.06in)</li><li>210g (0.46lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0235">
+        <div class="ph"><img src="images/704.jpg" alt="Knob cutter · Tilt" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0235</p>
+          <h3>Knob cutter · Tilt</h3>
+          <ul class="spec"><li>230mm (9.06in)</li><li>210g (0.46lb)</li></ul>
+          <p class="note">The head angle brings the efficient work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0335">
+        <div class="ph"><img src="images/705.jpg" alt="Spherical knob cutter · Large" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0335</p>
+          <h3>Spherical knob cutter · Large</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>210g (0.46lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0336">
+        <div class="ph"><img src="images/706.jpg" alt="Spherical knob cutter · Small" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0336</p>
+          <h3>Spherical knob cutter · Small</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">The blades are spherical form in order to make concave cutting as Nos.716 and 816.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8035">
+        <div class="ph"><img src="images/799.jpg" alt="Knob cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8035</p>
+          <h3>Knob cutter · Large size</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>150g (0.33lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8036">
+        <div class="ph"><img src="images/800.jpg" alt="Knob cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8036</p>
+          <h3>Knob cutter · Small size</h3>
+          <ul class="spec"><li>145mm (5.71in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Specially designed for MAME Bonsai work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8135">
+        <div class="ph"><img src="images/809.jpg" alt="Knob cutter · Long handle" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8135</p>
+          <h3>Knob cutter · Long handle</h3>
+          <ul class="spec"><li>230mm (9.06in)</li><li>210g (0.46lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8335">
+        <div class="ph"><img src="images/820.jpg" alt="Spherical knob cutter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8335</p>
+          <h3>Spherical knob cutter · Large size</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>210g (0.46lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8336">
+        <div class="ph"><img src="images/821.jpg" alt="Spherical knob cutter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8336</p>
+          <h3>Spherical knob cutter · Small size</h3>
+          <ul class="spec"><li>170mm (6.69in)</li><li>130g (0.29lb)</li></ul>
+          <p class="note">The blades are spherical form in order to make concave cutting as Nos.716 and 816.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-saw">
+    <div class="cat-head"><h2>Pruning Saws</h2><span class="cat-count">5</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0138">
+        <div class="ph"><img src="images/874.jpg" alt="Pruning saw · Extra narrow" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0138</p>
+          <h3>Pruning saw · Extra narrow</h3>
+          <ul class="spec"><li>265mm (10.4in)</li><li>35g (0.08lb)</li></ul>
+          <p class="note">138 is specially designed for the cutting in narrow places. The heavy duty No.338 is a mighty saw for rough work of SATSUKI AZALEA . * Click on the tool image for the large size picture.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0138-B">
+        <div class="ph"><img src="images/707.jpg" alt="Pruning saw · Extra narrow" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0138-B</p>
+          <h3>Pruning saw · Extra narrow</h3>
+          <ul class="spec"><li>260mm (10.2in)</li><li>30g (0.07lb)</li></ul>
+          <p class="note">138 is specially designed for the cutting in narrow places. The heavy duty No.338 is a mighty saw for rough work of SATSUKI AZALEA . * Click on the tool image for the large size picture.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0238">
+        <div class="ph"><img src="images/708.jpg" alt="Pruning saw" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0238</p>
+          <h3>Pruning saw</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>110g (0.24lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0338-B">
+        <div class="ph"><img src="images/709.jpg" alt="Pruning saw for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0338-B</p>
+          <h3>Pruning saw for Satsuki and Azalea</h3>
+          <ul class="spec"><li>300mm (11.8in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">Extra sharp saw for heavy duty. The sharpness brings the beautiful cutting end.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8338">
+        <div class="ph"><img src="images/822.jpg" alt="Pruning saw for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8338</p>
+          <h3>Pruning saw for Satsuki and Azalea</h3>
+          <ul class="spec"><li>300mm (11.8in)</li><li>40g (0.09lb)</li></ul>
+          <p class="note">Extra sharp saw for heavy duty. The sharpness brings the beautiful cutting end.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-splitter">
+    <div class="cat-head"><h2>Trunk Splitters</h2><span class="cat-count">3</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0113">
+        <div class="ph"><img src="images/710.jpg" alt="Trunk splitter · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0113</p>
+          <h3>Trunk splitter · Large size</h3>
+          <ul class="spec"><li>510mm (20.1in)</li><li>1,700g (3.75lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0114">
+        <div class="ph"><img src="images/711.jpg" alt="Trunk splitter · Middle size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0114</p>
+          <h3>Trunk splitter · Middle size</h3>
+          <ul class="spec"><li>380mm (15.0in)</li><li>910g (2.01lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0115">
+        <div class="ph"><img src="images/712.jpg" alt="Trunk splitter · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0115</p>
+          <h3>Trunk splitter · Small size</h3>
+          <ul class="spec"><li>260mm (10.2in)</li><li>550g (1.21lb)</li></ul>
+          
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-jin">
+    <div class="cat-head"><h2>Jin Pliers</h2><span class="cat-count">3</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0017">
+        <div class="ph"><img src="images/713.jpg" alt="Jin pliers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0017</p>
+          <h3>Jin pliers</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>190g (0.42lb)</li></ul>
+          <p class="note">Specially designed for JIN making work only.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0117">
+        <div class="ph"><img src="images/714.jpg" alt="Jin pliers · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0117</p>
+          <h3>Jin pliers · Large size</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>230g (0.51lb)</li></ul>
+          <p class="note">Heavy duty pliers for JIN making work only.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0817">
+        <div class="ph"><img src="images/715.jpg" alt="Jin pliers · New type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0817</p>
+          <h3>Jin pliers · New type</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>45g (0.10lb)</li></ul>
+          
+          <span class="chip" style="background:#1f7a8c;border-color:#1f7a8c">0800 S-series (ergonomic)</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-grafting">
+    <div class="cat-head"><h2>Grafting Knives &amp; Chisels</h2><span class="cat-count">6</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0022(L)">
+        <div class="ph"><img src="images/717.jpg" alt="Grafting knife · Left" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0022(L)</p>
+          <h3>Grafting knife · Left</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">MASAKUNI&#x27;s high quality extra sharp grafting knife. There are 2 types, for Left handed use and Right handed use.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0022(R)">
+        <div class="ph"><img src="images/718.jpg" alt="Grafting knife · Right" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0022(R)</p>
+          <h3>Grafting knife · Right</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">MASAKUNI&#x27;s high quality extra sharp grafting knife. There are 2 types, for Left handed use and Right handed use.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0038">
+        <div class="ph"><img src="images/716.jpg" alt="Grafting chisel" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0038</p>
+          <h3>Grafting chisel</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Specially designed flat chisel for grafting. By this tool you can make branches at anywhere you want. There are 3 different sizes.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0038-B">
+        <div class="ph"><img src="images/856.jpg" alt="Grafting chisel for Camelia Tsubaki" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0038-B</p>
+          <h3>Grafting chisel for Camelia Tsubaki</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">Specially designed flat chisel for grafting. By this tool you can make branches at anywhere you want. There are 3 different sizes.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0038M">
+        <div class="ph"><img src="images/1343.jpg" alt="Grafting chisel" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0038M</p>
+          <h3>Grafting chisel</h3>
+          
+          <p class="note">Specially designed flat chisel for grafting. By this tool you can make branches at anywhere you want. There are 3 different sizes.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0222">
+        <div class="ph"><img src="images/719.jpg" alt="Grafting knife · Left , Right" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0222</p>
+          <h3>Grafting knife · Left , Right</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>90g (0.20lb)</li></ul>
+          <p class="note">Professional Grafting knife in the highest class.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-graving">
+    <div class="cat-head"><h2>Graving Chisels</h2><span class="cat-count">3</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0039">
+        <div class="ph"><img src="images/720.jpg" alt="Graving chisel · Wooden grip" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0039</p>
+          <h3>Graving chisel · Wooden grip</h3>
+          <ul class="spec"><li>190mm (7.48in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Chisel for graving with wooden grip. There are 5 different sizes of edge.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0139">
+        <div class="ph"><img src="images/721.jpg" alt="Graving chisel · All-steel" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0139</p>
+          <h3>Graving chisel · All-steel</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>50g</li></ul>
+          <p class="note">Chisel for graving all steel type. There are 3 sizes of edge.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8021">
+        <div class="ph"><img src="images/797.jpg" alt="Bonsai chisel · Each one (MASASAKUNI)" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8021</p>
+          <h3>Bonsai chisel · Each one (MASASAKUNI)</h3>
+          <ul class="spec"><li>20g (0.04lb)</li></ul>
+          <p class="note">There are 8 (A to H) different forms. Combination play brings the efficient work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-graver">
+    <div class="cat-head"><h2>Gravers</h2><span class="cat-count">5</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0021">
+        <div class="ph"><img src="images/722.jpg" alt="Graver · Wooden grip" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0021</p>
+          <h3>Graver · Wooden grip</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>20g (0.04lb)</li></ul>
+          <p class="note">There are 8 (A to H) different forms. Combination play brings the efficient work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0121">
+        <div class="ph"><img src="images/723.jpg" alt="Graver · All-steel" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0121</p>
+          <h3>Graver · All-steel</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">Heavy duty Graver made of quality steel. There are 9 (A to I) different forms. Combination play brings the efficient work. Complete set is in case.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0122">
+        <div class="ph"><img src="images/775.jpg" alt="Graving knife" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0122</p>
+          <h3>Graving knife</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>100g (0.22lb)</li></ul>
+          
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0221">
+        <div class="ph"><img src="images/724.jpg" alt="Gravers 3-pieces set with case" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0221</p>
+          <h3>Gravers 3-pieces set with case</h3>
+          
+          <p class="note">221 GRAVERS SET (3 pcs. set, with case) 3 pcs. gravers set composed by your own sellection. There are 84 ways of combination. These photos are samples.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0321">
+        <div class="ph"><img src="images/725.jpg" alt="Gravers 3-pieces set for Satsuki and Azalea with case" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0321</p>
+          <h3>Gravers 3-pieces set for Satsuki and Azalea with case</h3>
+          
+          <p class="note">321 GRAVERS SET for SATSUKI AZALEA Specially selected Gravers set which are so often used for SATSUKI AZALEA works.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-pruning">
+    <div class="cat-head"><h2>Pruning Shears (2001 / 2010 / 2020)</h2><span class="cat-count">7</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-2001">
+        <div class="ph"><img src="images/666.jpg" alt="Pruning shears · Professional" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-2001</p>
+          <h3>Pruning shears · Professional</h3>
+          <ul class="spec"><li>208mm (8.19in)</li><li>290g (0.64lb)</li></ul>
+          <p class="note">2001 Pruning Shears for professional use ... The 2001 professional pruning shears are made of highest quality Swedish special steel and succeeding the world famous tradition of Japanese Sword in making process. The body is forged in a continuous operation and special heat treatment ensures the sharpness and durability of the blade. MASAKUNI&#x27;s 2001 uses special large diameter stainless steel screws, which will not loosen even after extended use. The stainless steel spring will not weaken and a special hard rubber shock absorber and the handle itself have been designed to reduce fatigue. The supporting blade is specially designed to prevent sap from adhering to the blades. The stopper allows them to be locked and unlocked in one easy operation. Moreover, the stopper prevents the shears from opening too wide for easier handling.</p>
+          <span class="chip" style="background:#8a5a2a;border-color:#8a5a2a">SW Swedish special steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-2010">
+        <div class="ph"><img src="images/667.jpg" alt="Pruning shears · New model" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-2010</p>
+          <h3>Pruning shears · New model</h3>
+          <ul class="spec"><li>188mm (7.40in)</li><li>200g (0.44lb)</li></ul>
+          <p class="note">Highest quality Compact and Light-weight Pruner.</p>
+          <span class="chip" style="background:#8a5a2a;border-color:#8a5a2a">SW Swedish special steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-2020">
+        <div class="ph"><img src="images/668.jpg" alt="Utility pruning shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-2020</p>
+          <h3>Utility pruning shears</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>200g (0.44lb)</li></ul>
+          <p class="note">Tilting-head shears for wide aplications. For Holticultural, Bonsai training, Gardenning, Flower Arranging, Pomecultural use etc.</p>
+          <span class="chip" style="background:#8a5a2a;border-color:#8a5a2a">SW Swedish special steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-3001">
+        <div class="ph"><img src="images/853.jpg" alt="Leather sheaths for Pruning shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-3001</p>
+          <h3>Leather sheaths for Pruning shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>70g (0.15lb)</li></ul>
+          <p class="note">High quality leather sheaths designed for 2001. Easy to put on the belt by hook behind.</p>
+          <span class="chip" style="background:#8a6539;border-color:#8a6539">Leather</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8210">
+        <div class="ph"><img src="images/815.jpg" alt="Pruning shears · New model" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8210</p>
+          <h3>Pruning shears · New model</h3>
+          <ul class="spec"><li>188mm (7.40in)</li><li>200g (0.44lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8220">
+        <div class="ph"><img src="images/817.jpg" alt="Utility pruning shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8220</p>
+          <h3>Utility pruning shears</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>200g (0.44lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8881">
+        <div class="ph"><img src="images/831.jpg" alt="Pruning shears · Professional" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8881</p>
+          <h3>Pruning shears · Professional</h3>
+          <ul class="spec"><li>208mm (8.19in)</li><li>250g (0.55lb)</li></ul>
+          
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-gardening">
+    <div class="cat-head"><h2>Gardening Shears</h2><span class="cat-count">8</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0500">
+        <div class="ph"><img src="images/673.jpg" alt="Gardening shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0500</p>
+          <h3>Gardening shears</h3>
+          <ul class="spec"><li>750mm (29.5in)</li><li>1,100g (2.43lb)</li></ul>
+          <p class="note">Highest quality extra sharp gardening shears.( Karikomi ) (Made-to-order).</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0500-B">
+        <div class="ph"><img src="images/674.jpg" alt="Gardening shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0500-B</p>
+          <h3>Gardening shears</h3>
+          <ul class="spec"><li>740mm (29.1in)</li><li>1,050g (2.31lb)</li></ul>
+          <p class="note">Highest quality extra sharp gardening shears.( Karikomi ) (Made-to-order).</p>
+          <span class="chip" style="background:#b03a2e;border-color:#b03a2e">0300 Custom / made-to-order</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0501">
+        <div class="ph"><img src="images/675.jpg" alt="Gardening shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0501</p>
+          <h3>Gardening shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>160g (0.35lb)</li></ul>
+          <p class="note">Light-weight shears for efficient work.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0502">
+        <div class="ph"><img src="images/676.jpg" alt="Gardening shears for Junipers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0502</p>
+          <h3>Gardening shears for Junipers</h3>
+          <ul class="spec"><li>215mm (8.46in)</li><li>200g (0.44lb)</li></ul>
+          <p class="note">Long blade shears for JUNIPERS.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0503">
+        <div class="ph"><img src="images/677.jpg" alt="Gardening shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0503</p>
+          <h3>Gardening shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>260g (0.57lb)</li></ul>
+          <p class="note">Heavy duty shears for gardening.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0504">
+        <div class="ph"><img src="images/678.jpg" alt="Gardening shears for flowering" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0504</p>
+          <h3>Gardening shears for flowering</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>260g (0.57lb)</li></ul>
+          <p class="note">Suitable for Flowering.</p>
+          <span class="chip" style="background:#4a5560;border-color:#4a5560">0000 Standard carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8501">
+        <div class="ph"><img src="images/823.jpg" alt="Gardening shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8501</p>
+          <h3>Gardening shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>160g (0.35lb)</li></ul>
+          <p class="note">Light-weight shears for efficient work.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8503">
+        <div class="ph"><img src="images/824.jpg" alt="Gardening shears" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8503</p>
+          <h3>Gardening shears</h3>
+          <ul class="spec"><li>180mm (7.09in)</li><li>260g (0.57lb)</li></ul>
+          <p class="note">Heavy duty shears for gardening.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">8000 Stainless-coated carbon</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-tweezers">
+    <div class="cat-head"><h2>Tweezers &amp; Probes</h2><span class="cat-count">14</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0011">
+        <div class="ph"><img src="images/728.jpg" alt="Bonsai tweezers · Straight" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0011</p>
+          <h3>Bonsai tweezers · Straight</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">MASAKUNI&#x27;s very famous No.11 Bonsai Tweezers. The useful trowel-head can be aplied for many Bonsai works.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0012">
+        <div class="ph"><img src="images/729.jpg" alt="Bonsai tweezers · Round" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0012</p>
+          <h3>Bonsai tweezers · Round</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>60g (0.13lb)</li></ul>
+          <p class="note">Specially designed Bonsai Tweezers for moss putting or removing spiders and webs.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0013">
+        <div class="ph"><img src="images/730.jpg" alt="Insect remover" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0013</p>
+          <h3>Insect remover</h3>
+          <ul class="spec"><li>175mm (6.89in)</li><li>10g (0.02lb)</li></ul>
+          <p class="note">This is a thin steel stick of which both ends have special forms. Very useful for washing root in detail part and removing insects on the trees.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0013-A">
+        <div class="ph"><img src="images/854.jpg" alt="Insect remover - A" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0013-A</p>
+          <h3>Insect remover - A</h3>
+          <ul class="spec"><li>290mm (11.4in)</li><li>25g (0.06lb)</li></ul>
+          <p class="note">This is a thin steel stick of which both ends have special forms. Very useful for washing root in detail part and removing insects on the trees.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0013-B">
+        <div class="ph"><img src="images/855.jpg" alt="Insect remover - B" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0013-B</p>
+          <h3>Insect remover - B</h3>
+          <ul class="spec"><li>290mm (11.4in)</li><li>25g (0.06lb)</li></ul>
+          <p class="note">This is a thin steel stick of which both ends have special forms. Very useful for washing root in detail part and removing insects on the trees.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0027">
+        <div class="ph"><img src="images/731.jpg" alt="Bonsai tweezers · Curved" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0027</p>
+          <h3>Bonsai tweezers · Curved</h3>
+          <ul class="spec"><li>210mm (8.27in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">Also the very famous No.27 Bonsai Tweezers of MASAKUNI. The trowel-head form is different from No.11. Wide aplications.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0111">
+        <div class="ph"><img src="images/732.jpg" alt="Bonsai stainless steel tweezers · Straight" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0111</p>
+          <h3>Bonsai stainless steel tweezers · Straight</h3>
+          <ul class="spec"><li>205mm (8.07in)</li><li>50g</li></ul>
+          <p class="note">High quality Bonsai Tweezers.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">Stainless steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0127">
+        <div class="ph"><img src="images/733.jpg" alt="Bonsai stainless steel tweezers · Curved" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0127</p>
+          <h3>Bonsai stainless steel tweezers · Curved</h3>
+          <ul class="spec"><li>205mm (8.07in)</li><li>50g</li></ul>
+          <p class="note">High quality Bonsai Tweezers.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">Stainless steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0311">
+        <div class="ph"><img src="images/734.jpg" alt="Bonsai long tweezers · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0311</p>
+          <h3>Bonsai long tweezers · Specially made</h3>
+          <ul class="spec"><li>275mm (10.8in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Specially designed long type durable Tweezers.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0803">
+        <div class="ph"><img src="images/735.jpg" alt="Bud trimming tweezers · New type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0803</p>
+          <h3>Bud trimming tweezers · New type</h3>
+          <ul class="spec"><li>155mm (6.10in)</li><li>30g (0.07lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0811">
+        <div class="ph"><img src="images/865.jpg" alt="Bonsai tweezers for Pines and Junipers · Curved" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0811</p>
+          <h3>Bonsai tweezers for Pines and Junipers · Curved</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>55g</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0812">
+        <div class="ph"><img src="images/866.jpg" alt="Bonsai tweezers for Pines and Junipers · Straight" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0812</p>
+          <h3>Bonsai tweezers for Pines and Junipers · Straight</h3>
+          <ul class="spec"><li>200mm (7 7/8&amp;quot;in)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8811">
+        <div class="ph"><img src="images/828.jpg" alt="Bonsai tweezers for Pines and Junipers · Curved" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8811</p>
+          <h3>Bonsai tweezers for Pines and Junipers · Curved</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>55g</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8812">
+        <div class="ph"><img src="images/829.jpg" alt="Bonsai tweezers for Pines and Junipers · Straight" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8812</p>
+          <h3>Bonsai tweezers for Pines and Junipers · Straight</h3>
+          <ul class="spec"><li>200mm (7.87in)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-turntable">
+    <div class="cat-head"><h2>Turntables</h2><span class="cat-count">7</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0029">
+        <div class="ph"><img src="images/738.jpg" alt="Turntable · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0029</p>
+          <h3>Turntable · Large size</h3>
+          <ul class="spec"><li>350mm (13.8in)</li><li>5,100g (11.2lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0029">
+        <div class="ph"><img src="images/878.jpg" alt="Turntable · Square shape · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0029</p>
+          <h3>Turntable · Square shape · Small size</h3>
+          <ul class="spec"><li>300 mm (15 15/16 × 11 13/16 in)</li><li>2,400g (5.29lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0030">
+        <div class="ph"><img src="images/739.jpg" alt="Turntable · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0030</p>
+          <h3>Turntable · Small size</h3>
+          <ul class="spec"><li>280mm (11.0in)</li><li>3,700g (8.16lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0030">
+        <div class="ph"><img src="images/877.jpg" alt="Turntable · Round shape" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0030</p>
+          <h3>Turntable · Round shape</h3>
+          <ul class="spec"><li>300mm (17.7×11.8in)</li><li>1,600g (3.53lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-S-0290">
+        <div class="ph"><img src="images/879.jpg" alt="Turntable · Square shape · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-S-0290</p>
+          <h3>Turntable · Square shape · Large size</h3>
+          <ul class="spec"><li>450mm (23.6×17.7in)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8030">
+        <div class="ph"><img src="images/873.jpg" alt="Bonsai hydraulic lift turntable" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8030</p>
+          <h3>Bonsai hydraulic lift turntable</h3>
+          <ul class="spec"><li>525mm (20.7in)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8130">
+        <div class="ph"><img src="images/740.jpg" alt="Turntable · Screw type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8130</p>
+          <h3>Turntable · Screw type</h3>
+          <ul class="spec"><li>345mm (d13.6in)</li><li>9,200g (20.3lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-bending">
+    <div class="cat-head"><h2>Bending Tools (Jacks &amp; Levers)</h2><span class="cat-count">7</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0023">
+        <div class="ph"><img src="images/741.jpg" alt="Jack · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0023</p>
+          <h3>Jack · Large size</h3>
+          <ul class="spec"><li>380mm (15.0in)</li><li>2,200g (4.85lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0024">
+        <div class="ph"><img src="images/742.jpg" alt="Jack · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0024</p>
+          <h3>Jack · Small size</h3>
+          <ul class="spec"><li>320mm (12.6in)</li><li>1,200g (2.64lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0025">
+        <div class="ph"><img src="images/745.jpg" alt="Lever · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0025</p>
+          <h3>Lever · Large size</h3>
+          <ul class="spec"><li>350mm (13.8in)</li><li>490g (1.08lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0026">
+        <div class="ph"><img src="images/746.jpg" alt="Lever · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0026</p>
+          <h3>Lever · Small size</h3>
+          <ul class="spec"><li>260mm (10.2in)</li><li>270g (0.60lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0226">
+        <div class="ph"><img src="images/747.jpg" alt="Easy bending lever for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0226</p>
+          <h3>Easy bending lever for Satsuki and Azalea</h3>
+          <ul class="spec"><li>330mm (13.0in)</li><li>320g</li></ul>
+          <p class="note">Suitable for SATSUKI AZALEA.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0230(L)">
+        <div class="ph"><img src="images/743.jpg" alt="Bending supporter for Jack · 6-pieces · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0230(L)</p>
+          <h3>Bending supporter for Jack · 6-pieces · Large size</h3>
+          <ul class="spec"><li>300mm (11.8in)</li></ul>
+          <p class="note">Use with Nos.23 or 24 for the exact operation.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0230(S)">
+        <div class="ph"><img src="images/744.jpg" alt="Bending supporter for Jack · 6-pieces · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0230(S)</p>
+          <h3>Bending supporter for Jack · 6-pieces · Small size</h3>
+          <ul class="spec"><li>230mm (9.06in)</li></ul>
+          <p class="note">Use with Nos.23 or 24 for the exact operation.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-repotting">
+    <div class="cat-head"><h2>Repotting Tools</h2><span class="cat-count">9</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0019">
+        <div class="ph"><img src="images/748.jpg" alt="Trowel · Large size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0019</p>
+          <h3>Trowel · Large size</h3>
+          <ul class="spec"><li>155mm (6.10in)</li><li>80g (0.18lb)</li></ul>
+          <p class="note">Convinient tool for finishing the soil surface. The form is specially designed in order to go along the inside edge of any kinds of pot, round or square. Made of brass.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0020">
+        <div class="ph"><img src="images/749.jpg" alt="Trowel · Small size" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0020</p>
+          <h3>Trowel · Small size</h3>
+          <ul class="spec"><li>140mm (5.51in)</li><li>60g (0.13lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0037">
+        <div class="ph"><img src="images/750.jpg" alt="Repotting sickle" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0037</p>
+          <h3>Repotting sickle</h3>
+          <ul class="spec"><li>220mm (8.66in)</li><li>100g (0.22lb)</li></ul>
+          <p class="note">By this tool you can separate the soil mass from the pot and make it easy to remove the tree from the pot even if the pot&#x27;s edge is curving inside.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0041(A)">
+        <div class="ph"><img src="images/736.jpg" alt="Rake · 3-fingers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0041(A)</p>
+          <h3>Rake · 3-fingers</h3>
+          <ul class="spec"><li>250mm (9.84in)</li><li>120g (0.26lb)</li></ul>
+          <p class="note">Removing the soil from root.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0041(B)">
+        <div class="ph"><img src="images/737.jpg" alt="Rake · 2-fingers" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0041(B)</p>
+          <h3>Rake · 2-fingers</h3>
+          <ul class="spec"><li>250mm (9.84in)</li><li>110g (0.24lb)</li></ul>
+          <p class="note">Removing the soil from root.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0120-B">
+        <div class="ph"><img src="images/857.jpg" alt="Stainless steel repotting trowel" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0120-B</p>
+          <h3>Stainless steel repotting trowel</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>45g (0.10lb)</li></ul>
+          <p class="note">Specially designed trowel for wide aplications. Made of stainless steel.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">Stainless steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0341">
+        <div class="ph"><img src="images/858.jpg" alt="Rake" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0341</p>
+          <h3>Rake</h3>
+          <ul class="spec"><li>240mm (9.45in)</li><li>220g (0.49lb)</li></ul>
+          <p class="note">Inevitable tool for repotting. Simple but for very wide aplications.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0341-B">
+        <div class="ph"><img src="images/859.jpg" alt="Rake for small bonsai" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0341-B</p>
+          <h3>Rake for small bonsai</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>40g (0.09lb)</li></ul>
+          <p class="note">Inevitable tool for repotting. Simple but for very wide aplications.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0700">
+        <div class="ph"><img src="images/864.jpg" alt="Chopsticks · Bamboo" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0700</p>
+          <h3>Chopsticks · Bamboo</h3>
+          <ul class="spec"><li>230mm (9.06in)</li><li>20g (0.04lb)</li></ul>
+          <p class="note">For putting or removing the soil among the root. Mild tool never hurting roots.</p>
+          <span class="chip" style="background:#79653f;border-color:#79653f">Bamboo</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-scoop">
+    <div class="cat-head"><h2>Scoops &amp; Sieves</h2><span class="cat-count">2</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0800">
+        <div class="ph"><img src="images/751.jpg" alt="Scoop 3-pieces set with sieves" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0800</p>
+          <h3>Scoop 3-pieces set with sieves</h3>
+          <ul class="spec"><li>180,170,160mm (7.09,6.69,6.30in)</li></ul>
+          <p class="note">Scooping soil with this tool, you can shake off smashed powder soil, which is no good for root breathing.</p>
+          <span class="chip" style="background:#79653f;border-color:#79653f">Wood</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0900">
+        <div class="ph"><img src="images/752.jpg" alt="Sieves 5-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0900</p>
+          <h3>Sieves 5-pieces set</h3>
+          <ul class="spec"><li>1,400g/set (3.09lb/set)</li></ul>
+          <p class="note">Highest quality traditional wooden Sieves set. These SIEVES set can supply every grain size of the soil for Bonsai.</p>
+          <span class="chip" style="background:#79653f;border-color:#79653f">Wood</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-watering">
+    <div class="cat-head"><h2>Watering Cans &amp; Nozzles</h2><span class="cat-count">6</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-1001">
+        <div class="ph"><img src="images/753.jpg" alt="Copper fertilizing can" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1001</p>
+          <h3>Copper fertilizing can</h3>
+          <ul class="spec"><li>370mm (14.6in)</li><li>190g (0.42lb)</li></ul>
+          <p class="note">800ml.</p>
+          <span class="chip" style="background:#9a5a32;border-color:#9a5a32">Copper</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1002">
+        <div class="ph"><img src="images/754.jpg" alt="Copper watering can" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1002</p>
+          <h3>Copper watering can</h3>
+          <ul class="spec"><li>650mm (25.6in)</li><li>600g (1.32lb)</li></ul>
+          
+          <span class="chip" style="background:#9a5a32;border-color:#9a5a32">Copper</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1003">
+        <div class="ph"><img src="images/755.jpg" alt="Copper watering can with 2-nozzles" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1003</p>
+          <h3>Copper watering can with 2-nozzles</h3>
+          <ul class="spec"><li>1,000g (2.20lb)</li></ul>
+          <p class="note">4l Only (B) is with 2 nozzles, straight and diagonal.</p>
+          <span class="chip" style="background:#9a5a32;border-color:#9a5a32">Copper</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1004">
+        <div class="ph"><img src="images/756.jpg" alt="Copper watering can with 2-nozzles" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1004</p>
+          <h3>Copper watering can with 2-nozzles</h3>
+          <ul class="spec"><li>980mm (38.6in)</li><li>1,100g (2.43lb)</li></ul>
+          <p class="note">5l With 2 Nozzles, straight an diagonal.</p>
+          <span class="chip" style="background:#9a5a32;border-color:#9a5a32">Copper</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1005">
+        <div class="ph"><img src="images/876.jpg" alt="Nozzle · Straight" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1005</p>
+          <h3>Nozzle · Straight</h3>
+          <ul class="spec"><li>30g (0.07lb)</li></ul>
+          <p class="note">Highest quality Nozzle. The net plate is made of brass or copper.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1006">
+        <div class="ph"><img src="images/757.jpg" alt="Nozzle · Straight" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1006</p>
+          <h3>Nozzle · Straight</h3>
+          <ul class="spec"><li>30g (0.07lb)</li></ul>
+          <p class="note">Highest quality Nozzle. The net plate is made of brass or copper.</p>
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-toolset">
+    <div class="cat-head"><h2>Tool Sets</h2><span class="cat-count">18</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0031">
+        <div class="ph"><img src="images/758.jpg" alt="Bonsai tool 9-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0031</p>
+          <h3>Bonsai tool 9-pieces set</h3>
+          <ul class="spec"><li>1,400g (3.09lb)</li></ul>
+          <p class="note">The best-seller set of MASAKUNI. For wide aplications. It is MASAKUNI&#x27;s great honor that this set was selected and bought by the former Emperor of Japan in 1967.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0032">
+        <div class="ph"><img src="images/759.jpg" alt="Bonsai tool 8-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0032</p>
+          <h3>Bonsai tool 8-pieces set</h3>
+          
+          <p class="note">Wide aplication set teaturing Nos.8 and 16.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0033">
+        <div class="ph"><img src="images/760.jpg" alt="Bonsai tool 5-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0033</p>
+          <h3>Bonsai tool 5-pieces set</h3>
+          <ul class="spec"><li>720g (1.59lb)</li></ul>
+          <p class="note">The most suitable set for beginners.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0034">
+        <div class="ph"><img src="images/761.jpg" alt="Bonsai tool 3-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0034</p>
+          <h3>Bonsai tool 3-pieces set</h3>
+          <ul class="spec"><li>30mm (9.45x4.92x1.18in)</li><li>400g (0.88lb)</li></ul>
+          <p class="note">The most basic tool set.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0132">
+        <div class="ph"><img src="images/762.jpg" alt="Bonsai tool 7-pieces set for small bonsai" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0132</p>
+          <h3>Bonsai tool 7-pieces set for small bonsai</h3>
+          <ul class="spec"><li>910g (2.01lb)</li></ul>
+          <p class="note">Especially composed for small Bonsai work.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0231">
+        <div class="ph"><img src="images/763.jpg" alt="Bonsai tool 9-pieces set · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0231</p>
+          <h3>Bonsai tool 9-pieces set · Specially made</h3>
+          <ul class="spec"><li>1,300g (2.87lb)</li></ul>
+          <p class="note">Composed by specially made quality tools.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0232">
+        <div class="ph"><img src="images/764.jpg" alt="Bonsai tool 8-pieces set · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0232</p>
+          <h3>Bonsai tool 8-pieces set · Specially made</h3>
+          <ul class="spec"><li>730g (1.61lb)</li></ul>
+          <p class="note">Composed by the specially made quality tools.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0233">
+        <div class="ph"><img src="images/765.jpg" alt="Bonsai tool 5-pieces set · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0233</p>
+          <h3>Bonsai tool 5-pieces set · Specially made</h3>
+          <ul class="spec"><li>630g (1.39lb)</li></ul>
+          <p class="note">Composed by the specially made tools.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0234">
+        <div class="ph"><img src="images/766.jpg" alt="Bonsai tool 3-pieces set · Specially made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0234</p>
+          <h3>Bonsai tool 3-pieces set · Specially made</h3>
+          <ul class="spec"><li>400g (0.88lb)</li></ul>
+          <p class="note">Featuring specially made No.102.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0331">
+        <div class="ph"><img src="images/767.jpg" alt="Bonsai tool 7-pieces set for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0331</p>
+          <h3>Bonsai tool 7-pieces set for Satsuki and Azalea</h3>
+          <ul class="spec"><li>900g (1.98lb)</li></ul>
+          <p class="note">Heavy duty tool set featuring Nos.40 and 338.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0332">
+        <div class="ph"><img src="images/768.jpg" alt="Bonsai tool 8-pieces set for Satsuki and Azalea" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0332</p>
+          <h3>Bonsai tool 8-pieces set for Satsuki and Azalea</h3>
+          <ul class="spec"><li>820g (1.81lb)</li></ul>
+          <p class="note">Suitable for repotting of SATSUKI AZALEA.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0381">
+        <div class="ph"><img src="images/782.jpg" alt="Bonsai tool 9-pieces set with leather case · Custom made" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0381</p>
+          <h3>Bonsai tool 9-pieces set with leather case · Custom made</h3>
+          
+          <p class="note">381 CUSTOM MADE 9pcs.SET in Leather case (Made-to-order) MASAKUNI&#x27;s top quality tool set. The user&#x27;s name will be engraved on the tools by golden letters.</p>
+          <span class="chip" style="background:#8a6539;border-color:#8a6539">Leather</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-600-E">
+        <div class="ph"><img src="images/863.jpg" alt="Trunk stainless steel brush 3-pieces set · Small bonsai" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-600-E</p>
+          <h3>Trunk stainless steel brush 3-pieces set · Small bonsai</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>17g (0.04lb)</li></ul>
+          <p class="note">Arrange and finish the soil surface.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">Stainless steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8031">
+        <div class="ph"><img src="images/832.jpg" alt="Bonsai tool 9-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8031</p>
+          <h3>Bonsai tool 9-pieces set</h3>
+          
+          <p class="note">The best-seller set of MASAKUNI. For wide aplications. It is MASAKUNI&#x27;s great honor that this set was selected and bought by the former Emperor of Japan in 1967.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8032">
+        <div class="ph"><img src="images/833.jpg" alt="Bonsai tool 8-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8032</p>
+          <h3>Bonsai tool 8-pieces set</h3>
+          
+          <p class="note">Wide aplication set teaturing Nos.8 and 16.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8033">
+        <div class="ph"><img src="images/834.jpg" alt="Bonsai tool 5-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8033</p>
+          <h3>Bonsai tool 5-pieces set</h3>
+          
+          <p class="note">The most suitable set for beginners.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8034">
+        <div class="ph"><img src="images/835.jpg" alt="Bonsai tool 3-pieces set" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8034</p>
+          <h3>Bonsai tool 3-pieces set</h3>
+          
+          <p class="note">The most basic tool set.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-8132">
+        <div class="ph"><img src="images/836.jpg" alt="Bonsai tool 7-pieces set for Small bonsai" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-8132</p>
+          <h3>Bonsai tool 7-pieces set for Small bonsai</h3>
+          
+          <p class="note">Especially composed for small Bonsai work.</p>
+          <span class="chip" style="background:#5a5650;border-color:#5a5650">Mixed set</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-knife">
+    <div class="cat-head"><h2>Bonsai Knives</h2><span class="cat-count">2</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-1800">
+        <div class="ph"><img src="images/726.jpg" alt="Bonsai knife" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1800</p>
+          <h3>Bonsai knife</h3>
+          <ul class="spec"><li>235mm (9.25in)</li><li>120g (0.26lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1800-B">
+        <div class="ph"><img src="images/727.jpg" alt="Bonsai knife · Double-edged blade" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1800-B</p>
+          <h3>Bonsai knife · Double-edged blade</h3>
+          <ul class="spec"><li>240mm (9.45in)</li><li>90g (0.20lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-cleaning">
+    <div class="cat-head"><h2>Brooms &amp; Brushes</h2><span class="cat-count">3</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-0600">
+        <div class="ph"><img src="images/860.jpg" alt="Hemp-palm broom · Hard and Soft type" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0600</p>
+          <h3>Hemp-palm broom · Hard and Soft type</h3>
+          <ul class="spec"><li>150mm (5.91in)</li><li>20g (0.04lb)</li></ul>
+          <p class="note">Arrange and finish the soil surface.</p>
+          <span class="chip" style="background:#79653f;border-color:#79653f">Hemp-palm</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-0600-C">
+        <div class="ph"><img src="images/862.jpg" alt="Trunk stainless steel brush" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-0600-C</p>
+          <h3>Trunk stainless steel brush</h3>
+          <ul class="spec"><li>270mm (10.6in)</li><li>13g (0.03lb)</li></ul>
+          <p class="note">Arrange and finish the soil surface.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">Stainless steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-600-SS">
+        <div class="ph"><img src="images/861.jpg" alt="Bonsai stainless steel broom" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-600-SS</p>
+          <h3>Bonsai stainless steel broom</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>50g (0.11lb)</li></ul>
+          <p class="note">Arrange and finish the soil surface.</p>
+          <span class="chip" style="background:#2165a8;border-color:#2165a8">Stainless steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="cat" id="cat-care">
+    <div class="cat-head"><h2>Care &amp; Maintenance</h2><span class="cat-count">5</span></div>
+    <div class="grid">
+      <article class="card" id="MAS-MN-0301">
+        <div class="ph"><img src="images/871.jpg" alt="Bonsai bond" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-MN-0301</p>
+          <h3>Bonsai bond</h3>
+          <ul class="spec"><li>50g (0.11lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1400">
+        <div class="ph"><img src="images/867.jpg" alt="Contact bond for bonsai stone" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1400</p>
+          <h3>Contact bond for bonsai stone</h3>
+          
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1500">
+        <div class="ph"><img src="images/868.jpg" alt="Sharpening oil stone" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1500</p>
+          <h3>Sharpening oil stone</h3>
+          <ul class="spec"><li>200mm (7.87in)</li><li>75g (0.17lb)</li></ul>
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1510">
+        <div class="ph"><img src="images/869.jpg" alt="Oil for bonsai tools" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1510</p>
+          <h3>Oil for bonsai tools</h3>
+          
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+      <article class="card" id="MAS-1550">
+        <div class="ph"><img src="images/870.jpg" alt="Tool polisher · Blade polish" width="200" height="200" loading="lazy"></div>
+        <div class="body">
+          <p class="model">MAS-1550</p>
+          <h3>Tool polisher · Blade polish</h3>
+          
+          
+          <span class="chip" style="background:#46515c;border-color:#46515c">Carbon steel</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+</body>
+</html>
