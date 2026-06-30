@@ -27,7 +27,7 @@
 :root {
   --font-display: "Polais-Regular", Georgia, serif;
   --font-lede: "Michroma", "Arial Narrow", sans-serif;
-  --font-body: "Freight Text Pro", "Lora", Georgia, serif;
+  --font-body: "Freight Text Pro", Georgia, serif;
 
   --bg: #0a0805;
   --ink: #f5f1ea;
@@ -142,9 +142,9 @@ body {
 
 /* --- Font comparison (temporary) ---
    Lede candidates: Michroma, Saira
-   Body candidates: Lora, Spectral, Newsreader */
+   Body candidates: Spectral, Newsreader, Source Serif 4 */
 .font-michroma { font-family: "Michroma", sans-serif; }
 .font-saira { font-family: "Saira", "Arial Narrow", sans-serif; }
-.font-lora { font-family: "Lora", Georgia, serif; }
 .font-spectral { font-family: "Spectral", Georgia, serif; }
 .font-newsreader { font-family: "Newsreader", Georgia, serif; }
+.font-source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 400; }
