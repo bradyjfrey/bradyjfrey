@@ -1,0 +1,150 @@
+/* ============================================================
+   DCUO — "A Delectable Occasion" font-matching proof of concept
+
+   Three font roles, each a CSS variable.
+
+     --font-display : Polais Regular        -> headline   (licensed, wired)
+     --font-lede    : Panoragraph Regular   -> uppercase subhead (fallback for now)
+     --font-body    : Freight Text Pro Light -> body copy  (fallback for now)
+   Fonts are loaded via <link> tags in index.html <head>.
+   ============================================================ */
+
+/* --- Real fonts: uncomment and point at your files once licensed ---
+@font-face {
+  font-family: "Panoragraph";
+  src: url("fonts/panoragraph-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Freight Text Pro";
+  src: url("fonts/freight-text-pro-light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+------------------------------------------------------------------ */
+
+:root {
+  --font-display: "Polais-Regular", Georgia, serif;
+  --font-lede: "Michroma", "Arial Narrow", sans-serif;
+  --font-body: "Freight Text Pro", "Lora", Georgia, serif;
+
+  --bg: #0a0805;
+  --ink: #f5f1ea;
+  --ink-dim: #d8d2c8;
+  --accent: #c8a25a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(2rem, 6vw, 6rem);
+  background: var(--bg) url("background.jpg") center / cover no-repeat;
+}
+
+/* Keep the left-side copy legible over the photo */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 8, 5, 0.85) 0%,
+    rgba(10, 8, 5, 0.55) 40%,
+    rgba(10, 8, 5, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 14vw, 6rem);;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero__lede {
+  font-family: var(--font-lede);
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+/* Last lede in the comparison stack keeps the gap before the body */
+.hero__lede:last-of-type {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* Clickable caption identifying each comparison sample */
+.sample-label {
+  display: block;
+  width: fit-content;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.1em 0.4em;
+  position: relative;
+  right: 0.4em;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sample-label:hover,
+.sample-label:focus-visible {
+  background-color: var(--accent);
+  color: #000;
+}
+
+.hero__body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 30rem;
+  margin-bottom: 2rem;
+}
+
+.hero__body:last-of-type {
+  margin-bottom: 0;
+}
+
+/* --- Font comparison (temporary) ---
+   Lede candidates: Michroma, Saira
+   Body candidates: Lora, Spectral, Newsreader */
+.font-michroma { font-family: "Michroma", sans-serif; }
+.font-saira { font-family: "Saira", "Arial Narrow", sans-serif; }
+.font-lora { font-family: "Lora", Georgia, serif; }
+.font-spectral { font-family: "Spectral", Georgia, serif; }
+.font-newsreader { font-family: "Newsreader", Georgia, serif; }
