@@ -1,0 +1,600 @@
+/* =============================================================
+   WORKOUT — Daily workout checklist
+   Theme system: Swiss / Ration / Instrument, each with light + dark.
+   Tokens drive every visual choice; structure is constant.
+   Adapted from Box-Tracker.
+============================================================= */
+
+/* =============================================================
+   ROOT DEFAULTS — Swiss light, plus token defaults all themes inherit
+============================================================= */
+:root {
+  /* palette */
+  --bg: #ffffff;
+  --ink: #12181e;
+  --ink-dim: #5a6570;
+  --ink-faint: #b8c0c8;
+  --rule: #e4e8ec;
+  --rule-strong: #c8cfd6;
+  --box-border: #b8c0c8;
+  --box-fill: #12181e;
+  --box-minus: #ffffff;
+  --accent: #4a6b80;
+
+  /* typography */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+
+  /* structural detail */
+  --title-weight: 700;
+  --title-tracking: -0.035em;
+  --title-style: normal;
+  --ex-label-transform: none;
+  --ex-label-tracking: 0;
+  --ex-label-weight: 600;
+  --ex-label-font: 'Inter', sans-serif;
+  --ex-label-size: 15px;
+  --scheme-font: 'Inter', sans-serif;
+  --scheme-style: normal;
+  --scheme-size: 11px;
+  --scheme-tracking: 0;
+  --sub-transform: uppercase;
+  --sub-tracking: 0.08em;
+  --sub-style: normal;
+  --sub-font: 'Inter', sans-serif;
+
+  --rule-weight: 1px;
+  --rule-strong-weight: 1.5px;
+  --box-border-weight: 1.25px;
+  --check-weight: 1.5px;
+
+  /* unchecked box appearance */
+  --box-bg: transparent;
+  --box-radius: 0;
+
+  /* counter coloring */
+  --count-done-color: var(--ink);
+  --count-total-color: var(--ink-faint);
+
+  /* sub-line coloring */
+  --sub-accent-color: var(--ink-dim);
+
+  /* day tabs */
+  --tab-font: 'Inter', sans-serif;
+  --tab-size: 12px;
+  --tab-weight: 600;
+  --tab-transform: uppercase;
+  --tab-tracking: 0.06em;
+  --tab-radius: 0;
+
+  /* demo panel */
+  --demo-bg: transparent;
+  --demo-radius: 0;
+}
+
+/* =============================================================
+   SWISS
+============================================================= */
+[data-theme="swiss"][data-mode="light"] {
+  --bg: #ffffff;
+  --ink: #000000;
+  --ink-dim: #000000;
+  --ink-faint: #000000;
+  --rule: #000000;
+  --rule-strong: #000000;
+  --box-border: #000000;
+  --box-fill: #000000;
+  --box-minus: #ffffff;
+  --accent: #000000;
+}
+[data-theme="swiss"][data-mode="dark"] {
+  --bg: #0e1418;
+  --ink: #d8dde2;
+  --ink-dim: #7a858f;
+  --ink-faint: #3d464f;
+  --rule: rgba(216,221,226,0.08);
+  --rule-strong: rgba(216,221,226,0.40);
+  --box-border: rgba(216,221,226,0.50);
+  --box-fill: #d8dde2;
+  --box-minus: #0e1418;
+  --accent: #7a9ab3;
+}
+[data-theme="swiss"] {
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+  --title-weight: 700;
+  --title-tracking: -0.035em;
+  --ex-label-font: 'Inter', sans-serif;
+  --ex-label-weight: 600;
+  --ex-label-size: 15px;
+  --scheme-font: 'Inter', sans-serif;
+  --scheme-style: normal;
+  --scheme-size: 11px;
+  --sub-transform: uppercase;
+  --sub-tracking: 0.08em;
+  --sub-font: 'Inter', sans-serif;
+  --tab-font: 'Inter', sans-serif;
+  --tab-transform: uppercase;
+  --tab-tracking: 0.06em;
+}
+
+/* =============================================================
+   RATION
+============================================================= */
+[data-theme="ration"][data-mode="light"] {
+  --bg: #f2ede3;
+  --ink: #2a2620;
+  --ink-dim: #6b5f4a;
+  --ink-faint: #b3a88f;
+  --rule: #e0d9c8;
+  --rule-strong: #c4b89d;
+  --box-border: #b3a88f;
+  --box-fill: #2a2620;
+  --box-minus: #f2ede3;
+  --accent: #8b7355;
+}
+[data-theme="ration"][data-mode="dark"] {
+  --bg: #0c0b09;
+  --ink: #ebe7de;
+  --ink-dim: #8f8a7f;
+  --ink-faint: #55514a;
+  --rule: rgba(235,231,222,0.08);
+  --rule-strong: rgba(235,231,222,0.40);
+  --box-border: rgba(235,231,222,0.50);
+  --box-fill: #ebe7de;
+  --box-minus: #0c0b09;
+  --accent: #c9a878;
+}
+[data-theme="ration"] {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fraunces', serif;
+  --title-weight: 500;
+  --title-tracking: -0.015em;
+  --ex-label-font: 'Fraunces', serif;
+  --ex-label-weight: 500;
+  --ex-label-size: 17px;
+  --ex-label-tracking: -0.005em;
+  --scheme-font: 'Fraunces', serif;
+  --scheme-style: italic;
+  --scheme-size: 12px;
+  --sub-transform: none;
+  --sub-tracking: 0;
+  --sub-style: italic;
+  --sub-font: 'Fraunces', serif;
+  --rule-strong-weight: 1px;
+  --box-border-weight: 1.5px;
+  --check-weight: 2px;
+  --box-radius: 4px;
+  --tab-font: 'Fraunces', serif;
+  --tab-transform: none;
+  --tab-tracking: 0;
+  --tab-size: 14px;
+  --tab-weight: 500;
+  --tab-radius: 3px;
+  --demo-bg: rgba(139,115,85,0.08);
+  --demo-radius: 4px;
+}
+
+/* =============================================================
+   INSTRUMENT
+============================================================= */
+[data-theme="instrument"][data-mode="light"] {
+  --bg: #ffffff;
+  --ink: #000000;
+  --ink-dim: #4a5560;
+  --ink-faint: #9ba5b0;
+  --rule: #d8dee4;
+  --rule-strong: #8a97a5;
+  --box-border: #c8d0d8;
+  --box-bg: #e4e9ed;
+  --box-fill: #2165a8;
+  --box-minus: #ffffff;
+  --accent: #2165a8;
+}
+[data-theme="instrument"][data-mode="dark"] {
+  --bg: #0e1418;
+  --ink: #eef2f6;
+  --ink-dim: #6a7480;
+  --ink-faint: #2a333d;
+  --rule: rgba(238,242,246,0.06);
+  --rule-strong: rgba(238,242,246,0.18);
+  --box-border: #2a343e;
+  --box-bg: #141a20;
+  --box-fill: #5aa8e0;
+  --box-minus: #0e1418;
+  --accent: #5aa8e0;
+}
+[data-theme="instrument"] {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --title-weight: 400;
+  --title-tracking: -0.005em;
+  --ex-label-font: 'Fraunces', serif;
+  --ex-label-weight: 500;
+  --ex-label-size: 17px;
+  --scheme-font: 'JetBrains Mono', monospace;
+  --scheme-style: normal;
+  --scheme-size: 10px;
+  --sub-transform: uppercase;
+  --sub-tracking: 0.15em;
+  --sub-font: 'JetBrains Mono', monospace;
+  --rule-strong-weight: 1px;
+  --box-border-weight: 1px;
+  --check-weight: 1.5px;
+  --box-radius: 3px;
+  --count-done-color: var(--accent);
+  --count-total-color: var(--ink-faint);
+  --sub-accent-color: var(--accent);
+  --tab-font: 'JetBrains Mono', monospace;
+  --tab-transform: uppercase;
+  --tab-tracking: 0.12em;
+  --tab-size: 11px;
+  --tab-weight: 500;
+  --tab-radius: 3px;
+  --demo-bg: rgba(90,168,224,0.05);
+  --demo-radius: 4px;
+}
+
+/* =============================================================
+   RESET / GLOBAL
+============================================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.app {
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  font-family: var(--font-body);
+  position: relative;
+  transition: background 0.18s, color 0.18s;
+}
+
+/* =============================================================
+   CHROME — theme picker icon + dropdown
+============================================================= */
+.app-chrome {
+  padding: 8px 16px 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+.theme-trigger,
+.mode-trigger {
+  background: transparent;
+  border: none;
+  color: var(--ink-dim);
+  padding: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  min-width: 44px; min-height: 44px;
+}
+.theme-trigger:hover,
+.mode-trigger:hover { color: var(--ink); }
+.theme-trigger svg,
+.mode-trigger svg { display: block; }
+.mode-trigger[aria-pressed="true"] svg path { fill: currentColor; }
+
+.theme-menu {
+  position: absolute;
+  top: calc(100% - 2px);
+  right: 16px;
+  min-width: 180px;
+  background: var(--bg);
+  border: 1px solid var(--rule-strong);
+  border-width: var(--rule-strong-weight);
+  z-index: 30;
+  display: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.theme-menu[data-open="true"] { display: block; }
+.theme-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.theme-menu button:last-child { border-bottom: none; }
+.theme-menu button:hover { background: var(--rule); }
+.theme-menu button[aria-pressed="true"] { color: var(--accent); }
+.theme-menu .swatches { display: inline-flex; gap: 2px; }
+.theme-menu .swatch {
+  width: 11px; height: 11px;
+  border: 1px solid var(--rule-strong);
+}
+.theme-menu .check {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--accent);
+  visibility: hidden;
+}
+.theme-menu button[aria-pressed="true"] .check { visibility: visible; }
+
+/* =============================================================
+   HEADER
+============================================================= */
+.app-head {
+  padding: 0 16px 14px;
+  border-bottom: var(--rule-strong-weight) solid var(--rule-strong);
+}
+.app-title {
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.app-title h1 {
+  font-family: var(--font-display);
+  font-weight: var(--title-weight);
+  font-style: var(--title-style);
+  font-size: 34px;
+  letter-spacing: var(--title-tracking);
+  line-height: 0.9;
+}
+.app-title .total-fig {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  color: var(--count-done-color);
+}
+.app-title .total-fig .slash,
+.app-title .total-fig .denominator {
+  color: var(--count-total-color);
+}
+.app-title .total-fig .slash { margin: 0 1px; }
+.app-sub {
+  margin-top: 6px;
+  font-family: var(--sub-font);
+  font-style: var(--sub-style, normal);
+  font-size: 11px;
+  letter-spacing: var(--sub-tracking);
+  text-transform: var(--sub-transform);
+  color: var(--ink-dim);
+  display: flex; justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =============================================================
+   DAY TABS
+============================================================= */
+.day-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 14px 16px 0;
+}
+.day-tab {
+  flex: 1;
+  background: transparent;
+  border: var(--box-border-weight) solid var(--box-border);
+  border-radius: var(--tab-radius);
+  color: var(--ink-dim);
+  font-family: var(--tab-font);
+  font-size: var(--tab-size);
+  font-weight: var(--tab-weight);
+  text-transform: var(--tab-transform);
+  letter-spacing: var(--tab-tracking);
+  padding: 10px 4px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.08s, color 0.08s, border-color 0.08s;
+}
+.day-tab[aria-pressed="true"] {
+  background: var(--box-fill);
+  border-color: var(--box-fill);
+  color: var(--box-minus);
+}
+
+/* day focus line under tabs */
+.day-focus {
+  padding: 12px 16px 10px;
+  font-family: var(--ex-label-font);
+  font-weight: var(--ex-label-weight);
+  font-size: 13px;
+  text-transform: var(--sub-transform);
+  letter-spacing: var(--sub-tracking);
+  color: var(--sub-accent-color);
+  border-bottom: var(--rule-weight) solid var(--rule);
+}
+
+/* =============================================================
+   EXERCISES
+============================================================= */
+.ex-row {
+  border-bottom: var(--rule-weight) solid var(--rule);
+}
+.ex-row:last-of-type { border-bottom: none; }
+
+.ex-main {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.ex-box {
+  width: 44px; height: 44px;
+  border: var(--box-border-weight) solid var(--box-border);
+  background: var(--box-bg);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.08s, border-color 0.08s;
+  border-radius: var(--box-radius);
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  flex: none;
+}
+.ex-row.checked .ex-box {
+  background: var(--box-fill);
+  border-color: var(--box-fill);
+}
+.ex-row.checked .ex-box::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 16px; height: 8px;
+  border-left: var(--check-weight) solid var(--box-minus);
+  border-bottom: var(--check-weight) solid var(--box-minus);
+  transform: translate(-55%, -70%) rotate(-45deg);
+}
+
+.ex-text {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  min-width: 0;
+}
+.ex-name {
+  font-family: var(--ex-label-font);
+  font-weight: var(--ex-label-weight);
+  font-size: var(--ex-label-size);
+  text-transform: var(--ex-label-transform);
+  letter-spacing: var(--ex-label-tracking);
+  line-height: 1.25;
+  transition: color 0.12s;
+}
+.ex-scheme {
+  margin-top: 3px;
+  font-family: var(--scheme-font);
+  font-style: var(--scheme-style);
+  font-size: var(--scheme-size);
+  letter-spacing: var(--scheme-tracking);
+  line-height: 1.4;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.12s;
+}
+.ex-row.checked .ex-name  { color: var(--ink-faint); }
+.ex-row.checked .ex-scheme { color: var(--ink-faint); }
+
+.ex-demo-toggle {
+  width: 44px; height: 44px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* demo panel — collapsed by default */
+.ex-demo {
+  display: none;
+  margin: 0 16px 14px;
+  background: var(--demo-bg);
+  border: var(--rule-weight) solid var(--rule);
+  border-radius: var(--demo-radius);
+  padding: 8px 0 2px;
+}
+.ex-row[data-demo-open="true"] .ex-demo { display: block; }
+.ex-demo img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+.ex-demo-caption {
+  font-family: var(--scheme-font);
+  font-style: var(--scheme-style);
+  font-size: 10px;
+  color: var(--ink-dim);
+  text-align: center;
+  padding: 2px 12px 8px;
+}
+
+/* =============================================================
+   DEMO FRAMES — Everkinetic start/end illustrations as CSS masks.
+   The PNG line art becomes a mask over the theme ink color, so
+   figures recolor with every theme and mode. The end frame fades
+   in and out over the start frame to read as motion.
+============================================================= */
+.frame {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  -webkit-mask: var(--mask) center / contain no-repeat;
+  mask: var(--mask) center / contain no-repeat;
+  transition: background 0.12s;
+}
+.frame-b {
+  opacity: 0;
+  animation: frame-fade 2s ease-in-out infinite;
+}
+@keyframes frame-fade {
+  0%, 15%   { opacity: 0; }
+  45%, 70%  { opacity: 1; }
+  100%      { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frame-b { animation: none; }
+}
+
+.ex-demo-frames {
+  position: relative;
+  height: 200px;
+  max-width: 300px;
+  margin: 4px auto 0;
+}
+
+/* thumbnail version inside the toggle button */
+.ex-thumb {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+.ex-thumb .frame { background: var(--ink-dim); }
+.ex-thumb-img { width: 44px; height: 44px; object-fit: contain; display: block; }
+.ex-row.checked .ex-thumb .frame { background: var(--ink-faint); }
+.ex-row[data-demo-open="true"] .ex-thumb .frame { background: var(--accent); }
+
+/* =============================================================
+   CREDIT — illustration attribution (CC-BY-SA)
+============================================================= */
+.app-credit {
+  padding: 20px 16px 0;
+  font-family: var(--scheme-font);
+  font-style: var(--scheme-style);
+  font-size: 10px;
+  color: var(--ink-faint);
+  text-align: center;
+}
+.app-credit a { color: inherit; }
+
+/* =============================================================
+   TAIL — bottom breathing room
+============================================================= */
+.app-tail { height: 48px; }

@@ -1,0 +1,16 @@
+{
+  "name": "Workout",
+  "short_name": "Workout",
+  "description": "A daily workout checklist.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
