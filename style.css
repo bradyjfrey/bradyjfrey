@@ -298,7 +298,7 @@ header li a:active {
 /* Body Design */
 body {font-weight: 400;}
 main {background: #f4f4f4;padding-top: 5.5em;}
-h2 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-weight: 700;letter-spacing: -0.05em;font-size: 2em;}
+h2 {font-family: "Gotham SSm A", "Gotham SSm B", helvetica, arial, sans-serif;font-weight: 700;letter-spacing: -0.05em;font-size: 2em;text-wrap: balance;}
 h3, h4 {text-transform: uppercase;font-weight: 700;}
 .title {text-align: right;}
 .img img {box-shadow: 0px 1px 4px rgba(0,0,0,.3);}
@@ -404,9 +404,12 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 .research-list {
     list-style: none;
 }
+.research-list li:first-child {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
 .research-list li {
     position: relative;
-    z-index: 1; 
+    z-index: 1;
     padding: 0.5em 0;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
@@ -524,7 +527,7 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
     font-size: 0.65em;
     vertical-align: super;
     line-height: 0;
-    color: #0066cc;
+    color: #1a1a1a;
     padding: 0 2px;
     font-weight: 500;
 }
@@ -563,12 +566,14 @@ figure .sidenote {
     text-indent: 0;
 }
 
-/* Highlight when targeted */
-.sidenote:target {
+/* Highlight when the inline marker is clicked (class set by sidenotes.js) */
+.sidenote:target,
+.sidenote.is-hit {
     background: #fff9c4;
     padding: 0.5rem 0.6rem;
     margin-left: -0.6rem;
     border-radius: 4px;
+    transition: background 0.4s;
 }
 
 /* Sidenote links */
@@ -579,8 +584,8 @@ figure .sidenote {
 }
 
 .sidenote a:hover {
-    color: #0066cc;
-    text-decoration-color: #0066cc;
+    color: rgb(158, 0, 0);
+    text-decoration-color: rgb(158, 0, 0);
 }
 
 /* Desktop: show sidenotes, hide endnotes */
@@ -634,11 +639,11 @@ figure .sidenote {
 }
 
 .unpublishedworkst {
-    font-size: var(--text-xxxl);
+    font-size: calc(var(--text-xxxl) * var(--text-scale-ratio));
     font-family: var(--font-primary);
     font-weight: 100;
     text-wrap: balance;
-    line-height: 1.2;
+    line-height: 1.1;
     margin-bottom: .25em;
 }
 .unpublishedworks h3 {
@@ -708,7 +713,7 @@ figure .sidenote {
 .res_auth {
     padding: 0 0 1.5em 0;
     font-weight: normal;
-    font-size: var(--text-md);
+    font-size: 1em;
 }
 .author-photo {
     width: 30px;
@@ -751,9 +756,22 @@ figure .sidenote {
     border-radius: 2px;
 }
 .date_st h5 a:hover {
-    background: black;
+    background: rgb(158, 0, 0);
     color: white;
-    border-bottom-color: black;
+    border-bottom-color: rgb(158, 0, 0);
+}
+.date_st h5 .doi-wrap {
+    white-space: nowrap;
+}
+@media only screen and (max-width: 650px) {
+    /* keep "DOI: <number>" together on its own line; drop the orphaned dot */
+    .date_st h5 .doi-wrap {
+        display: block;
+        margin-top: 0.2em;
+    }
+    .date_st h5 .sep {
+        display: none;
+    }
 }
 .figurei {
     font-size: var(--text-sm);
@@ -830,6 +848,8 @@ td:first-child {
 
 @media only screen and (max-width: 650px) {
     article {display: block;}
+    /* block layout drops the grid's row-gap; restore the heading's air */
+    article h2 {margin-bottom: 1rem;}
     .intro {padding: 0.5em 0;font-size: 2.5em;}
     .tagline {font-size: 1em;}
     .title {text-align: left;}
