@@ -670,7 +670,6 @@ figure .sidenote {
     padding: 0.1em 1.5em 0.9em 1.5em;
     font-style: normal;
     font-size: 0.95em;
-    color: #262b30;
 }
 /* CJK has no italic; keep Chinese passages upright instead of synthetically obliqued */
 .unpublishedworks [lang^="zh"] {
