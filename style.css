@@ -45,7 +45,6 @@ h1, h2, h3, h4, form legend {
     color: var(--color-text-heading);
     margin-bottom: var(--space-xxs);
     line-height: var(--heading-line-height);
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
 }
 /* text size */
 .text--xxxl {
@@ -478,13 +477,13 @@ footer p {font-weight: 400;color: #bcc8d1;padding: 1.5em 0;font-size: 0.75em;}
 /* Full-width band containers */
 .title-band {
     width: 100%;
-    background: #f4f4f4;
+    background: rgba(236, 236, 236, 1);
     text-align: left;
     padding-top: 5.5em;
 }
 .abstract-band {
     width: 100%;
-    background: rgb(235, 235, 235);
+    background: rgba(236, 236, 236, 1);
     text-align: left;
 }
 .fullreaders {
@@ -647,21 +646,26 @@ figure .sidenote {
     padding-top: 1em;
     padding-bottom: 0.25em;
 }
+/* First heading after the gray header band mirrors the band's bottom padding */
+.unpublishedworks > section:first-of-type > h3:first-child {
+    padding-top: 2.25rem;
+}
 .abstracth {
-    border-top: 3px double rgba(0, 0, 0, 0.1);
-    padding-top: 1em !important;
-    border: none;
-    text-shadow: none;
+    padding-top: 1rem !important;
+    margin-bottom: 0.6rem;
+    font-size: 0.8125rem;
+    color: #000;
 }
 .abstractp {
-    font-style: italic;
-    border-bottom: 3px double rgba(0, 0, 0, 0.1);
-    padding-bottom: 1.5em !important;
-    border: none;
+    font-style: normal;
+    color: #262b30;
+    padding-bottom: 2.25rem !important;
 }
 .unpublishedworks blockquote {
-    padding: 0 1.5em 1em 1.5em;
-    font-style: italic;
+    padding: 0.1em 1.5em 0.9em 1.5em;
+    font-style: normal;
+    font-size: 0.95em;
+    color: #262b30;
 }
 /* CJK has no italic; keep Chinese passages upright instead of synthetically obliqued */
 .unpublishedworks [lang^="zh"] {
@@ -717,8 +721,8 @@ figure .sidenote {
     border: 1px solid white;
 }
 .date_st {
-    background-color: #a65a3a;
-    color: white;
+    background-color: rgba(236, 236, 236, 1);
+    color: #5a6570;
     font-family: var(--font-secondary);
 }
 .date_st h5 {
@@ -726,35 +730,30 @@ figure .sidenote {
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 0.5em 1.75em;
+    padding: 0.2em 1.5rem 1.35rem;
     text-align: left;
     font-weight: normal;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
-.doi {
-    background-color: #e0e0e0;
-    font-family: var(--font-secondary);
-    font-size: .75em;
+.date_st h5 .sep {
+    color: #c0b7ae;
+    padding: 0 0.4em;
 }
-.doi p {
-    max-width: 960px;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 0.5em 1.85em;
-    text-align: left;
-    font-weight: normal;
-    opacity: 0.5;
-}
-.doi a {
-    font-size: 1em;
-    font-weight: normal;
+.date_st h5 a {
+    color: inherit;
     text-decoration: none;
-    padding: 0.1em 0.3em;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(90, 101, 112, 0.35);
+    padding: 0.1em 0.15em;
     border-radius: 2px;
 }
-.doi a:hover {
+.date_st h5 a:hover {
     background: black;
     color: white;
+    border-bottom-color: black;
 }
 .figurei {
     font-size: var(--text-sm);
