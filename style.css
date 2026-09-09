@@ -20,6 +20,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
 
     --c-page-bg: #f4f4f4;
     --c-surface: white;
+    --c-footer-bg: white;
     --c-band: rgba(236, 236, 236, 1);
     --c-tile-bg: rgba(0, 0, 0, 0.05);
 
@@ -94,7 +95,7 @@ body {
     font-family: var(--font-primary);
     color: var(--color-text);
     /* the canvas below the footer; white in light, as it has always been */
-    background-color: var(--c-surface);
+    background-color: var(--c-footer-bg);
 }
 h1, h2, h3, h4, form legend {
     color: var(--color-text-heading);
@@ -374,7 +375,7 @@ ul.cvv {padding: 0 0 0 1em;}
 .history p:nth-of-type(n + 2) {text-indent: 1.5em;}
 .history p:first-child:first-letter {float: left;font-size: 5em;line-height: 1em;padding: 0px .15em 0 0;}
 
-footer {display: block;clear: both;background-color: var(--c-surface);border-top: 1px solid var(--c-footer-rule);}
+footer {display: block;clear: both;background-color: var(--c-footer-bg);border-top: 1px solid var(--c-footer-rule);}
 footer p {font-weight: 400;color: var(--c-footer-text);padding: 1.5em 0;font-size: 0.75em;}
 
 
@@ -924,15 +925,20 @@ td:first-child {
    Print is unaffected: this stylesheet is loaded with media="screen".        */
 @media (prefers-color-scheme: dark) {
     :root {
-        /* the nav bar keeps its slate; the page sinks to meet it */
-        --c-nav-bg: #424e57;
-        --c-nav-rule: #2b343b;
+        /* the bar goes two steps down its own hue; moodier, and the logo
+           mark still reads at 35% opacity */
+        --c-nav-bg: #2f3841;
+        --c-nav-rule: #232b33;
         --c-nav-link: #9fbcc2;
         --c-nav-link-hi: white;
 
-        --c-page-bg: #161b1f;
-        --c-surface: #1d2329;
-        --c-band: #12171b;
+        /* the reading surface is a darker shade of the bar, and the bands
+           and footer drop below it, so an essay sits on a lifted panel the
+           way it sits on white paper in light mode */
+        --c-page-bg: #171c21;
+        --c-surface: #232b33;
+        --c-band: #12161a;
+        --c-footer-bg: #12161a;
         --c-tile-bg: rgba(255, 255, 255, 0.05);
 
         --c-text: #dde4ea;
@@ -944,9 +950,9 @@ td:first-child {
         --c-link: #dde4ea;
         --c-link-hover: #9fbcc2;
 
-        --c-rule: #2b343b;
+        --c-rule: #313b44;
         --c-rule-soft: rgba(255, 255, 255, 0.12);
-        --c-table-rule: #2b343b;
+        --c-table-rule: #313b44;
 
         /* the badge red survives on a dark ground; the same red as text does
            not, so anything using red as type gets the lifted value */
@@ -954,7 +960,7 @@ td:first-child {
         --c-accent-text: #ffffff;
         --c-accent-ink: #e5837a;
         --c-accent-hover-bg: #dde4ea;
-        --c-accent-hover-text: #161b1f;
+        --c-accent-hover-text: #171c21;
 
         --c-note: #b3bfc8;
         --c-note-link: #a4b0ba;
@@ -968,8 +974,8 @@ td:first-child {
         --c-date-sep: #7f7468;
         --c-date-rule: rgba(159, 188, 194, 0.35);
 
-        --c-footer-text: #6f7d87;
-        --c-footer-rule: #232b31;
+        --c-footer-text: #7e8b95;
+        --c-footer-rule: #1b2126;
         --c-port-head: #9fbcc2;
         --c-photo-ring: rgba(255, 255, 255, 0.18);
         --c-skip-bg: #2f7fd0;
