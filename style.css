@@ -18,6 +18,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
 
     --c-page-bg: #f4f4f4;
     --c-surface: white;
+    --c-reader: white;
     --c-footer-bg: white;
     --c-band: rgba(236, 236, 236, 1);
     --c-tile-bg: rgba(0, 0, 0, 0.05);
@@ -543,7 +544,7 @@ footer p {font-weight: 400;color: var(--c-footer-text);padding: 1.5em 0;font-siz
     text-align: left;
 }
 .fullreaders {
-    background: var(--c-surface);
+    background: var(--c-reader);
     padding-top: 0;
 }
 /* Centered content inside bands */
@@ -925,17 +926,18 @@ td:first-child {
 
         --c-page-bg: #171c21;
         --c-surface: #232b33;
-        --c-band: #12161a;
-        --c-footer-bg: #12161a;
+        --c-reader: #12161a;
+        --c-band: #181d22;
+        --c-footer-bg: #181d22;
         --c-tile-bg: rgba(255, 255, 255, 0.05);
 
-        --c-text: #dde4ea;
+        --c-text: #d2dae1;
         --c-heading: #f0f5f9;
         --c-muted: #8b98a2;
         --c-muted-hover-bg: rgba(255, 255, 255, .07);
         --c-muted-hover-text: #f0f5f9;
 
-        --c-link: #dde4ea;
+        --c-link: #d2dae1;
         --c-link-hover: #9fbcc2;
 
         --c-rule: #313b44;
@@ -945,7 +947,7 @@ td:first-child {
         --c-accent: #b3211a;
         --c-accent-text: #ffffff;
         --c-accent-ink: #e5837a;
-        --c-accent-hover-bg: #dde4ea;
+        --c-accent-hover-bg: #d2dae1;
         --c-accent-hover-text: #171c21;
 
         --c-note: #b3bfc8;
@@ -960,7 +962,7 @@ td:first-child {
         --c-date-rule: rgba(159, 188, 194, 0.35);
 
         --c-footer-text: #7e8b95;
-        --c-footer-rule: #1b2126;
+        --c-footer-rule: #222930;
         --c-port-head: #9fbcc2;
         --c-photo-ring: rgba(255, 255, 255, 0.18);
         --c-skip-bg: #2f7fd0;
