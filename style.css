@@ -11,8 +11,6 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
 :root {
     color-scheme: light dark;
 
-    /* Palette - light. Every color on the site resolves through these.
-       The dark set at the bottom of this file redefines the same names. */
     --c-nav-bg: #424e57;
     --c-nav-rule: #414547;
     --c-nav-link: #97b6bc;
@@ -94,7 +92,6 @@ body {
     font-size: var(--text-base-size);
     font-family: var(--font-primary);
     color: var(--color-text);
-    /* the canvas below the footer; white in light, as it has always been */
     background-color: var(--c-footer-bg);
 }
 h1, h2, h3, h4, form legend {
@@ -918,23 +915,14 @@ td:first-child {
 }
 
 
-/**** Dark mode ****
-   Follows the visitor's OS setting via prefers-color-scheme. No toggle, no
-   JavaScript. This block redefines the palette above and nothing else; every
-   rule in this file already resolves its color through those names.
-   Print is unaffected: this stylesheet is loaded with media="screen".        */
+/**** Dark Mode ****/
 @media (prefers-color-scheme: dark) {
     :root {
-        /* the bar goes two steps down its own hue; moodier, and the logo
-           mark still reads at 35% opacity */
         --c-nav-bg: #2f3841;
         --c-nav-rule: #232b33;
         --c-nav-link: #9fbcc2;
         --c-nav-link-hi: white;
 
-        /* the reading surface is a darker shade of the bar, and the bands
-           and footer drop below it, so an essay sits on a lifted panel the
-           way it sits on white paper in light mode */
         --c-page-bg: #171c21;
         --c-surface: #232b33;
         --c-band: #12161a;
@@ -954,8 +942,6 @@ td:first-child {
         --c-rule-soft: rgba(255, 255, 255, 0.12);
         --c-table-rule: #313b44;
 
-        /* the badge red survives on a dark ground; the same red as text does
-           not, so anything using red as type gets the lifted value */
         --c-accent: #b3211a;
         --c-accent-text: #ffffff;
         --c-accent-ink: #e5837a;
@@ -965,7 +951,6 @@ td:first-child {
         --c-note: #b3bfc8;
         --c-note-link: #a4b0ba;
         --c-note-marker: #e5eaee;
-        /* a solid pastel highlight glares at night; wash the note instead */
         --c-note-hit-bg: rgba(255, 201, 84, .13);
         --c-note-hit-text: #f0dfb6;
 
