@@ -36,3 +36,5 @@ Disallow: /misc/
 
 User-agent: Meta-ExternalAgent
 Disallow: /misc/
+
+Sitemap: https://www.bradyjfrey.com/sitemap.xml
