@@ -20,6 +20,6 @@ to = "https://www.bradyjfrey.com"
 status = 301
 
 [[redirects]]
-from = "/portfolio/academy-studios-ex"
-to = "https://www.bradyjfrey.com/portfolio/academy-studios-website.html"
+from = "/portfolio/*"
+to = "https://www.bradyjfrey.com/portfolio.html"
 status = 301
