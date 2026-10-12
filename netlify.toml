@@ -18,3 +18,8 @@ status = 301
 from = "/about"
 to = "https://www.bradyjfrey.com"
 status = 301
+
+[[redirects]]
+from = "/portfolio/academy-studios-ex"
+to = "https://www.bradyjfrey.com/portfolio/academy-studios-website.html"
+status = 301
