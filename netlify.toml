@@ -23,3 +23,76 @@ status = 301
 from = "/portfolio/*"
 to = "https://www.bradyjfrey.com/portfolio.html"
 status = 301
+force = true
+
+[[redirects]]
+from = "/cv"
+to = "https://www.bradyjfrey.com/cv.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/portfolio"
+to = "https://www.bradyjfrey.com/portfolio.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research"
+to = "https://www.bradyjfrey.com/research.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/ai-freedom-of-speech"
+to = "https://www.bradyjfrey.com/research/ai-freedom-of-speech.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/ai-socially-constructed-kinds"
+to = "https://www.bradyjfrey.com/research/ai-socially-constructed-kinds.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/human-natural-kinds"
+to = "https://www.bradyjfrey.com/research/human-natural-kinds.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/intercultural-hermeneutics"
+to = "https://www.bradyjfrey.com/research/intercultural-hermeneutics.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/o-saint-confucius"
+to = "https://www.bradyjfrey.com/research/o-saint-confucius.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/on-denoting-mandarin"
+to = "https://www.bradyjfrey.com/research/on-denoting-mandarin.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/on-denoting-mixed-race"
+to = "https://www.bradyjfrey.com/research/on-denoting-mixed-race.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/robots-in-disguise"
+to = "https://www.bradyjfrey.com/research/robots-in-disguise.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/research/war-and-ethics"
+to = "https://www.bradyjfrey.com/research/war-and-ethics.html"
+status = 301
+force = true
