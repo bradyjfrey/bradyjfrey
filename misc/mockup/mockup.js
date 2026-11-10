@@ -5,9 +5,6 @@ const root = document.documentElement;
 if (document.querySelector('.rows-full')) {
     groups.push({ key: 'list', label: 'Rows', options: [['cream', 'Cream'], ['green', 'Green']] });
 }
-if (document.querySelector('.fullreaders')) {
-    groups.push({ key: 'read', label: 'Article', options: [['current', 'Current'], ['roomy', 'Proposed']] });
-}
 const params = new URLSearchParams(location.search);
 let saved = {};
 try {

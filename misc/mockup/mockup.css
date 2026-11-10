@@ -129,10 +129,6 @@ h1 a:hover {
     background: var(--c-accent);
     color: var(--c-accent-text);
 }
-.bands .paper .more:hover {
-    background: var(--b-row);
-    color: #ffffff;
-}
 .bands .past .more:hover {
     background: #27564a;
     color: #ffffff;
@@ -144,16 +140,13 @@ h1 a:hover {
     padding: 4rem 0;
 }
 .tag {
-    display: inline-block;
+    display: block;
     font-family: var(--font-secondary);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--c-accent-text);
-    background: var(--c-accent);
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
+    letter-spacing: 0.08em;
+    color: var(--c-accent-ink);
 }
 .paper h3 {
     font-family: var(--font-primary);
@@ -175,10 +168,14 @@ h1 a:hover {
     text-transform: uppercase;
     letter-spacing: 0.06em;
     text-decoration: none;
-    color: var(--b-feature);
-    background: var(--b-feature-text);
+    color: var(--c-accent-text);
+    background: var(--c-accent);
     padding: 0.6rem 0.9rem;
     border-radius: 2px;
+}
+.bands .paper .more:hover {
+    background: var(--b-feature-text);
+    color: #ffffff;
 }
 .paper .doi {
     display: inline-block;
@@ -569,31 +566,31 @@ h1 a:hover {
     --b-foot: #0f1820;
     --b-foot-text: #6f8290;
 }
-:root[data-read="roomy"] .title-band {
+.title-band {
     padding-top: calc(3.875rem + 2.5rem);
 }
-:root[data-read="roomy"] .abstractp {
+.abstractp {
     max-width: 34rem;
 }
-:root[data-read="roomy"] .unpublishedworks {
+.unpublishedworks {
     color: var(--c-abstract-text);
 }
-:root[data-read="roomy"] .unpublishedworks > *:not(.sidenote) {
+.unpublishedworks > *:not(.sidenote) {
     max-width: 34rem;
 }
-:root[data-read="roomy"] .unpublishedworks p {
+.unpublishedworks p {
     line-height: 1.6;
 }
-:root[data-read="roomy"] .unpublishedworks h3 {
+.unpublishedworks h3 {
     font-size: 0.8125rem;
     padding-top: 2rem;
     padding-bottom: 0.6rem;
 }
 @media (max-width: 959px) {
-    :root[data-read="roomy"] .unpublishedworks > *:not(.sidenote) {
+    .unpublishedworks > *:not(.sidenote) {
         max-width: 100%;
     }
-    :root[data-read="roomy"] .abstractp {
+    .abstractp {
         max-width: 100%;
     }
 }
