@@ -1,59 +1,3 @@
-const groups = [
-    { key: 'type', label: 'Type', options: [['strong', 'Strong'], ['quiet', 'Quiet']] }
-];
-const root = document.documentElement;
-if (document.querySelector('.rows-full')) {
-    groups.push({ key: 'list', label: 'Rows', options: [['cream', 'Cream'], ['green', 'Green']] });
-}
-const params = new URLSearchParams(location.search);
-let saved = {};
-try {
-    saved = JSON.parse(localStorage.getItem('bjf-mockup') || '{}');
-} catch (error) {
-    saved = {};
-}
-groups.forEach(group => {
-    const value = params.get(group.key) || saved[group.key];
-    if (value) root.dataset[group.key] = value;
-    else if (!root.dataset[group.key]) root.dataset[group.key] = group.options[0][0];
-});
-
-const switcher = document.createElement('div');
-switcher.className = 'switcher';
-switcher.setAttribute('aria-label', 'Mockup options');
-groups.forEach(group => {
-    const wrap = document.createElement('div');
-    const label = document.createElement('span');
-    label.textContent = group.label;
-    wrap.append(label);
-    group.options.forEach(([value, text]) => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.textContent = text;
-        button.dataset.key = group.key;
-        button.dataset.value = value;
-        wrap.append(button);
-    });
-    switcher.append(wrap);
-});
-const mark = () => {
-    switcher.querySelectorAll('button').forEach(button => {
-        button.setAttribute('aria-pressed', String(root.dataset[button.dataset.key] === button.dataset.value));
-    });
-};
-switcher.addEventListener('click', event => {
-    const button = event.target.closest('button');
-    if (!button) return;
-    root.dataset[button.dataset.key] = button.dataset.value;
-    saved[button.dataset.key] = button.dataset.value;
-    try {
-        localStorage.setItem('bjf-mockup', JSON.stringify(saved));
-    } catch (error) {}
-    mark();
-});
-mark();
-document.body.append(switcher);
-
 const pool = [
     { slug: 'o-saint-confucius', title: 'O Saint Confucius', doi: '10.33774/coe-2026-m1pzr', text: 'The culmination of the Jesuit mission in China was works of philosophy reimagined and infused with contemporary Christian thought. These publications would chill Sino-European relations and serve as a “Confucius” enchiridion to a non-Chinese speaking world. I compare the Confucius Sinarum Philosophus against its...' },
     { slug: 'robots-in-disguise', title: 'Robots in Disguise', doi: '10.33774/coe-2026-4sk3k', text: 'The proliferation and public fascination for large language models (LLMs) using natural language understanding (NLU) have upended corporate investment, labor dynamics, and reinvigorated the term artificial...' },
@@ -66,7 +10,7 @@ const featured = document.querySelector('.paper');
 if (featured) {
     const today = new Date();
     const monthIndex = (today.getFullYear() * 12 + today.getMonth()) % pool.length;
-    const paper = pool[params.has('feat') ? Number(params.get('feat')) % pool.length : monthIndex];
+    const paper = pool[monthIndex];
     featured.querySelector('h3').textContent = paper.title;
     featured.querySelector('p').textContent = paper.text;
     featured.querySelector('.more').href = 'research/' + paper.slug + '.html';
