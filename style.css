@@ -44,6 +44,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     --b-feature-text: #1b1a17;
     --b-strip: #71adb0;
     --b-strip-text: #ffffff;
+    --b-date-text: #15212b;
     --b-row: #2b3f78;
     --b-row-text: #ffffff;
     --b-row-soft: #b3c0e6;
@@ -65,7 +66,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     --list-end: #bba987;
     --list-hover: #ffffff;
     --list-text: #1b1a17;
-    --list-soft: #4f4739;
+    --list-soft: #3f382c;
 
     --t-hero: 3.5rem;
     --t-second: 2.25rem;
@@ -104,13 +105,14 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     --b-poster-soft: #b3c0e6;
     --b-foot: #f4ede1;
     --b-foot-text: #6b6252;
+    --nav-link: #a9d3d5;
 }
 :root:has(.pagehead--past) {
     --b-poster: #3f7f6f;
     --b-poster-soft: #d5e8e2;
     --b-foot: #f4ede1;
     --b-foot-text: #6b6252;
-    --nav-link: #d5e8e2;
+    --nav-link: #ffffff;
 }
 :root:has(.fullreaders) {
     --b-poster: #15212b;
@@ -153,6 +155,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
         --b-feature: #14161b;
         --b-feature-text: #f2f3f5;
         --b-strip: #101217;
+        --b-date-text: #ffffff;
         --b-row: #1c1f24;
         --b-row-soft: #a3a9ad;
         --b-work: #191b20;
@@ -549,7 +552,7 @@ body > footer p {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 0.875rem;
-    opacity: 0.5;
+    opacity: 0.85;
     line-height: 1.5;
     color: color-mix(in srgb, var(--b-row-text), var(--b-row) 20%);
 }
@@ -601,7 +604,7 @@ body > footer p {
     max-width: 48rem;
     font-size: 0.9375rem;
     line-height: 1.5;
-    opacity: 0.6;
+    opacity: 0.85;
 }
 .rows a:hover .teaser,
 .rows a:focus-visible .teaser {
@@ -823,7 +826,7 @@ body > footer p {
 }
 .date_st {
     background-color: var(--b-strip);
-    color: var(--b-strip-text);
+    color: var(--b-date-text);
     font-family: var(--font-secondary);
 }
 .date_st h5 {
@@ -839,7 +842,7 @@ body > footer p {
     letter-spacing: 0.06em;
 }
 .date_st h5 .sep {
-    color: rgba(255, 255, 255, 0.6);
+    color: color-mix(in srgb, currentColor 60%, transparent);
     padding: 0 0.4em;
 }
 .date_st h5 a {
@@ -847,7 +850,7 @@ body > footer p {
     text-decoration: none;
     text-transform: none;
     letter-spacing: 0.02em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid color-mix(in srgb, currentColor 50%, transparent);
     padding: 0.1em 0.15em;
     border-radius: 2px;
 }
