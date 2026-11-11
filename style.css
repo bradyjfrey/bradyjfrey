@@ -9,7 +9,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
 
 /* Sebastiano Guerriero Typography System */
 :root {
-    color-scheme: light;
+    color-scheme: light dark;
 
     --c-tile-bg: rgba(0, 0, 0, 0.05);
 
@@ -53,6 +53,18 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     --b-past-text: #ffffff;
     --b-foot: #0c0e13;
     --b-foot-text: #676767;
+    --b-page: #ffffff;
+    --b-plain: #ffffff;
+    --b-plain-text: #1b1a17;
+    --b-rule: rgba(0, 0, 0, 0.2);
+    --b-rule-soft: rgba(0, 0, 0, 0.12);
+    --b-button-hover: #1b1a17;
+    --b-button-hover-text: #ffffff;
+    --list-base: #f4ede1;
+    --list-end: #bba987;
+    --list-hover: #ffffff;
+    --list-text: #1b1a17;
+    --list-soft: #4f4739;
 
     --t-hero: 3.5rem;
     --t-second: 2.25rem;
@@ -105,11 +117,70 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     --b-foot: #f4ede1;
     --b-foot-text: #6b6252;
 }
+:root:has(.pagehead--lost) {
+    --b-page: #f4ede1;
+    --b-foot: #f4ede1;
+    --b-foot-text: #6b6252;
+}
 :root:has(.rows-full) {
     --b-poster: #15212b;
     --b-poster-soft: #9fb3bf;
     --b-foot: #a59370;
     --b-foot-text: #2a2418;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --c-tile-bg: rgba(255, 255, 255, 0.05);
+        --c-text: #d9d5cc;
+        --c-heading: #f3efe6;
+        --c-link: #d9d5cc;
+        --c-link-hover: #71adb0;
+        --c-rule-soft: rgba(255, 255, 255, 0.14);
+        --c-table-rule: rgba(255, 255, 255, 0.22);
+        --c-accent: #b3211a;
+        --c-accent-ink: #e5837a;
+        --c-note: #aaa59a;
+        --c-note-link: #b9b4a8;
+        --c-note-marker: #f3efe6;
+        --c-note-hit-bg: rgba(255, 201, 84, .13);
+        --c-note-hit-text: #f0dfb6;
+        --c-abstract-text: #cfcabf;
+        --c-footer-rule: rgba(255, 255, 255, 0.08);
+        --c-photo-ring: rgba(255, 255, 255, 0.18);
+        --c-skip-bg: #2f7fd0;
+
+        --b-feature: #14171d;
+        --b-feature-text: #f3efe6;
+        --b-work: #1f1b15;
+        --b-work-text: #ece4d6;
+        --b-page: #12141a;
+        --b-plain: #12141a;
+        --b-plain-text: #dedad1;
+        --b-rule: rgba(255, 255, 255, 0.2);
+        --b-rule-soft: rgba(255, 255, 255, 0.12);
+        --b-button-hover: #f4ede1;
+        --b-button-hover-text: #1b1a17;
+        --list-base: #2c2720;
+        --list-end: #15120e;
+        --list-hover: #3b352b;
+        --list-text: #f1eadc;
+        --list-soft: #b9ab92;
+    }
+    :root:has(.pagehead--indigo),
+    :root:has(.pagehead--past),
+    :root:has(.fullreaders) {
+        --b-foot: #1f1b15;
+        --b-foot-text: #8f8676;
+    }
+    :root:has(.pagehead--lost) {
+        --b-page: #12141a;
+        --b-foot: #1f1b15;
+        --b-foot-text: #8f8676;
+    }
+    :root:has(.rows-full) {
+        --b-foot: #0d0b08;
+        --b-foot-text: #8f8676;
+    }
 }
 html {
     scroll-padding-top: 4.875rem;
@@ -119,7 +190,7 @@ body {
     font-family: var(--font-primary);
     font-weight: 400;
     color: var(--color-text);
-    background-color: white;
+    background-color: var(--b-page);
 }
 h1, h2, h3, h4, form legend {
     color: var(--color-text-heading);
@@ -395,7 +466,7 @@ body > footer p {
     color: var(--b-feature-text);
     margin: 0.5rem 0 1rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--b-rule);
 }
 .bands .paper .more {
     display: inline-block;
@@ -405,8 +476,8 @@ body > footer p {
 }
 .bands .paper .more:hover,
 .bands .paper .more:focus-visible {
-    background: var(--b-feature-text);
-    color: #ffffff;
+    background: var(--b-button-hover);
+    color: var(--b-button-hover-text);
 }
 .paper .doi {
     display: inline-block;
@@ -498,11 +569,8 @@ body > footer p {
 }
 
 .rows-full {
-    --list-base: #f4ede1;
-    --list-end: #bba987;
-    --list-hover: #ffffff;
-    --b-row-text: #1b1a17;
-    --b-row-soft: #4f4739;
+    --b-row-text: var(--list-text);
+    --b-row-soft: var(--list-soft);
     background: var(--list-base);
 }
 .rows-full li {
@@ -549,8 +617,8 @@ body > footer p {
 }
 .rows a:hover .go,
 .rows a:focus-visible .go {
-    background: #1b1a17;
-    color: #ffffff;
+    background: var(--b-button-hover);
+    color: var(--b-button-hover-text);
 }
 
 .work {
@@ -572,7 +640,7 @@ body > footer p {
     column-gap: 1.5rem;
 }
 .work dl div {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid var(--b-rule);
     padding-top: 0.75rem;
 }
 .work dt {
@@ -614,8 +682,8 @@ body > footer p {
 }
 
 .plain {
-    background: #ffffff;
-    color: #1b1a17;
+    background: var(--b-plain);
+    color: var(--b-plain-text);
     padding: 3rem 0 4rem;
 }
 .plain .kicker {
@@ -632,7 +700,7 @@ body > footer p {
     grid-template-columns: repeat(12, 1fr);
     column-gap: 1.5rem;
     padding: 1.25rem 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-top: 1px solid var(--b-rule-soft);
 }
 .cvrow:first-child {
     border-top: 0;
@@ -703,7 +771,7 @@ body > footer p {
 
 /* Research Papers */
 .fullreaders {
-    background: white;
+    background: var(--b-page);
 }
 .title-band {
     width: 100%;
