@@ -51,6 +51,7 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
     --b-work-text: #1b1a17;
     --b-past: #3f7f6f;
     --b-past-text: #ffffff;
+    --b-past-hover: #27564a;
     --b-foot: #0c0e13;
     --b-foot-text: #676767;
     --b-page: #ffffff;
@@ -131,55 +132,59 @@ p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;}
 @media (prefers-color-scheme: dark) {
     :root {
         --c-tile-bg: rgba(255, 255, 255, 0.05);
-        --c-text: #d9d5cc;
-        --c-heading: #f3efe6;
-        --c-link: #d9d5cc;
-        --c-link-hover: #71adb0;
+        --c-text: #d6d8dc;
+        --c-heading: #f2f3f5;
+        --c-link: #d6d8dc;
+        --c-link-hover: #ffffff;
         --c-rule-soft: rgba(255, 255, 255, 0.14);
         --c-table-rule: rgba(255, 255, 255, 0.22);
         --c-accent: #b3211a;
-        --c-accent-ink: #e5837a;
-        --c-note: #aaa59a;
-        --c-note-link: #b9b4a8;
-        --c-note-marker: #f3efe6;
-        --c-note-hit-bg: rgba(255, 201, 84, .13);
-        --c-note-hit-text: #f0dfb6;
-        --c-abstract-text: #cfcabf;
+        --c-accent-ink: #b3211a;
+        --c-note: #a3a9ad;
+        --c-note-link: #b4b9bd;
+        --c-note-marker: #f2f3f5;
+        --c-note-hit-bg: rgba(255, 255, 255, 0.1);
+        --c-note-hit-text: #ffffff;
+        --c-abstract-text: #c9ccd1;
         --c-footer-rule: rgba(255, 255, 255, 0.08);
         --c-photo-ring: rgba(255, 255, 255, 0.18);
-        --c-skip-bg: #2f7fd0;
+        --c-skip-bg: #b3211a;
 
-        --b-feature: #14171d;
-        --b-feature-text: #f3efe6;
-        --b-work: #1f1b15;
-        --b-work-text: #ece4d6;
+        --b-feature: #14161b;
+        --b-feature-text: #f2f3f5;
+        --b-strip: #101217;
+        --b-row: #1c1f24;
+        --b-row-soft: #a3a9ad;
+        --b-work: #191b20;
+        --b-work-text: #e4e6e9;
+        --b-past: #101215;
+        --b-past-hover: #b3211a;
         --b-page: #12141a;
         --b-plain: #12141a;
-        --b-plain-text: #dedad1;
+        --b-plain-text: #d6d8dc;
         --b-rule: rgba(255, 255, 255, 0.2);
         --b-rule-soft: rgba(255, 255, 255, 0.12);
-        --b-button-hover: #f4ede1;
-        --b-button-hover-text: #1b1a17;
-        --list-base: #2c2720;
-        --list-end: #15120e;
-        --list-hover: #3b352b;
-        --list-text: #f1eadc;
-        --list-soft: #b9ab92;
+        --b-button-hover: #f2f3f5;
+        --b-button-hover-text: #0c0e13;
+        --list-base: #1c1f24;
+        --list-end: #121418;
+        --list-hover: #30343b;
+        --list-text: #f2f3f5;
+        --list-soft: #a3a9ad;
+        --nav-link: #a3a9ad;
     }
+    :root:has(.poster),
     :root:has(.pagehead--indigo),
     :root:has(.pagehead--past),
-    :root:has(.fullreaders) {
-        --b-foot: #1f1b15;
-        --b-foot-text: #8f8676;
-    }
-    :root:has(.pagehead--lost) {
-        --b-page: #12141a;
-        --b-foot: #1f1b15;
-        --b-foot-text: #8f8676;
-    }
+    :root:has(.pagehead--lost),
+    :root:has(.fullreaders),
     :root:has(.rows-full) {
-        --b-foot: #0d0b08;
-        --b-foot-text: #8f8676;
+        --b-poster: #0c0e13;
+        --b-poster-soft: #a3a9ad;
+        --b-page: #12141a;
+        --b-foot: #0c0e13;
+        --b-foot-text: #6a7078;
+        --nav-link: #a3a9ad;
     }
 }
 html {
@@ -677,7 +682,7 @@ body > footer p {
 }
 .bands .past .more:hover,
 .bands .past .more:focus-visible {
-    background: #27564a;
+    background: var(--b-past-hover);
     color: #ffffff;
 }
 
